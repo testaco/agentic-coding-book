@@ -42,25 +42,25 @@ This document tracks all implementation tasks for creating the Agentic Coding Bo
 ### INFRA-001: Setup Repository Structure
 
 **Prerequisites**: None
-**Status**: [ ] Not Started
+**Status**: [x] Complete
 **MVP**: [MVP]
 
 #### Description
 Create the complete directory structure for the book repository as defined in design.md. Establish the foundation for all content and automation.
 
 #### Sub-tasks
-- [ ] Create all directories (planning/, book/, diagrams/, assets/, scripts/, .github/)
-- [ ] Add .gitignore for build outputs
-- [ ] Create README.md with repository overview
-- [ ] Add LICENSE file (CC BY 4.0)
-- [ ] Create CHANGELOG.md
+- [x] Create all directories (planning/, book/, diagrams/, assets/, scripts/, .github/)
+- [x] Add .gitignore for build outputs
+- [x] Create README.md with repository overview
+- [x] Add LICENSE file (CC BY 4.0)
+- [x] Create CHANGELOG.md
 
 #### Acceptance Criteria
-- [ ] All directories from design.md Section 2.1 exist
-- [ ] .gitignore excludes output/, node_modules/, .DS_Store
-- [ ] README explains how to read and contribute
-- [ ] LICENSE contains full CC BY 4.0 text
-- [ ] CHANGELOG initialized with v0.1 entry
+- [x] All directories from design.md Section 2.1 exist
+- [x] .gitignore excludes output/, node_modules/, .DS_Store
+- [x] README explains how to read and contribute
+- [x] LICENSE contains full CC BY 4.0 text
+- [x] CHANGELOG initialized with v0.1 entry
 
 **Requirements Addressed**: REQ-T006, REQ-P001-P004, REQ-N017-N020
 
@@ -69,25 +69,25 @@ Create the complete directory structure for the book repository as defined in de
 ### INFRA-002: Configure GitHub Repository Settings
 
 **Prerequisites**: INFRA-001
-**Status**: [ ] Not Started
+**Status**: [x] Complete
 **MVP**: [MVP]
 
 #### Description
 Configure GitHub repository settings for issues, discussions, and collaboration as specified in design.md Section 5.3.
 
 #### Sub-tasks
-- [ ] Enable GitHub Issues
-- [ ] Enable GitHub Discussions
-- [ ] Configure branch protection for main
-- [ ] Add issue templates (bug report, content suggestion)
-- [ ] Create CONTRIBUTING.md
+- [x] Enable GitHub Issues
+- [x] Enable GitHub Discussions
+- [x] Configure branch protection for main
+- [x] Add issue templates (bug report, content suggestion)
+- [x] Create CONTRIBUTING.md
 
 #### Acceptance Criteria
-- [ ] Issues enabled and accessible
-- [ ] Discussions enabled with welcome post
-- [ ] Branch protection requires CI checks to pass
-- [ ] Issue templates exist in .github/ISSUE_TEMPLATE/
-- [ ] CONTRIBUTING.md explains contribution process
+- [x] Issues enabled and accessible
+- [x] Discussions enabled with welcome post
+- [x] Branch protection requires CI checks to pass
+- [x] Issue templates exist in .github/ISSUE_TEMPLATE/
+- [x] CONTRIBUTING.md explains contribution process
 
 **Requirements Addressed**: REQ-P009-P012, REQ-T009
 
