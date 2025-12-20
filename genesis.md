@@ -162,17 +162,26 @@ Break down the technical design into concrete, actionable implementation tasks w
 #### Sub-tasks
 - [ ] **T006.1**: Decompose design into implementation tasks
 - [ ] **T006.2**: Define task dependencies and sequencing
-- [ ] **T006.3**: Write acceptance criteria for each implementation task
-- [ ] **T006.4**: Classify tasks as MVP vs post-MVP based on brief.md scope
-- [ ] **T006.5**: Define environment activation path (sequence: local dev → tests → e2e → staging → prod)
-- [ ] **T006.6**: Map environment setup tasks to implementation timeline
-- [ ] **T006.7**: Define release phases (MVP, v1.1, v1.2, etc.) with feature grouping
-- [ ] **T006.8**: Create gantt chart showing tasks, environments, dependencies, and milestones
-- [ ] **T006.9**: Create tasks.md and mvp-plan.md following genesis.md format
+- [ ] **T006.3**: Identify and implement Claude Code skills to accelerate MVP development
+- [ ] **T006.4**: Write acceptance criteria for each implementation task
+- [ ] **T006.5**: Classify tasks as MVP vs post-MVP based on brief.md scope
+- [ ] **T006.6**: Define environment activation path (sequence: local dev → tests → e2e → staging → prod)
+- [ ] **T006.7**: Map environment setup tasks to implementation timeline
+- [ ] **T006.8**: Define release phases (MVP, v1.1, v1.2, etc.) with feature grouping
+- [ ] **T006.9**: Create gantt chart showing tasks, environments, dependencies, and milestones
+- [ ] **T006.10**: Create tasks.md and mvp-plan.md following genesis.md format
 
 #### Acceptance Criteria
 - [ ] All design components mapped to specific implementation tasks
 - [ ] Task dependencies clearly identified (prerequisite chains)
+- [ ] Claude Code skills identified and implemented for:
+  - [ ] Repetitive code generation patterns
+  - [ ] Diagram generation (architecture, flows, data models)
+  - [ ] Testing and validation automation
+  - [ ] Documentation generation
+  - [ ] Code review and quality checks
+- [ ] Skills documented in `.claude/skills/` with proper SKILL.md structure
+- [ ] Skills included in implementation plan where applicable
 - [ ] Each task has clear, testable acceptance criteria
 - [ ] Tasks explicitly marked as MVP or post-MVP with justification
 - [ ] MVP tasks define the minimum viable feature set from brief.md
@@ -212,6 +221,6 @@ This workflow produces the following deliverables:
 | T003 | Create Product Brief | [ ] | 0/5 criteria |
 | T004 | Develop Requirements | [ ] | 0/6 criteria |
 | T005 | Create Technical Design | [ ] | 0/9 criteria |
-| T006 | Produce Implementation Plan with MVP Roadmap | [ ] | 0/13 criteria |
+| T006 | Produce Implementation Plan with MVP Roadmap | [ ] | 0/18 criteria |
 
 **Next Action**: Begin T003 - Create Product Brief based on completed brainstorming work

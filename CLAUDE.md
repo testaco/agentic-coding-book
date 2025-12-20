@@ -248,6 +248,65 @@ Review tasks.md and ensure:
 - Have Claude flag tasks that need more specification
 - Ask for critical path identification
 
+**Identifying and Implementing Skills (T006.3):**
+
+Skills are custom Claude Code capabilities that accelerate development by automating repetitive tasks, generating boilerplate code, or enforcing patterns.
+
+**When to Create Skills:**
+```
+Based on design.md and tasks.md, identify opportunities for Claude Code skills:
+1. Code generation patterns that repeat across components
+2. Diagram generation for documentation
+3. Test scaffold generation
+4. API client/server boilerplate
+5. Database migration templates
+6. Configuration file generation
+```
+
+**Skill Planning Prompt:**
+```
+Analyze tasks.md and design.md to identify 3-5 high-impact skills that would:
+1. Reduce repetitive coding tasks
+2. Enforce architectural patterns
+3. Generate documentation or diagrams
+4. Automate testing or validation
+5. Speed up MVP development
+
+For each skill, specify:
+- Skill name and purpose
+- What it automates
+- Which tasks it helps with
+- Expected time savings
+```
+
+**Implementing Skills:**
+```
+Create a skill for [specific purpose] in .claude/skills/[skill-name]/
+Include:
+- SKILL.md with clear workflow and examples
+- EXAMPLES.md with concrete use cases
+- VALIDATION.md if validation is needed
+- Scripts or templates as needed
+```
+
+**Example Skills for Common Projects:**
+- **API Endpoint Generator**: Scaffolds REST endpoints with validation, error handling, tests
+- **Component Generator**: Creates UI components following project patterns
+- **Database Migration**: Generates migration files with proper formatting
+- **Test Suite Generator**: Creates unit/integration test scaffolds
+- **Diagram Generator**: Creates Mermaid diagrams for architecture, flows, ERDs
+- **Config Validator**: Validates configuration files against schemas
+- **Code Reviewer**: Automated code review against project standards
+
+**Validation:**
+```
+Review implemented skills and verify:
+- Skills have proper SKILL.md with description and allowed-tools
+- Examples demonstrate clear use cases
+- Skills are referenced in relevant tasks in tasks.md
+- Skills follow Claude Code best practices
+```
+
 ---
 
 ## Advanced Techniques
