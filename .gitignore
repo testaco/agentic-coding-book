@@ -1,0 +1,27 @@
+# Build outputs
+output/
+*.pdf
+_site/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+
+# Rendered diagrams (generated from source)
+diagrams/**/*.png
+diagrams/**/*.svg
+!diagrams/**/*.mmd
