@@ -102,11 +102,18 @@ Extract detailed functional and non-functional requirements from the product bri
 
 #### Sub-tasks
 - [ ] **T004.1**: Extract and document functional requirements from brief
-- [ ] **T004.2**: Define non-functional requirements (performance, security, usability, etc.)
-- [ ] **T004.3**: Write all requirements in EARS notation in requirements.md
-- [ ] **T004.4**: Validate requirements for completeness and traceability
+- [ ] **T004.2**: Define technical requirements (environments, infrastructure, architecture, performance, security, deployment)
+- [ ] **T004.3**: Define non-functional requirements (usability, reliability, maintainability, etc.)
+- [ ] **T004.4**: Write all requirements in EARS notation in requirements.md
+- [ ] **T004.5**: Validate requirements for completeness and traceability
 
 #### Acceptance Criteria
+- [ ] Technical requirements explicitly documented including:
+  - [ ] Environment specifications (local dev, test, e2e, staging, production)
+  - [ ] Infrastructure and deployment requirements
+  - [ ] Performance targets and scalability needs
+  - [ ] Security and compliance requirements
+  - [ ] Integration and technology constraints
 - [ ] All requirements written in proper EARS format (WHEN/WHILE/WHERE/IF as applicable)
 - [ ] Requirements are specific, testable, and unambiguous
 - [ ] Clear traceability from requirements back to product brief
@@ -124,39 +131,58 @@ Extract detailed functional and non-functional requirements from the product bri
 Design the technical architecture and implementation approach that satisfies all requirements. Define system components, data models, interfaces, and technology choices. The design must address all requirements from T004 and provide a clear blueprint for implementation.
 
 #### Sub-tasks
-- [ ] **T005.1**: Define system architecture and major components
-- [ ] **T005.2**: Specify data models, APIs, and interfaces
-- [ ] **T005.3**: Select technology stack with rationale
-- [ ] **T005.4**: Document complete design in design.md
+- [ ] **T005.1**: Map technical requirements to design decisions
+- [ ] **T005.2**: Define system architecture and major components
+- [ ] **T005.3**: Design infrastructure and deployment architecture for all environments
+- [ ] **T005.4**: Specify data models, APIs, and interfaces
+- [ ] **T005.5**: Select technology stack with rationale (including CI/CD tools)
+- [ ] **T005.6**: Document complete design in design.md
 
 #### Acceptance Criteria
+- [ ] Clear traceability from technical requirements (T004) to design decisions
 - [ ] Architecture clearly defined with component diagrams (text/ASCII format or referenced)
 - [ ] Each component's responsibilities and interfaces specified
+- [ ] Infrastructure design for each environment (local, test, e2e, staging, prod) documented
+- [ ] Deployment pipeline and CI/CD approach defined
+- [ ] Environment-specific configurations and requirements specified
 - [ ] Data models and schemas documented
 - [ ] Technology stack selected with clear rationale
 - [ ] Design addresses all requirements from T004
 
 ---
 
-### T006: Produce Implementation Plan
+### T006: Produce Implementation Plan with MVP Roadmap
 
 **Prerequisites**: T005
 **Status**: [ ] Not Started
 
 #### Description
-Break down the technical design into concrete, actionable implementation tasks. Create a detailed task list in tasks.md that maps every design component to specific development work. Define task dependencies and acceptance criteria to enable systematic implementation.
+Break down the technical design into concrete, actionable implementation tasks with a clear path to MVP. Create a phased implementation roadmap that prioritizes MVP features, defines environment activation sequence, maps task dependencies, and provides timeline visualization through a gantt chart. Enable systematic, incremental delivery with proper environment progression.
 
 #### Sub-tasks
 - [ ] **T006.1**: Decompose design into implementation tasks
 - [ ] **T006.2**: Define task dependencies and sequencing
 - [ ] **T006.3**: Write acceptance criteria for each implementation task
-- [ ] **T006.4**: Create tasks.md following genesis.md format
+- [ ] **T006.4**: Classify tasks as MVP vs post-MVP based on brief.md scope
+- [ ] **T006.5**: Define environment activation path (sequence: local dev → tests → e2e → staging → prod)
+- [ ] **T006.6**: Map environment setup tasks to implementation timeline
+- [ ] **T006.7**: Define release phases (MVP, v1.1, v1.2, etc.) with feature grouping
+- [ ] **T006.8**: Create gantt chart showing tasks, environments, dependencies, and milestones
+- [ ] **T006.9**: Create tasks.md and mvp-plan.md following genesis.md format
 
 #### Acceptance Criteria
 - [ ] All design components mapped to specific implementation tasks
 - [ ] Task dependencies clearly identified (prerequisite chains)
 - [ ] Each task has clear, testable acceptance criteria
+- [ ] Tasks explicitly marked as MVP or post-MVP with justification
+- [ ] MVP tasks define the minimum viable feature set from brief.md
+- [ ] Environment activation path clearly defined with milestones for each environment going live
+- [ ] Infrastructure and deployment tasks included in implementation plan
+- [ ] Environment dependencies identified (e.g., staging requires working e2e tests)
+- [ ] Release phases defined with clear milestones
+- [ ] Gantt chart shows: tasks, environment activations, dependencies, and critical path
 - [ ] tasks.md follows the same format as genesis.md (task IDs, prerequisites, criteria)
+- [ ] mvp-plan.md documents MVP scope, environment roadmap, phases, and gantt chart
 - [ ] Implementation plan is complete and ready to execute
 
 ---
@@ -171,6 +197,7 @@ This workflow produces the following deliverables:
 4. **requirements.md** - Requirements in EARS notation (T004)
 5. **design.md** - Technical design and architecture (T005)
 6. **tasks.md** - Implementation task list (T006)
+7. **mvp-plan.md** - MVP roadmap, environment activation path, release phases, and gantt chart (T006)
 
 ---
 
@@ -183,8 +210,8 @@ This workflow produces the following deliverables:
 | T001 | Understand Product Idea | [x] | 5/5 criteria |
 | T002 | Brainstorm Product | [x] | 5/5 criteria |
 | T003 | Create Product Brief | [ ] | 0/5 criteria |
-| T004 | Develop Requirements | [ ] | 0/5 criteria |
-| T005 | Create Technical Design | [ ] | 0/5 criteria |
-| T006 | Produce Implementation Plan | [ ] | 0/5 criteria |
+| T004 | Develop Requirements | [ ] | 0/6 criteria |
+| T005 | Create Technical Design | [ ] | 0/9 criteria |
+| T006 | Produce Implementation Plan with MVP Roadmap | [ ] | 0/13 criteria |
 
 **Next Action**: Begin T003 - Create Product Brief based on completed brainstorming work
