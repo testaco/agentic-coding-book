@@ -1,0 +1,40 @@
+{
+  "name": "agentic-coding-book",
+  "version": "0.1.0",
+  "description": "The Agentic Coding Playbook: From Idea to Production in 6 Weeks",
+  "private": true,
+  "scripts": {
+    "build:pdf": "./scripts/build-pdf.sh",
+    "build:mermaid": "node scripts/render-mermaid.js",
+    "validate:links": "./scripts/validate-links.sh",
+    "validate:frontmatter": "./scripts/validate-frontmatter.sh",
+    "validate:traceability": "python3 scripts/check-traceability.py",
+    "generate:toc": "./scripts/generate-toc.sh",
+    "test": "npm run validate:links && npm run validate:frontmatter"
+  },
+  "keywords": [
+    "agentic-coding",
+    "ai-assisted-development",
+    "product-development",
+    "mvp",
+    "claude-code",
+    "software-engineering",
+    "book"
+  ],
+  "author": "",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/[username]/agentic-coding-book.git"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^10.6.1",
+    "js-yaml": "^4.1.0",
+    "markdown-link-check": "^3.12.1",
+    "glob": "^10.3.10"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

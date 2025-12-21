@@ -71,20 +71,94 @@ This transparency demonstrates the methodology works and provides a real referen
 
 ## How to Build Locally
 
-**Prerequisites:**
-- Git
-- Markdown preview tool (VS Code, Pandoc, or similar)
+### Prerequisites
 
-**Clone and read:**
+**Required Tools:**
+- **Git** - Version control
+- **Node.js** (v18+) and npm - For build tools and Mermaid diagram rendering
+- **Pandoc** (v3.0+) - For PDF generation
+- **Claude Code** (optional) - For contributing using the agentic workflow
+
+### Setup Instructions
+
+**1. Clone the repository:**
 ```bash
 git clone https://github.com/[username]/agentic-coding-book.git
 cd agentic-coding-book
 ```
 
-**Build scripts (coming in INFRA-004):**
-- `scripts/build-pdf.sh` - Generate PDF
-- `scripts/build-web.sh` - Build GitHub Pages site
-- `scripts/validate-links.sh` - Check for broken links
+**2. Install Node.js dependencies:**
+```bash
+npm install
+```
+
+**3. Verify Pandoc installation:**
+```bash
+pandoc --version
+# Should show v3.0 or higher
+```
+
+**4. Install Pandoc (if needed):**
+
+*Debian/Ubuntu:*
+```bash
+wget https://github.com/jgm/pandoc/releases/download/3.1.11/pandoc-3.1.11-1-amd64.deb
+sudo dpkg -i pandoc-3.1.11-1-amd64.deb
+```
+
+*macOS:*
+```bash
+brew install pandoc
+```
+
+*Other platforms:* See [Pandoc installation guide](https://pandoc.org/installing.html)
+
+### Build Commands
+
+**Generate PDF:**
+```bash
+npm run build:pdf
+# Output: output/agentic-coding-book.pdf
+```
+
+**Render Mermaid diagrams:**
+```bash
+npm run build:mermaid
+# Converts .mmd files to PNG in diagrams/
+```
+
+**Validate links:**
+```bash
+npm run validate:links
+# Checks for broken internal and external links
+```
+
+**Validate frontmatter:**
+```bash
+npm run validate:frontmatter
+# Validates YAML frontmatter against schema
+```
+
+**Check requirements traceability:**
+```bash
+npm run validate:traceability
+# Ensures all requirements are traced to content
+```
+
+**Run all validations:**
+```bash
+npm test
+```
+
+### Reading the Content
+
+**Web (GitHub Pages):** [Coming Soon]
+
+**PDF:** Generate locally with `npm run build:pdf`
+
+**Markdown:** Browse `book/` directory with any Markdown viewer
+
+**Note:** Build scripts will be fully implemented in INFRA-004
 
 ## Contributing
 
