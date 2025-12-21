@@ -1,0 +1,22 @@
+title: The Agentic Coding Playbook
+description: From Idea to Production in 6 Weeks
+author: Author Name
+
+# Theme
+theme: minima
+
+# Markdown processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Enable plugins
+plugins:
+  - jekyll-seo-tag
