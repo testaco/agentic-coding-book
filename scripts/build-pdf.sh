@@ -57,7 +57,7 @@ pandoc output/combined.md \
   --toc \
   --toc-depth=3 \
   --number-sections \
-  --syntax-highlighting=tango \
+  --highlight-style=tango \
   --pdf-engine=xelatex \
   --metadata title="The Agentic Coding Playbook" \
   --metadata author="Author Name" \
