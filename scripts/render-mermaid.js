@@ -17,6 +17,15 @@ function renderDiagrams() {
   // Create output directory
   fs.mkdirSync(outputDir, { recursive: true });
 
+  // Create puppeteer config for CI environments
+  let puppeteerConfigFile = null;
+  if (process.env.CI) {
+    puppeteerConfigFile = path.join(outputDir, 'puppeteer-config.json');
+    fs.writeFileSync(puppeteerConfigFile, JSON.stringify({
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    }));
+  }
+
   // Find all .mmd files
   const mmdFiles = glob.sync(`${diagramsDir}/**/*.mmd`);
 
@@ -39,8 +48,7 @@ function renderDiagrams() {
       console.log(`  ${file} → ${outputPath}`);
 
       // Use mmdc command-line tool
-      // Add --no-sandbox for CI environments (GitHub Actions)
-      const puppeteerArgs = process.env.CI ? '-p "--no-sandbox --disable-setuid-sandbox"' : '';
+      const puppeteerArgs = puppeteerConfigFile ? `-p "${puppeteerConfigFile}"` : '';
       execSync(`npx mmdc -i "${file}" -o "${outputPath}" -b white -w 1200 -H 800 ${puppeteerArgs}`, {
         stdio: 'inherit'
       });
@@ -53,6 +61,11 @@ function renderDiagrams() {
   }
 
   console.log(`✓ Rendered ${rendered} diagram(s)${errors > 0 ? `, ${errors} error(s)` : ''}`);
+
+  // Clean up temporary puppeteer config
+  if (puppeteerConfigFile && fs.existsSync(puppeteerConfigFile)) {
+    fs.unlinkSync(puppeteerConfigFile);
+  }
 
   if (errors > 0) {
     process.exit(1);
