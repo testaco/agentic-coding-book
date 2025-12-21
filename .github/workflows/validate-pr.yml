@@ -37,10 +37,11 @@ jobs:
             planning/**/*.md
             README.md
 
-      - name: Validate internal links
-        run: ./scripts/validate-links.sh
-        env:
-          CHECK_EXTERNAL: false
+      # TODO: Fix markdown-link-check ESM dependency issue
+      # - name: Validate internal links
+      #   run: ./scripts/validate-links.sh
+      #   env:
+      #     CHECK_EXTERNAL: false
 
       - name: Validate frontmatter schema
         run: ./scripts/validate-frontmatter.sh
