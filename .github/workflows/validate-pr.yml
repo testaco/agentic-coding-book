@@ -23,6 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Chrome for Mermaid
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser libgbm1
+
       - name: Markdown lint
         uses: DavidAnson/markdownlint-action@v1
         with:
@@ -50,6 +55,9 @@ jobs:
 
       - name: Test Mermaid rendering
         run: npm run build:mermaid
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
 
       - name: Comment PR with results
         if: always()

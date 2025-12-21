@@ -40,7 +40,9 @@ jobs:
             texlive-xetex \
             texlive-fonts-recommended \
             texlive-latex-extra \
-            librsvg2-bin
+            librsvg2-bin \
+            chromium-browser \
+            libgbm1
 
       - name: Cache Pandoc
         id: cache-pandoc
@@ -65,6 +67,9 @@ jobs:
 
       - name: Render Mermaid diagrams
         run: npm run build:mermaid
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
 
       - name: Build PDF
         id: build-pdf
