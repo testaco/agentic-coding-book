@@ -39,7 +39,9 @@ function renderDiagrams() {
       console.log(`  ${file} → ${outputPath}`);
 
       // Use mmdc command-line tool
-      execSync(`npx mmdc -i "${file}" -o "${outputPath}" -b white -w 1200 -H 800`, {
+      // Add --no-sandbox for CI environments (GitHub Actions)
+      const puppeteerArgs = process.env.CI ? '-p "--no-sandbox --disable-setuid-sandbox"' : '';
+      execSync(`npx mmdc -i "${file}" -o "${outputPath}" -b white -w 1200 -H 800 ${puppeteerArgs}`, {
         stdio: 'inherit'
       });
 

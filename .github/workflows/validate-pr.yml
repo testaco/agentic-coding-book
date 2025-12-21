@@ -55,9 +55,6 @@ jobs:
 
       - name: Test Mermaid rendering
         run: npm run build:mermaid
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
 
       - name: Comment PR with results
         if: always()
