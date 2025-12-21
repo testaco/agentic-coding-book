@@ -83,7 +83,7 @@ jobs:
           fi
 
       - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: agentic-coding-book-pdf-${{ github.sha }}
           path: output/agentic-coding-book.pdf
