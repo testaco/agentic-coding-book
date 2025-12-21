@@ -1,0 +1,114 @@
+name: Build PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'book/**'
+      - 'assets/**'
+      - 'diagrams/**'
+      - 'scripts/build-pdf.sh'
+      - 'scripts/render-mermaid.js'
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-extra \
+            librsvg2-bin
+
+      - name: Cache Pandoc
+        id: cache-pandoc
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/bin/pandoc
+          key: pandoc-3.1.11
+
+      - name: Install Pandoc
+        if: steps.cache-pandoc.outputs.cache-hit != 'true'
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/3.1.11/pandoc-3.1.11-1-amd64.deb
+          sudo dpkg -i pandoc-3.1.11-1-amd64.deb
+
+      - name: Verify Pandoc version
+        run: |
+          pandoc --version
+          if [ "$(pandoc --version | head -1 | awk '{print $2}' | cut -d. -f1)" -lt 3 ]; then
+            echo "ERROR: Pandoc 3.0+ required"
+            exit 1
+          fi
+
+      - name: Render Mermaid diagrams
+        run: npm run build:mermaid
+
+      - name: Build PDF
+        id: build-pdf
+        run: |
+          npm run build:pdf
+          PDF_SIZE=$(stat -c%s output/agentic-coding-book.pdf)
+          PDF_SIZE_MB=$((PDF_SIZE / 1024 / 1024))
+          echo "pdf_size_mb=$PDF_SIZE_MB" >> $GITHUB_OUTPUT
+          echo "Built PDF: ${PDF_SIZE_MB}MB"
+
+      - name: Validate PDF size
+        run: |
+          if [ "${{ steps.build-pdf.outputs.pdf_size_mb }}" -gt 50 ]; then
+            echo "ERROR: PDF exceeds 50MB limit"
+            exit 1
+          fi
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: agentic-coding-book-pdf-${{ github.sha }}
+          path: output/agentic-coding-book.pdf
+          retention-days: 90
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: output/agentic-coding-book.pdf
+          draft: false
+          generate_release_notes: true
+          body: |
+            ## The Agentic Coding Playbook
+
+            **PDF Version**: ${{ github.ref_name }}
+            **Size**: ${{ steps.build-pdf.outputs.pdf_size_mb }}MB
+            **Built**: ${{ github.event.head_commit.timestamp }}
+
+            Download the PDF or read online at https://testaco.github.io/agentic-coding-book/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::PDF build failed! Check logs for details."
+          echo "Common issues: Pandoc version < 3.0, Missing LaTeX packages, Mermaid errors, PDF size > 50MB"

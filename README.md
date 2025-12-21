@@ -2,6 +2,9 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Status: In Development](https://img.shields.io/badge/status-in%20development-yellow.svg)]()
+[![Deploy Pages](https://github.com/testaco/agentic-coding-book/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/deploy-pages.yml)
+[![Build PDF](https://github.com/testaco/agentic-coding-book/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/build-pdf.yml)
+[![Validate PR](https://github.com/testaco/agentic-coding-book/actions/workflows/validate-pr.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/validate-pr.yml)
 
 ## About This Book
 
@@ -15,9 +18,9 @@ The book promotes the **Renaissance Developer** model: becoming "good enough at 
 
 ## How to Read This Book
 
-**🌐 Online (Web):** [GitHub Pages - Coming Soon]
+**🌐 Online (Web):** [Read on GitHub Pages](https://testaco.github.io/agentic-coding-book/)
 
-**📄 PDF Download:** [Latest Release - Coming Soon]
+**📄 PDF Download:** [Latest Release](https://github.com/testaco/agentic-coding-book/releases/latest)
 
 **📖 Source:** Browse the Markdown source in the `book/` directory (currently in development)
 

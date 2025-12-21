@@ -3,6 +3,13 @@
 
 set -e
 
+# Support dry-run mode for CI validation
+DRY_RUN=false
+if [ "$1" = "--dry-run" ]; then
+  DRY_RUN=true
+  echo "Running in dry-run mode (validation only)"
+fi
+
 echo "Building PDF..."
 
 # Check Pandoc version
@@ -33,6 +40,12 @@ cat \
   book/conclusion.md \
   book/glossary.md \
   2>/dev/null > output/combined.md || echo "# Placeholder" > output/combined.md
+
+# Skip full PDF build in dry-run mode
+if [ "$DRY_RUN" = "true" ]; then
+  echo "✓ Dry run complete: All validations passed"
+  exit 0
+fi
 
 # Step 3: Build PDF with Pandoc
 echo "Step 3/4: Building PDF..."
