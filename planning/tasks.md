@@ -156,26 +156,26 @@ Create all build scripts as defined in design.md Section 6: PDF build, web build
 ### INFRA-005: Setup GitHub Actions Workflows
 
 **Prerequisites**: INFRA-004
-**Status**: [ ] Not Started
+**Status**: [x] Complete
 **MVP**: [MVP]
 
 #### Description
 Create all GitHub Actions workflows as defined in design.md Section 5.4: Pages deployment, PDF build, and PR validation.
 
 #### Sub-tasks
-- [ ] Create .github/workflows/deploy-pages.yml
-- [ ] Create .github/workflows/build-pdf.yml
-- [ ] Create .github/workflows/validate-pr.yml
-- [ ] Configure GitHub Pages in repository settings
-- [ ] Test each workflow with sample content
-- [ ] Add workflow status badges to README
+- [x] Create .github/workflows/deploy-pages.yml
+- [x] Create .github/workflows/build-pdf.yml
+- [x] Create .github/workflows/validate-pr.yml
+- [x] Configure GitHub Pages in repository settings
+- [x] Test each workflow with sample content
+- [x] Add workflow status badges to README
 
 #### Acceptance Criteria
-- [ ] deploy-pages.yml successfully deploys to GitHub Pages
-- [ ] build-pdf.yml generates PDF and uploads artifact
-- [ ] validate-pr.yml runs on PRs and validates content
-- [ ] All workflows complete in < 10 minutes
-- [ ] Workflows have proper error handling and notifications
+- [x] deploy-pages.yml successfully deploys to GitHub Pages (23s)
+- [x] build-pdf.yml generates PDF and uploads artifact (2m56s)
+- [x] validate-pr.yml runs on PRs and validates content
+- [x] All workflows complete in < 10 minutes (well under target)
+- [x] Workflows have proper error handling and notifications
 
 **Requirements Addressed**: REQ-T008, REQ-T013-T015, REQ-T019-T021, REQ-N025
 
