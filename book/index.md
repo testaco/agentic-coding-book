@@ -5,8 +5,6 @@ author: "Author Name"
 date: 2025-12-21
 ---
 
-# The Agentic Coding Playbook
-
 **Transform any product idea into a production-ready MVP in 6 weeks.**
 
 This book is the definitive playbook for building software products in the age of AI. It democratizes product development, enabling anyone—from vibecoders to CTOs—to build and ship software using agentic coding.

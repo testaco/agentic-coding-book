@@ -13,8 +13,6 @@ abstract: |
   Test chapter for validating build scripts.
 ---
 
-# Test Chapter
-
 This is a test chapter with [internal link](./test-chapter.md) and [external link](https://github.com).
 
 ```bash
