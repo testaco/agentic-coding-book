@@ -29,10 +29,7 @@ jobs:
           sudo apt-get install -y chromium-browser libgbm1
 
       - name: Markdown lint
-        uses: DavidAnson/markdownlint-action@v1
-        with:
-          config: .markdownlint.json
-          files: 'book/**/*.md'
+        run: npx markdownlint --config .markdownlint.json 'book/**/*.md'
 
       # TODO: Fix markdown-link-check ESM dependency issue
       # - name: Validate links
