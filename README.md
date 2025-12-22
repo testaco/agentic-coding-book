@@ -4,7 +4,7 @@
 [![Status: In Development](https://img.shields.io/badge/status-in%20development-yellow.svg)]()
 [![Deploy Pages](https://github.com/testaco/agentic-coding-book/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/deploy-pages.yml)
 [![Build PDF](https://github.com/testaco/agentic-coding-book/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/build-pdf.yml)
-[![Validate PR](https://github.com/testaco/agentic-coding-book/actions/workflows/validate-pr.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/validate-pr.yml)
+[![Validate](https://github.com/testaco/agentic-coding-book/actions/workflows/validate.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/validate.yml)
 
 ## About This Book
 
