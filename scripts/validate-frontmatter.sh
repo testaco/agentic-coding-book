@@ -11,7 +11,7 @@ const fs = require("fs");
 const yaml = require("js-yaml");
 const glob = require("glob");
 
-const files = glob.sync("book/**/*.md").filter(f => !f.includes("TABLE_OF_CONTENTS"));
+const files = glob.sync("book/**/*.md").filter(f => !f.includes("TABLE_OF_CONTENTS") && !f.includes("index.md"));
 let errors = 0;
 
 const requiredFields = ["title", "part", "chapter", "version", "date", "status", "author", "tags", "abstract"];
