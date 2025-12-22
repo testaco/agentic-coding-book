@@ -52,10 +52,16 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
 
+      - name: Build Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./book
+          destination: ./_site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./book
+          path: ./_site
 
       - name: Deploy to GitHub Pages
         id: deployment
