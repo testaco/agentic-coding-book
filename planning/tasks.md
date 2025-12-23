@@ -213,11 +213,13 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-001: Create Chapter Template Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
 **MVP**: [MVP]
 
 #### Description
-Implement Claude Code skill for generating consistent chapter scaffolds as defined in design.md Section 7.2.
+~~Implement Claude Code skill for generating consistent chapter scaffolds as defined in design.md Section 7.2.~~
+
+**REDUNDANT**: This skill is replaced by the comprehensive `chapter-ghostwriter` skill (SKILL-GHOSTWRITER), which handles scaffolding, frontmatter, sections, code formatting, and cross-references in an integrated workflow.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/chapter-template/ directory
@@ -240,11 +242,13 @@ Implement Claude Code skill for generating consistent chapter scaffolds as defin
 ### SKILL-002: Create Mermaid Diagram Skill Enhancement
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [SKIP] Enhancement not needed
 **MVP**: [MVP]
 
 #### Description
-Enhance existing Mermaid diagram skill specifically for book diagrams (architecture, workflows, examples).
+~~Enhance existing Mermaid diagram skill specifically for book diagrams (architecture, workflows, examples).~~
+
+**SKIP**: The existing `mermaid-diagrams` skill is already sufficient. The `chapter-ghostwriter` skill integrates with it seamlessly. No enhancement needed.
 
 #### Sub-tasks
 - [ ] Review existing .claude/skills/mermaid-diagrams/
@@ -267,11 +271,13 @@ Enhance existing Mermaid diagram skill specifically for book diagrams (architect
 ### SKILL-003: Create EARS Requirements Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [SKIP] Low ROI, manual writing sufficient
 **MVP**: [v1.1]
 
 #### Description
-Implement Claude Code skill for generating EARS notation requirements (useful for Part 3 examples and teaching).
+~~Implement Claude Code skill for generating EARS notation requirements (useful for Part 3 examples and teaching).~~
+
+**SKIP**: Part 3 EARS content can be written by `chapter-ghostwriter`. EARS examples can be manually written. Not worth 3-4 hours to build for limited use case.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/ears-requirements/ directory
@@ -294,11 +300,13 @@ Implement Claude Code skill for generating EARS notation requirements (useful fo
 ### SKILL-004: Create Glossary Entry Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [SKIP] Glossary is single document, manual OK
 **MVP**: [v1.1]
 
 #### Description
-Implement Claude Code skill for generating consistent glossary entries as defined in design.md Section 3.4.
+~~Implement Claude Code skill for generating consistent glossary entries as defined in design.md Section 3.4.~~
+
+**SKIP**: Glossary is ONE document, not 50 chapters. Manual writing is fast enough. `chapter-ghostwriter` identifies glossary term candidates. Low ROI (1 hour saved, 3 hours to build).
 
 #### Sub-tasks
 - [ ] Create .claude/skills/glossary-entry/ directory
@@ -321,11 +329,13 @@ Implement Claude Code skill for generating consistent glossary entries as define
 ### SKILL-005: Create Frontmatter Generator Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
 **MVP**: [MVP]
 
 #### Description
-Implement Claude Code skill for automatically generating consistent YAML frontmatter for all chapters. This is critical for MVP as every chapter needs proper frontmatter with metadata, tags, related chapters, and requirement traceability.
+~~Implement Claude Code skill for automatically generating consistent YAML frontmatter for all chapters. This is critical for MVP as every chapter needs proper frontmatter with metadata, tags, related chapters, and requirement traceability.~~
+
+**REDUNDANT**: This functionality is built into `chapter-ghostwriter` Phase 2 (SCAFFOLD), which auto-generates complete YAML frontmatter with all required fields.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/frontmatter-generator/ directory
@@ -357,11 +367,13 @@ Implement Claude Code skill for automatically generating consistent YAML frontma
 ### SKILL-006: Create Section Scaffolder Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
 **MVP**: [MVP]
 
 #### Description
-Implement Claude Code skill for generating consistent chapter section structures. Many chapters follow similar patterns (Introduction, Key Concepts, Practical Application, Common Pitfalls, Summary, Further Reading).
+~~Implement Claude Code skill for generating consistent chapter section structures. Many chapters follow similar patterns (Introduction, Key Concepts, Practical Application, Common Pitfalls, Summary, Further Reading).~~
+
+**REDUNDANT**: This functionality is built into `chapter-ghostwriter` Phase 2 (SCAFFOLD), which creates section structures with different templates per part type.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/section-scaffolder/ directory
@@ -390,11 +402,13 @@ Implement Claude Code skill for generating consistent chapter section structures
 ### SKILL-007: Create Code Example Formatter Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
 **MVP**: [MVP]
 
 #### Description
-Implement Claude Code skill for consistently formatting code examples across multiple languages (Shell, YAML, JavaScript, Python, Markdown). Ensures proper syntax highlighting, width constraints for print, and consistent style.
+~~Implement Claude Code skill for consistently formatting code examples across multiple languages (Shell, YAML, JavaScript, Python, Markdown). Ensures proper syntax highlighting, width constraints for print, and consistent style.~~
+
+**REDUNDANT**: This functionality is built into `chapter-ghostwriter` Phase 3 (DRAFT), which writes and formats code examples with proper syntax, width constraints, and comments.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/code-formatter/ directory
@@ -428,11 +442,13 @@ Implement Claude Code skill for consistently formatting code examples across mul
 ### SKILL-008: Create Pattern Document Template Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
 **MVP**: [v1.1]
 
 #### Description
-Implement Claude Code skill for generating consistent pattern documentation for Part 3. Pattern chapters follow a specific structure: Overview, Problem, Solution, Example, When to Use, When NOT to Use, Related Patterns, Implementation Checklist.
+~~Implement Claude Code skill for generating consistent pattern documentation for Part 3. Pattern chapters follow a specific structure: Overview, Problem, Solution, Example, When to Use, When NOT to Use, Related Patterns, Implementation Checklist.~~
+
+**REDUNDANT**: This functionality is built into `chapter-ghostwriter` Phase 2 (SCAFFOLD), which has a specialized Part 3 pattern template.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/pattern-template/ directory
@@ -460,11 +476,13 @@ Implement Claude Code skill for generating consistent pattern documentation for 
 ### SKILL-009: Create Spec Template Generator Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [SKIP] Low ROI, manual examples sufficient
 **MVP**: [v1.1]
 
 #### Description
-Implement Claude Code skill for generating OpenAPI, AsyncAPI, and JSON Schema specification templates for Part 3 examples. These specs are complex YAML structures that benefit from automated generation.
+~~Implement Claude Code skill for generating OpenAPI, AsyncAPI, and JSON Schema specification templates for Part 3 examples. These specs are complex YAML structures that benefit from automated generation.~~
+
+**SKIP**: Only needed for a few Part 3 chapters. Examples can be written manually or found online. Very specialized, narrow use case. Negative ROI (2 hours saved, 4 hours to build).
 
 #### Sub-tasks
 - [ ] Create .claude/skills/spec-generator/ directory
@@ -496,11 +514,13 @@ Implement Claude Code skill for generating OpenAPI, AsyncAPI, and JSON Schema sp
 ### SKILL-010: Create Cross-Reference Suggester Skill
 
 **Prerequisites**: INFRA-003, P1-007
-**Status**: [ ] Not Started
+**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
 **MVP**: [v1.1]
 
 #### Description
-Implement Claude Code skill for suggesting cross-references between chapters based on content analysis. Scans chapter content for topics and suggests related chapters from other parts.
+~~Implement Claude Code skill for suggesting cross-references between chapters based on content analysis. Scans chapter content for topics and suggests related chapters from other parts.~~
+
+**REDUNDANT**: This functionality is built into `chapter-ghostwriter` Phase 1 (ANALYZE) which discovers related chapters, Phase 2 adds them to frontmatter, and Phase 3 adds inline cross-references.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/cross-reference/ directory
@@ -530,11 +550,83 @@ Implement Claude Code skill for suggesting cross-references between chapters bas
 
 ---
 
+### SKILL-GHOSTWRITER: Create Chapter Ghostwriter Skill
+
+**Prerequisites**: INFRA-003
+**Status**: [ ] Not Started
+**MVP**: [MVP] **CRITICAL - ONLY SKILL TO BUILD**
+
+#### Description
+Implement comprehensive Claude Code skill for ghostwriting complete book chapters. This single skill replaces SKILL-001, 005, 006, 007, 008, and 010 with an integrated 4-phase workflow: ANALYZE → SCAFFOLD → DRAFT → ENHANCE.
+
+**Key Innovation**: One skill that handles the entire chapter writing process from context analysis to polished output, with checkpoint mode for user review before drafting.
+
+#### Sub-tasks
+- [ ] Create .claude/skills/chapter-ghostwriter/ directory structure
+- [ ] Write SKILL.md with complete 4-phase workflow documentation
+- [ ] Create chapter templates for all 4 book parts (templates/ directory)
+  - [ ] Part 1 (Foundations) template
+  - [ ] Part 2 (Playbook) template
+  - [ ] Part 3 (Patterns) template
+  - [ ] Part 4 (Example) template
+- [ ] Create phase prompts (prompts/ directory)
+  - [ ] Phase 1: ANALYZE prompt (context gathering)
+  - [ ] Phase 2: SCAFFOLD prompt (structure generation)
+  - [ ] Phase 3: DRAFT prompt (content generation with 4-6 diagrams)
+  - [ ] Phase 4: ENHANCE prompt (quality & polish)
+- [ ] Create EXAMPLES.md with 5+ example invocations
+- [ ] Create VALIDATION.md with quality criteria
+- [ ] Test with one chapter from each part
+- [ ] Refine based on output quality
+
+#### Acceptance Criteria
+- [ ] Skill implements checkpoint mode (pause after Phase 2 for scaffold review)
+- [ ] Phase 1 (ANALYZE): Reads requirements.md, brief.md, design.md, existing chapters
+- [ ] Phase 2 (SCAFFOLD): Generates complete frontmatter + section structure
+  - [ ] Frontmatter matches design.md Section 3.1 schema exactly
+  - [ ] Part/chapter auto-inferred from file path
+  - [ ] Tags, related chapters, requirements auto-suggested
+  - [ ] Adaptive templates for all 4 part types
+- [ ] Phase 3 (DRAFT): Writes complete chapter content
+  - [ ] First-principles teaching approach (accessible to beginners)
+  - [ ] Pattern-based, minimal code (per REQ-C040-C042)
+  - [ ] 4-6 Mermaid diagrams per chapter (calls mermaid-diagrams skill)
+  - [ ] All diagrams have proper alt text (REQ-N010)
+  - [ ] 3-5 cross-references to related chapters
+  - [ ] Code examples formatted with 80-char width
+  - [ ] Target: 1,500-3,000 words per chapter
+- [ ] Phase 4 (ENHANCE): Polishes for clarity, consistency, completeness
+  - [ ] All requirements (REQ-*) addressed
+  - [ ] Cross-reference paths validated
+  - [ ] No [TODO] placeholders remain
+  - [ ] Markdown syntax valid
+- [ ] SKILL.md documents all phases, checkpoint mode, and integration with mermaid-diagrams
+- [ ] EXAMPLES.md shows usage for all 4 part types
+- [ ] VALIDATION.md lists quality checks and success criteria
+- [ ] Tested on 4+ chapters (one from each part)
+- [ ] Each chapter saves 1.5+ hours vs manual writing
+
+#### Integration Points
+- **mermaid-diagrams skill**: Called during Phase 3 for diagram generation
+- **requirements.md**: Read in Phase 1 for REQ-* traceability
+- **brief.md**: Read in Phase 1 for book vision and scope
+- **design.md**: Read in Phase 1 for templates and schemas
+- **Existing chapters**: Read in Phase 1 for style matching
+
+**Requirements Addressed**: REQ-G005-G008, REQ-T003-T004, REQ-C039-C043, REQ-N005, REQ-N010, REQ-S006, REQ-S009-S011, REQ-Q010-Q013
+
+**Time Savings**:
+- **Implementation**: Replaces 6 skills, saves ~22 hours of skill development time
+- **Usage**: ~107 minutes per chapter × 50 chapters = ~89 hours saved
+- **ROI**: 14.9x return (6 hours to build, 89 hours saved in usage)
+
+---
+
 ## Phase 2: Content Creation - Part 1 (MVP Critical)
 
 ### P1-001: Write Preface and Introduction
 
-**Prerequisites**: INFRA-001, SKILL-001, SKILL-005, SKILL-006, SKILL-007
+**Prerequisites**: INFRA-001, SKILL-GHOSTWRITER
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -563,7 +655,7 @@ Write the book's preface and introduction as defined in requirements.md REQ-C001
 
 ### P1-002: Write Chapter: Renaissance Developer
 
-**Prerequisites**: P1-001, SKILL-001
+**Prerequisites**: P1-001, SKILL-GHOSTWRITER
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -746,7 +838,7 @@ Comprehensive review and polish of all Part 1 content for consistency, clarity, 
 
 ### P2-001: Write Chapter: Overview of 6-Week Journey
 
-**Prerequisites**: P1-007, SKILL-001
+**Prerequisites**: P1-007, SKILL-GHOSTWRITER
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -1098,7 +1190,7 @@ Comprehensive review and polish of all Part 2 content.
 
 ### P3-001: Write Pattern: Component Decomposition
 
-**Prerequisites**: P2-012, SKILL-001
+**Prerequisites**: P2-012, SKILL-GHOSTWRITER
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -1185,12 +1277,12 @@ Write Part 3 interface design pattern: Clear interface boundaries and contracts.
 
 ### P3-004: Write Spec Pattern: EARS Notation
 
-**Prerequisites**: P2-004, SKILL-003
+**Prerequisites**: P2-004, SKILL-GHOSTWRITER
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
 #### Description
-Write Part 3 specification pattern: Detailed EARS notation guide.
+Write Part 3 specification pattern: Detailed EARS notation guide. (Note: SKILL-003 EARS generator skill was skipped - chapter-ghostwriter can handle EARS content and examples.)
 
 #### Sub-tasks
 - [ ] Create book/part3-patterns-tools/specifications/ears-notation.md
@@ -1388,7 +1480,7 @@ Write Part 3 toolchain deep dive: Using MCP servers to extend AI capabilities.
 
 ### P3-011: Write Toolchain: Skills and Custom Tools
 
-**Prerequisites**: P3-010, SKILL-001
+**Prerequisites**: P3-010, SKILL-GHOSTWRITER
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -1864,12 +1956,12 @@ Comprehensive review of Part 4 and integration with Parts 1-3.
 
 ### SUPPORT-001: Write Glossary
 
-**Prerequisites**: P1-007, P2-012, P3-015, P4-011, SKILL-004
+**Prerequisites**: P1-007, P2-012, P3-015, P4-011
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
 #### Description
-Create comprehensive glossary of all technical terms used in the book.
+Create comprehensive glossary of all technical terms used in the book. (Note: SKILL-004 glossary generator skill was skipped - manual writing is sufficient. chapter-ghostwriter identifies glossary term candidates during content generation.)
 
 #### Sub-tasks
 - [ ] Create book/glossary.md
@@ -1920,12 +2012,12 @@ Write the book's conclusion summarizing key insights and next steps.
 
 ### SUPPORT-003: Create All Diagrams
 
-**Prerequisites**: P1-007, P2-012, P3-015, P4-011, SKILL-002
+**Prerequisites**: P1-007, P2-012, P3-015, P4-011
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
 #### Description
-Create all Mermaid diagrams referenced throughout the book.
+Create all Mermaid diagrams referenced throughout the book. (Note: Uses existing mermaid-diagrams skill - SKILL-002 enhancement was skipped as existing skill is sufficient. chapter-ghostwriter generates 4-6 diagrams per chapter automatically.)
 
 #### Sub-tasks
 - [ ] Audit all chapters for diagram references
@@ -2284,7 +2376,7 @@ Prepare book for physical print-on-demand.
 
 **Week 1-2 (MVP Launch)**:
 - INFRA-001 to INFRA-006: Infrastructure setup
-- SKILL-001, SKILL-002, SKILL-005, SKILL-006, SKILL-007: Core skills (5 skills)
+- **SKILL-GHOSTWRITER: Comprehensive chapter ghostwriter** (1 skill - replaces 6 planned skills)
 - P1-001 to P1-007: Complete Part 1
 - SUPPORT-001 to SUPPORT-004: Supporting content (partial)
 - TEST-001 to TEST-003: Core testing
@@ -2299,7 +2391,7 @@ Prepare book for physical print-on-demand.
 
 **Post-Week 6 (v1.1+)**:
 - P3-016 to P3-025: Additional Part 3 patterns
-- SKILL-003, SKILL-004, SKILL-008, SKILL-009, SKILL-010: Additional skills (5 skills)
+- **NO ADDITIONAL SKILLS PLANNED** (SKILL-001-010 either replaced by SKILL-GHOSTWRITER or skipped)
 - PUB-005: Physical print
 - Ongoing: Community feedback and updates
 
