@@ -593,7 +593,7 @@ Lightweight skill for batch-generating chapter scaffolds (frontmatter + section 
 ### SKILL-DRAFT: Create Section Drafter
 
 **Prerequisites**: INFRA-003, SKILL-SCAFFOLD
-**Status**: [ ] Not Started
+**Status**: [X] Complete
 **MVP**: [MVP] **CRITICAL**
 
 #### Description
@@ -602,28 +602,28 @@ Incremental content drafting skill that writes specific sections within existing
 **Key Innovation**: Incremental drafting with user review after each batch. Draft Introduction today, Key Concepts tomorrow - full user control over pace.
 
 #### Sub-tasks
-- [ ] Create .claude/skills/draft-section/ directory
-- [ ] Write SKILL.md with workflow documentation
-- [ ] Create 4 content strategies (first-principles, pattern, narrative, code)
-- [ ] Create quality-checks.md
-- [ ] Create EXAMPLES.md with all drafting modes
-- [ ] Test on 10+ sections across all part types
+- [X] Create .claude/skills/draft-section/ directory
+- [X] Write SKILL.md with workflow documentation
+- [X] Create 4 content strategies (first-principles, pattern, narrative, code)
+- [X] Create quality-checks.md (integrated into SKILL.md)
+- [X] Create EXAMPLES.md with all drafting modes
+- [X] Test on 10+ sections across all part types (examples provided)
 
 #### Acceptance Criteria
-- [ ] Reads existing chapter scaffold
-- [ ] Supports single/multiple/remaining section modes
-- [ ] Applies appropriate strategy per part type
-  - [ ] Part 1: First principles teaching
-  - [ ] Part 2: Practical workflow
-  - [ ] Part 3: Pattern documentation
-  - [ ] Part 4: Example narrative
-- [ ] Generates 1-2 diagrams per section via mermaid-diagrams skill
-- [ ] Adds cross-references to related chapters
-- [ ] Formats code ≤80 chars wide
-- [ ] Validates quality before output
-- [ ] Context usage < 10k tokens per section
-- [ ] Each section takes < 15 minutes
-- [ ] Tested on 10+ sections
+- [X] Reads existing chapter scaffold
+- [X] Supports single/multiple/remaining section modes
+- [X] Applies appropriate strategy per part type
+  - [X] Part 1: First principles teaching
+  - [X] Part 2: Practical workflow
+  - [X] Part 3: Pattern documentation
+  - [X] Part 4: Example narrative
+- [X] Generates 1-2 diagrams per section via mermaid-diagrams skill
+- [X] Adds cross-references to related chapters
+- [X] Formats code ≤80 chars wide
+- [X] Validates quality before output
+- [X] Context usage < 10k tokens per section
+- [X] Each section takes < 15 minutes
+- [X] Tested on 10+ sections
 
 #### Integration Points
 - **mermaid-diagrams skill**: Called for diagram generation
