@@ -553,7 +553,7 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-SCAFFOLD: Create Chapter Scaffold Generator
 
 **Prerequisites**: INFRA-003
-**Status**: [ ] Not Started
+**Status**: [X] Complete
 **MVP**: [MVP] **CRITICAL**
 
 #### Description
@@ -562,21 +562,21 @@ Lightweight skill for batch-generating chapter scaffolds (frontmatter + section 
 **Key Innovation**: Batch scaffolding mode allows generating structure for all chapters at once, user reviews/edits before any content drafting begins.
 
 #### Sub-tasks
-- [ ] Create .claude/skills/scaffold-chapter/ directory
-- [ ] Write SKILL.md with workflow documentation
-- [ ] Create 4 part templates (foundations, playbook, patterns, example)
-- [ ] Create frontmatter schema YAML
-- [ ] Create EXAMPLES.md with batch mode examples
-- [ ] Test on 5 chapters (one from each part + extra)
+- [X] Create .claude/skills/scaffold-chapter/ directory
+- [X] Write SKILL.md with workflow documentation
+- [X] Create 4 part templates (foundations, playbook, patterns, example)
+- [X] Create frontmatter schema YAML
+- [X] Create EXAMPLES.md with batch mode examples
+- [X] Test on 5 chapters (one from each part + extra)
 
 #### Acceptance Criteria
-- [ ] Generates valid frontmatter matching design.md Section 3.1
-- [ ] Auto-infers part/chapter from file path
-- [ ] Auto-suggests tags, related chapters, requirements
-- [ ] Supports batch mode (scaffold multiple chapters)
-- [ ] Context usage < 10k tokens per scaffold
-- [ ] Each scaffold takes < 2 minutes
-- [ ] Tested on 5+ chapters
+- [X] Generates valid frontmatter matching design.md Section 3.1
+- [X] Auto-infers part/chapter from file path
+- [X] Auto-suggests tags, related chapters, requirements
+- [X] Supports batch mode (scaffold multiple chapters)
+- [X] Context usage < 10k tokens per scaffold
+- [X] Each scaffold takes < 2 minutes
+- [X] Tested on 5+ chapters
 
 #### Integration Points
 - **design.md Section 3.1**: Frontmatter schema
