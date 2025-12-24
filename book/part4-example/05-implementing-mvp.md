@@ -28,10 +28,12 @@ abstract: |
 **Timeline**: Week 3, Day 15 of the 6-week journey
 
 **Completed**:
+
 - [Completed milestone 1]
 - [Completed milestone 2]
 
 **Next up**:
+
 - [Next goal]
 
 ## The Challenge
@@ -51,7 +53,8 @@ abstract: |
 [Placeholder: Step-by-step execution with Claude Code]
 
 **Prompt to Claude**:
-```
+
+```text
 [Actual prompt used]
 ```
 

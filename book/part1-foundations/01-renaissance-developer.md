@@ -47,6 +47,7 @@ But the world changed.
 ### The New Reality
 
 Today, AI agents can:
+
 - Generate boilerplate code instantly
 - Implement APIs from specifications in minutes
 - Write tests automatically
@@ -75,6 +76,7 @@ The Renaissance Developer works the same way. You don't need to be the world's b
 ### Depth vs. Breadth in the AI Era
 
 Traditional career advice said "go deep." Master one domain. Become the expert everyone consults. This made sense when:
+
 - Coding was manual and error-prone (expertise prevented bugs)
 - Complex problems required deep knowledge (no AI to consult)
 - Career value came from being irreplaceable (the "only person who understands the payment system")
@@ -82,6 +84,7 @@ Traditional career advice said "go deep." Master one domain. Become the expert e
 But **depth has diminishing returns when AI handles implementation**. Knowing every React optimization pattern is less valuable when Claude generates performant React code automatically. Going from 90% React knowledge to 100% might take years of study but provides minimal additional value when AI fills the gaps.
 
 **Breadth has compounding returns in the AI era**. Knowing 80% of React + 80% of system design + 80% of UX + 80% of product strategy lets you:
+
 - Design complete systems (not just implement a piece)
 - Evaluate tradeoffs across disciplines (performance vs. UX vs. development speed)
 - Communicate effectively with AI (clear specifications require cross-domain understanding)
@@ -94,12 +97,14 @@ The math is striking: **Deep specialist** might have 100 units of expertise in o
 The fundamental mindset shift: **you're no longer writing most code yourself—you're orchestrating AI agents to implement your vision**.
 
 **Code Executor mindset** (traditional):
+
 - "How do I implement this feature?"
 - Value = coding speed + code quality
 - Time spent: 80% implementation, 20% planning
 - Success = feature works as specified
 
 **Product Orchestrator mindset** (Renaissance Developer):
+
 - "What should we build and why?"
 - Value = decision quality + vision clarity + validation thoroughness
 - Time spent: 60% planning/specifying, 30% reviewing/validating AI output, 10% manual coding
@@ -124,12 +129,14 @@ Renaissance Developers need "good enough" literacy across five domains. Not mast
 **You don't need**: An MBA, formal product management training, years shipping products
 
 **You do need**:
+
 - Ability to interview users and extract real needs (not just feature requests)
 - Framework for prioritizing features (MoSCoW, RICE, or even just "must-have vs. nice-to-have")
 - Sense of scope—what's realistic for an MVP vs. what requires a full v1.0
 - Understanding of metrics that matter (engagement, retention, conversion, not vanity metrics)
 
 **Practical example**: When building a task management app, product thinking tells you:
+
 - MVP must have: create tasks, mark complete, basic list view
 - Can wait: tags, due dates, collaboration, mobile app
 - Not needed: AI task prediction, calendar integration, team analytics
@@ -143,12 +150,14 @@ Without this domain, you'll either build too little (MVP doesn't work) or too mu
 **You don't need**: Ability to optimize algorithms, deep knowledge of computer science theory, experience scaling to millions of users
 
 **You do need**:
+
 - Understanding of common patterns (REST APIs, event-driven, client-server, microservices)
 - Ability to break systems into components with clear responsibilities
 - Knowledge of when to use a database vs. cache vs. message queue
 - Sense of what "good architecture" looks like (components are testable, boundaries are clear, changes are localized)
 
 **Practical example**: For a user authentication system, architecture thinking tells you:
+
 - Separate auth logic from business logic (bounded context)
 - Use JWT tokens for stateless sessions (vs. server-side sessions)
 - Hash passwords with bcrypt (not MD5, not plain text)
@@ -163,12 +172,14 @@ Without this domain, you'll ask AI to build systems that are hard to maintain, d
 **You don't need**: Figma mastery, graphic design skills, ability to create pixel-perfect mockups, knowledge of design systems
 
 **You do need**:
+
 - Recognition of good vs. bad UX (you know it when you see it)
 - Understanding of common UI patterns (forms, navigation, feedback, error states)
 - Ability to sketch wireframes (even rough ones)
 - Knowledge of accessibility basics (keyboard navigation, screen readers, color contrast)
 
 **Practical example**: Designing a login form, design sensibility tells you:
+
 - Put "Forgot password?" link next to password field (where users need it)
 - Show password strength in real-time (immediate feedback)
 - Auto-focus email field on page load (reduce friction)
@@ -184,6 +195,7 @@ Without this domain, you'll build functional-but-frustrating interfaces. AI can 
 **You don't need**: Ability to write code from scratch, memorization of APIs and syntax, deep expertise in any specific language or framework
 
 **You do need**:
+
 - Ability to read code and understand what it does
 - Recognition of code smells (giant functions, unclear names, tight coupling)
 - Understanding of testing concepts (unit, integration, e2e tests)
@@ -191,6 +203,7 @@ Without this domain, you'll build functional-but-frustrating interfaces. AI can 
 - Familiarity with common bugs (null checks, off-by-one errors, race conditions)
 
 **Practical example**: Reviewing AI-generated authentication code, technical literacy helps you spot:
+
 - Password comparison using `==` instead of secure comparison (timing attack vulnerability)
 - Missing input validation (SQL injection risk)
 - Hardcoded secrets in code (should be environment variables)
@@ -206,6 +219,7 @@ Without this domain, you can't validate AI output. You'll ship code with subtle 
 **You don't need**: Years of battle scars, experience with massive-scale systems, formal training in risk management
 
 **You do need**:
+
 - Framework for evaluating "done enough" vs. "needs more work"
 - Understanding of risk levels (MVP can skip analytics, but can't skip auth)
 - Sense of what corners can be cut safely (UI polish) vs. dangerously (security)
@@ -213,6 +227,7 @@ Without this domain, you can't validate AI output. You'll ship code with subtle 
 - Recognition of when to refactor vs. when to ship with technical debt
 
 **Practical example**: Deciding whether to ship an MVP, strategic judgment tells you:
+
 - OK to skip: Polish animations, comprehensive analytics, social sharing, mobile optimization
 - Not OK to skip: User authentication, data validation, error handling, basic security
 - Technical debt acceptable: Hardcoded configs (easy to fix later)
@@ -230,6 +245,7 @@ Without this domain, you'll either ship too early (broken, insecure products) or
 Include specific examples:]
 
 **What AI Handles Now:**
+
 - Writing boilerplate code
 - Implementing specs into code
 - Writing tests
@@ -238,6 +254,7 @@ Include specific examples:]
 - Code formatting and style
 
 **What You Still Own:**
+
 - Deciding what to build (product vision)
 - Defining how it should work (architecture)
 - Writing clear specifications
@@ -267,6 +284,7 @@ but is ultimately more rewarding and impactful.]
 Show two approaches:
 
 **Traditional Specialist Approach:**
+
 - Backend dev implements auth API (2 days)
 - Frontend dev builds login UI (1 day)
 - Designer creates mockups (1 day)
@@ -275,6 +293,7 @@ Show two approaches:
 - Total: 5 days, 5 people
 
 **Renaissance Developer with AI:**
+
 - You write product brief (what/why) (1 hour)
 - You design rough UI wireframe (1 hour)
 - You write auth spec in EARS notation (2 hours)
@@ -309,6 +328,7 @@ Show the difference isn't just speed - it's agency and ownership.]
 
 [Placeholder: Explain the timing - why Renaissance Developer is possible now but wasn't
 5 years ago. Three converging factors:
+
 1. AI agents can handle implementation reliably
 2. Modern tooling is more accessible (cloud platforms, frameworks, deployment automation)
 3. Market rewards speed-to-market over perfect code

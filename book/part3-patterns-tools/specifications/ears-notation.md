@@ -77,6 +77,7 @@ graph TD
 [Placeholder: Situations where this pattern is appropriate]
 
 **Use this pattern when**:
+
 - [Scenario 1]
 - [Scenario 2]
 - [Scenario 3]
@@ -86,6 +87,7 @@ graph TD
 [Placeholder: Situations where this pattern is inappropriate or overkill]
 
 **Avoid this pattern when**:
+
 - [Scenario 1]
 - [Scenario 2]
 - [Scenario 3]

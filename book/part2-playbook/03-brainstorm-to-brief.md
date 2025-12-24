@@ -39,10 +39,12 @@ abstract: |
 [Placeholder: Detailed explanation of this step]
 
 **What to do**:
+
 - [Action item 1]
 - [Action item 2]
 
 **What good looks like**:
+
 - [Success criterion 1]
 - [Success criterion 2]
 
@@ -55,15 +57,17 @@ abstract: |
 [Placeholder: How to use AI agents effectively for this workflow step]
 
 **Best prompts**:
-```
+
+```text
 [Example prompt 1]
 ```
 
-```
+```text
 [Example prompt 2]
 ```
 
 **Tips**:
+
 - [Tip 1 for effective AI collaboration]
 - [Tip 2 for effective AI collaboration]
 
