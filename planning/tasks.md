@@ -213,13 +213,13 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-001: Create Chapter Template Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
+**Status**: [REDUNDANT] Replaced by SKILL-SCAFFOLD and SKILL-DRAFT
 **MVP**: [MVP]
 
 #### Description
 ~~Implement Claude Code skill for generating consistent chapter scaffolds as defined in design.md Section 7.2.~~
 
-**REDUNDANT**: This skill is replaced by the comprehensive `chapter-ghostwriter` skill (SKILL-GHOSTWRITER), which handles scaffolding, frontmatter, sections, code formatting, and cross-references in an integrated workflow.
+**REDUNDANT**: This skill is replaced by `scaffold-chapter` (SKILL-SCAFFOLD) and `draft-section` (SKILL-DRAFT), which handle scaffolding and content drafting in separate, focused workflows that avoid context compacting issues.
 
 #### Sub-tasks
 - [ ] Create .claude/skills/chapter-template/ directory
@@ -329,7 +329,7 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-005: Create Frontmatter Generator Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
+**Status**: [REDUNDANT] Replaced by SKILL-SCAFFOLD and SKILL-DRAFT
 **MVP**: [MVP]
 
 #### Description
@@ -367,7 +367,7 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-006: Create Section Scaffolder Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
+**Status**: [REDUNDANT] Replaced by SKILL-SCAFFOLD and SKILL-DRAFT
 **MVP**: [MVP]
 
 #### Description
@@ -402,7 +402,7 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-007: Create Code Example Formatter Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
+**Status**: [REDUNDANT] Replaced by SKILL-SCAFFOLD and SKILL-DRAFT
 **MVP**: [MVP]
 
 #### Description
@@ -442,7 +442,7 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-008: Create Pattern Document Template Skill
 
 **Prerequisites**: INFRA-003
-**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
+**Status**: [REDUNDANT] Replaced by SKILL-SCAFFOLD and SKILL-DRAFT
 **MVP**: [v1.1]
 
 #### Description
@@ -514,7 +514,7 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 ### SKILL-010: Create Cross-Reference Suggester Skill
 
 **Prerequisites**: INFRA-003, P1-007
-**Status**: [REDUNDANT] Replaced by SKILL-GHOSTWRITER
+**Status**: [REDUNDANT] Replaced by SKILL-SCAFFOLD and SKILL-DRAFT
 **MVP**: [v1.1]
 
 #### Description
@@ -550,75 +550,98 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 
 ---
 
-### SKILL-GHOSTWRITER: Create Chapter Ghostwriter Skill
+### SKILL-SCAFFOLD: Create Chapter Scaffold Generator
 
 **Prerequisites**: INFRA-003
 **Status**: [ ] Not Started
-**MVP**: [MVP] **CRITICAL - ONLY SKILL TO BUILD**
+**MVP**: [MVP] **CRITICAL**
 
 #### Description
-Implement comprehensive Claude Code skill for ghostwriting complete book chapters. This single skill replaces SKILL-001, 005, 006, 007, 008, and 010 with an integrated 4-phase workflow: ANALYZE → SCAFFOLD → DRAFT → ENHANCE.
+Lightweight skill for batch-generating chapter scaffolds (frontmatter + section structure). Can scaffold all 50 chapters in one session for user review before drafting. Avoids context compacting issues by keeping operations under 10k tokens.
 
-**Key Innovation**: One skill that handles the entire chapter writing process from context analysis to polished output, with checkpoint mode for user review before drafting.
+**Key Innovation**: Batch scaffolding mode allows generating structure for all chapters at once, user reviews/edits before any content drafting begins.
 
 #### Sub-tasks
-- [ ] Create .claude/skills/chapter-ghostwriter/ directory structure
-- [ ] Write SKILL.md with complete 4-phase workflow documentation
-- [ ] Create chapter templates for all 4 book parts (templates/ directory)
-  - [ ] Part 1 (Foundations) template
-  - [ ] Part 2 (Playbook) template
-  - [ ] Part 3 (Patterns) template
-  - [ ] Part 4 (Example) template
-- [ ] Create phase prompts (prompts/ directory)
-  - [ ] Phase 1: ANALYZE prompt (context gathering)
-  - [ ] Phase 2: SCAFFOLD prompt (structure generation)
-  - [ ] Phase 3: DRAFT prompt (content generation with 4-6 diagrams)
-  - [ ] Phase 4: ENHANCE prompt (quality & polish)
-- [ ] Create EXAMPLES.md with 5+ example invocations
-- [ ] Create VALIDATION.md with quality criteria
-- [ ] Test with one chapter from each part
-- [ ] Refine based on output quality
+- [ ] Create .claude/skills/scaffold-chapter/ directory
+- [ ] Write SKILL.md with workflow documentation
+- [ ] Create 4 part templates (foundations, playbook, patterns, example)
+- [ ] Create frontmatter schema YAML
+- [ ] Create EXAMPLES.md with batch mode examples
+- [ ] Test on 5 chapters (one from each part + extra)
 
 #### Acceptance Criteria
-- [ ] Skill implements checkpoint mode (pause after Phase 2 for scaffold review)
-- [ ] Phase 1 (ANALYZE): Reads requirements.md, brief.md, design.md, existing chapters
-- [ ] Phase 2 (SCAFFOLD): Generates complete frontmatter + section structure
-  - [ ] Frontmatter matches design.md Section 3.1 schema exactly
-  - [ ] Part/chapter auto-inferred from file path
-  - [ ] Tags, related chapters, requirements auto-suggested
-  - [ ] Adaptive templates for all 4 part types
-- [ ] Phase 3 (DRAFT): Writes complete chapter content
-  - [ ] First-principles teaching approach (accessible to beginners)
-  - [ ] Pattern-based, minimal code (per REQ-C040-C042)
-  - [ ] 4-6 Mermaid diagrams per chapter (calls mermaid-diagrams skill)
-  - [ ] All diagrams have proper alt text (REQ-N010)
-  - [ ] 3-5 cross-references to related chapters
-  - [ ] Code examples formatted with 80-char width
-  - [ ] Target: 1,500-3,000 words per chapter
-- [ ] Phase 4 (ENHANCE): Polishes for clarity, consistency, completeness
-  - [ ] All requirements (REQ-*) addressed
-  - [ ] Cross-reference paths validated
-  - [ ] No [TODO] placeholders remain
-  - [ ] Markdown syntax valid
-- [ ] SKILL.md documents all phases, checkpoint mode, and integration with mermaid-diagrams
-- [ ] EXAMPLES.md shows usage for all 4 part types
-- [ ] VALIDATION.md lists quality checks and success criteria
-- [ ] Tested on 4+ chapters (one from each part)
-- [ ] Each chapter saves 1.5+ hours vs manual writing
+- [ ] Generates valid frontmatter matching design.md Section 3.1
+- [ ] Auto-infers part/chapter from file path
+- [ ] Auto-suggests tags, related chapters, requirements
+- [ ] Supports batch mode (scaffold multiple chapters)
+- [ ] Context usage < 10k tokens per scaffold
+- [ ] Each scaffold takes < 2 minutes
+- [ ] Tested on 5+ chapters
 
 #### Integration Points
-- **mermaid-diagrams skill**: Called during Phase 3 for diagram generation
-- **requirements.md**: Read in Phase 1 for REQ-* traceability
-- **brief.md**: Read in Phase 1 for book vision and scope
-- **design.md**: Read in Phase 1 for templates and schemas
-- **Existing chapters**: Read in Phase 1 for style matching
+- **design.md Section 3.1**: Frontmatter schema
+- **brief.md**: Book vision for tag/requirement suggestions
+- **requirements.md**: REQ-* pattern matching
 
-**Requirements Addressed**: REQ-G005-G008, REQ-T003-T004, REQ-C039-C043, REQ-N005, REQ-N010, REQ-S006, REQ-S009-S011, REQ-Q010-Q013
+**Requirements Addressed**: REQ-G005-G008, REQ-T003, REQ-S006
 
-**Time Savings**:
-- **Implementation**: Replaces 6 skills, saves ~22 hours of skill development time
-- **Usage**: ~107 minutes per chapter × 50 chapters = ~89 hours saved
-- **ROI**: 14.9x return (6 hours to build, 89 hours saved in usage)
+**Time Savings**: 8.3 hours → 1.7 hours (6.6 hours saved, 80% faster)
+**ROI**: 2.2x return (3 hours to build, 6.6 hours saved)
+
+---
+
+### SKILL-DRAFT: Create Section Drafter
+
+**Prerequisites**: INFRA-003, SKILL-SCAFFOLD
+**Status**: [ ] Not Started
+**MVP**: [MVP] **CRITICAL**
+
+#### Description
+Incremental content drafting skill that writes specific sections within existing scaffolds. Supports drafting 1 section at a time or batch-drafting multiple sections with user control. Each operation stays under 10k tokens to avoid context compacting.
+
+**Key Innovation**: Incremental drafting with user review after each batch. Draft Introduction today, Key Concepts tomorrow - full user control over pace.
+
+#### Sub-tasks
+- [ ] Create .claude/skills/draft-section/ directory
+- [ ] Write SKILL.md with workflow documentation
+- [ ] Create 4 content strategies (first-principles, pattern, narrative, code)
+- [ ] Create quality-checks.md
+- [ ] Create EXAMPLES.md with all drafting modes
+- [ ] Test on 10+ sections across all part types
+
+#### Acceptance Criteria
+- [ ] Reads existing chapter scaffold
+- [ ] Supports single/multiple/remaining section modes
+- [ ] Applies appropriate strategy per part type
+  - [ ] Part 1: First principles teaching
+  - [ ] Part 2: Practical workflow
+  - [ ] Part 3: Pattern documentation
+  - [ ] Part 4: Example narrative
+- [ ] Generates 1-2 diagrams per section via mermaid-diagrams skill
+- [ ] Adds cross-references to related chapters
+- [ ] Formats code ≤80 chars wide
+- [ ] Validates quality before output
+- [ ] Context usage < 10k tokens per section
+- [ ] Each section takes < 15 minutes
+- [ ] Tested on 10+ sections
+
+#### Integration Points
+- **mermaid-diagrams skill**: Called for diagram generation
+- **scaffold-chapter output**: Reads existing scaffolds
+- **brief.md, requirements.md**: Context per part type
+
+**Requirements Addressed**: REQ-G005-G008, REQ-T003-T004, REQ-C039-C043, REQ-N005, REQ-N010
+
+**Time Savings**: 75 hours → 25 hours (50 hours saved, 67% faster)
+**ROI**: 12.5x return (4 hours to build, 50 hours saved)
+
+---
+
+**Combined Skills Summary**:
+- **Implementation Time**: ~7 hours total
+- **Usage Time Savings**: ~56.6 hours (50 chapters)
+- **Overall ROI**: 8.1x return
+- **Context Usage**: Each operation < 10k tokens (no compacting issues)
 
 ---
 
@@ -626,7 +649,7 @@ Implement comprehensive Claude Code skill for ghostwriting complete book chapter
 
 ### P1-001: Write Preface and Introduction
 
-**Prerequisites**: INFRA-001, SKILL-GHOSTWRITER
+**Prerequisites**: INFRA-001, SKILL-SCAFFOLD, SKILL-DRAFT
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -655,7 +678,7 @@ Write the book's preface and introduction as defined in requirements.md REQ-C001
 
 ### P1-002: Write Chapter: Renaissance Developer
 
-**Prerequisites**: P1-001, SKILL-GHOSTWRITER
+**Prerequisites**: P1-001, SKILL-SCAFFOLD, SKILL-DRAFT
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -838,7 +861,7 @@ Comprehensive review and polish of all Part 1 content for consistency, clarity, 
 
 ### P2-001: Write Chapter: Overview of 6-Week Journey
 
-**Prerequisites**: P1-007, SKILL-GHOSTWRITER
+**Prerequisites**: P1-007, SKILL-SCAFFOLD, SKILL-DRAFT
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -1190,7 +1213,7 @@ Comprehensive review and polish of all Part 2 content.
 
 ### P3-001: Write Pattern: Component Decomposition
 
-**Prerequisites**: P2-012, SKILL-GHOSTWRITER
+**Prerequisites**: P2-012, SKILL-SCAFFOLD, SKILL-DRAFT
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -1277,7 +1300,7 @@ Write Part 3 interface design pattern: Clear interface boundaries and contracts.
 
 ### P3-004: Write Spec Pattern: EARS Notation
 
-**Prerequisites**: P2-004, SKILL-GHOSTWRITER
+**Prerequisites**: P2-004, SKILL-SCAFFOLD, SKILL-DRAFT
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -1480,7 +1503,7 @@ Write Part 3 toolchain deep dive: Using MCP servers to extend AI capabilities.
 
 ### P3-011: Write Toolchain: Skills and Custom Tools
 
-**Prerequisites**: P3-010, SKILL-GHOSTWRITER
+**Prerequisites**: P3-010, SKILL-SCAFFOLD, SKILL-DRAFT
 **Status**: [ ] Not Started
 **MVP**: [MVP]
 
@@ -2376,7 +2399,7 @@ Prepare book for physical print-on-demand.
 
 **Week 1-2 (MVP Launch)**:
 - INFRA-001 to INFRA-006: Infrastructure setup
-- **SKILL-GHOSTWRITER: Comprehensive chapter ghostwriter** (1 skill - replaces 6 planned skills)
+- **SKILL-SCAFFOLD & SKILL-DRAFT: Two-skill chapter writing system** (2 skills - replaces 6 planned skills, avoids context compacting)
 - P1-001 to P1-007: Complete Part 1
 - SUPPORT-001 to SUPPORT-004: Supporting content (partial)
 - TEST-001 to TEST-003: Core testing
@@ -2391,7 +2414,7 @@ Prepare book for physical print-on-demand.
 
 **Post-Week 6 (v1.1+)**:
 - P3-016 to P3-025: Additional Part 3 patterns
-- **NO ADDITIONAL SKILLS PLANNED** (SKILL-001-010 either replaced by SKILL-GHOSTWRITER or skipped)
+- **NO ADDITIONAL SKILLS PLANNED** (SKILL-001-010 either replaced by SKILL-SCAFFOLD/SKILL-DRAFT or skipped)
 - PUB-005: Physical print
 - Ongoing: Community feedback and updates
 

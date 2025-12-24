@@ -1040,6 +1040,60 @@ The API gateway receives user requests and distributes them to Service 1 and Ser
 based on routing rules.*
 ```
 
+### 7.5 Two-Skill Writing Workflow
+
+**Requirements**: REQ-G005-G008, REQ-T003
+
+The book writing process uses two Claude Code skills to automate chapter creation while avoiding context compacting issues:
+
+#### Phase 1: Scaffolding (scaffold-chapter skill)
+
+**Purpose**: Batch-generate frontmatter and section structure for all chapters
+
+**Process**:
+1. Read design.md Section 3.1, brief.md, requirements.md
+2. For each chapter file path, auto-infer part/chapter numbers
+3. Generate complete YAML frontmatter with auto-suggested tags/related/requirements
+4. Select appropriate template based on part number
+5. Generate section structure with placeholder guidance
+6. Output scaffolds for user review/editing
+
+**Batch Mode**: Can scaffold all 50 chapters in ~2 hours
+
+**Context Usage**: ~6.5k tokens per scaffold, ~12.5k for 5 scaffolds
+
+#### Phase 2: Drafting (draft-section skill)
+
+**Purpose**: Incrementally write content for specific sections
+
+**Process**:
+1. Read existing chapter scaffold
+2. User specifies section(s) to draft (single, multiple, or all remaining)
+3. Apply content strategy based on part type:
+   - Part 1: First principles teaching
+   - Part 2: Practical workflows
+   - Part 3: Pattern documentation
+   - Part 4: Example narratives
+4. Generate 1-2 diagrams per section (via mermaid-diagrams skill)
+5. Add cross-references to related chapters
+6. Format code examples (≤80 chars)
+7. Validate quality
+8. Update chapter file
+
+**Incremental Control**: User reviews after each section or batch
+
+**Context Usage**: ~10k tokens per section, ~16k for 3 sections
+
+#### Workflow Benefits
+
+- **No context compacting**: Each operation < 25k tokens
+- **Batch scaffolding**: All 50 chapters at once
+- **Incremental drafting**: 1 section or many, user choice
+- **User control**: Review after every batch
+- **Time savings**: 50 hours vs 100 hours manual (50% faster)
+
+**Note**: Existing CI validation (frontmatter, cross-references, markdown linting) continues to run automatically.
+
 ---
 
 ## 8. Quality Assurance and Validation
