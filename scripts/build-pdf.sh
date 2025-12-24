@@ -31,15 +31,40 @@ npm run build:mermaid
 
 # Step 2: Concatenate markdown files in order
 echo "Step 2/4: Concatenating content..."
-cat \
-  book/preface.md \
-  book/part1-foundations/*.md \
-  book/part2-playbook/*.md \
-  book/part3-patterns-tools/**/*.md \
-  book/part4-example/*.md \
-  book/conclusion.md \
-  book/glossary.md \
-  2>/dev/null > output/combined.md || echo "# Placeholder" > output/combined.md
+
+# Start with index if it exists
+if [ -f "book/index.md" ]; then
+  cat book/index.md > output/combined.md
+else
+  echo "" > output/combined.md
+fi
+
+# Add preface if it exists
+[ -f "book/preface.md" ] && cat book/preface.md >> output/combined.md
+
+# Add part 1 (foundations)
+find book/part1-foundations -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+
+# Add part 2 (playbook)
+find book/part2-playbook -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+
+# Add part 3 (patterns & tools)
+find book/part3-patterns-tools -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+
+# Add part 4 (example)
+find book/part4-example -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+
+# Add conclusion and glossary if they exist
+[ -f "book/conclusion.md" ] && cat book/conclusion.md >> output/combined.md
+[ -f "book/glossary.md" ] && cat book/glossary.md >> output/combined.md
+
+# Verify we have content
+if [ ! -s output/combined.md ]; then
+  echo "ERROR: No content found to build PDF"
+  exit 1
+fi
+
+echo "✓ Combined $(wc -l < output/combined.md) lines from book chapters"
 
 # Skip full PDF build in dry-run mode
 if [ "$DRY_RUN" = "true" ]; then
@@ -57,7 +82,7 @@ pandoc output/combined.md \
   --toc \
   --toc-depth=3 \
   --number-sections \
-  --highlight-style=tango \
+  --syntax-highlighting=tango \
   --pdf-engine=xelatex \
   --metadata title="The Agentic Coding Playbook" \
   --metadata author="Author Name" \
