@@ -332,11 +332,7 @@ This chapter sets up the "what" - the rest of the book teaches the "how."]
 
 ## Further Reading
 
-[Placeholder: Related chapters and external resources]
+[Placeholder: Related chapters and external resources - links to be added when chapters are available]
 
-- [Chapter 2: What is Agentic Coding?](./02-what-is-agentic-coding.md) - Deep dive
-  into the tools and techniques that enable the Renaissance Developer model
-- [Chapter 5: The New Bottlenecks](./05-new-bottlenecks.md) - Understanding what
-  limits you when coding is 5-10x faster
 - External: "Range: Why Generalists Triumph in a Specialized World" by David Epstein
 - External: Historical Renaissance polymaths - Leonardo da Vinci, Benjamin Franklin

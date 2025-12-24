@@ -90,6 +90,4 @@ A: [Answer 2]
 
 ## Next Steps
 
-[Placeholder: What comes after this workflow step?]
-
-See [Next Chapter Name](./next-chapter.md) for the next phase.
+[Placeholder: What comes after this workflow step? Link to next chapter when available.]
