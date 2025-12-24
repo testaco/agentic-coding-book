@@ -6,11 +6,12 @@
   "scripts": {
     "build:pdf": "./scripts/build-pdf.sh",
     "build:mermaid": "node scripts/render-mermaid.js",
+    "validate": "./scripts/validate.sh",
     "validate:links": "./scripts/validate-links.sh",
     "validate:frontmatter": "./scripts/validate-frontmatter.sh",
     "validate:traceability": "python3 scripts/check-traceability.py",
     "generate:toc": "./scripts/generate-toc.sh",
-    "test": "npm run validate:links && npm run validate:frontmatter"
+    "test": "./scripts/validate.sh"
   },
   "keywords": [
     "agentic-coding",
