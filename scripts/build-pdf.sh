@@ -74,6 +74,18 @@ fi
 
 # Step 3: Build PDF with Pandoc
 echo "Step 3/4: Building PDF..."
+
+# Determine syntax highlighting flag based on Pandoc version
+PANDOC_MAJOR=$(pandoc --version | head -1 | awk '{print $2}' | cut -d. -f1)
+PANDOC_MINOR=$(pandoc --version | head -1 | awk '{print $2}' | cut -d. -f2)
+
+# Pandoc 3.4+ uses --syntax-highlighting, older versions use --highlight-style
+if [ "$PANDOC_MAJOR" -gt 3 ] || [ "$PANDOC_MAJOR" -eq 3 -a "$PANDOC_MINOR" -ge 4 ]; then
+  SYNTAX_FLAG="--syntax-highlighting=tango"
+else
+  SYNTAX_FLAG="--highlight-style=tango"
+fi
+
 pandoc output/combined.md \
   --from=markdown+smart \
   --to=pdf \
@@ -82,7 +94,7 @@ pandoc output/combined.md \
   --toc \
   --toc-depth=3 \
   --number-sections \
-  --syntax-highlighting=tango \
+  $SYNTAX_FLAG \
   --pdf-engine=xelatex \
   --metadata title="The Agentic Coding Playbook" \
   --metadata author="Author Name" \
