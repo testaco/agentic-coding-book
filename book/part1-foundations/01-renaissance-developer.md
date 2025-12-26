@@ -57,6 +57,28 @@ Today, AI agents can:
 
 What used to take a specialized engineer hours or days now takes minutes. **The bottleneck is no longer coding—it's knowing what to code**.
 
+```mermaid
+graph TB
+    subgraph "Traditional Development (Pre-AI)"
+        T1[Product Idea] --> T2[Write Code<br/>⏱️ BOTTLENECK]
+        T2 --> T3[Debug & Test<br/>⏱️ Time-consuming]
+        T3 --> T4[Deploy]
+    end
+
+    subgraph "AI-Era Development (2024+)"
+        A1[Product Idea] --> A2[Define What to Build<br/>⏱️ BOTTLENECK]
+        A2 --> A3[AI Implements Code<br/>⚡ Minutes]
+        A3 --> A4[Review & Validate]
+        A4 --> A5[Deploy]
+    end
+
+    style T2 fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style A2 fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style A3 fill:#51cf66,stroke:#2f9e44,color:#fff
+```
+
+*Figure 1.1: The bottleneck has shifted from implementation to decision-making. In the AI era, coding happens in minutes while strategic thinking remains the constraint.*
+
 This creates a paradox for specialists: your expertise in *how to code* is increasingly commoditized, while your expertise in *what to build* becomes more valuable. But traditional specialization focused on the former, not the latter.
 
 **The question isn't "can you write React better than Claude?"** (you probably can't, and that's fine). **The question is "can you decide what to build, architect the system, and validate that the AI-generated code actually solves the right problem?"**
@@ -92,6 +114,39 @@ But **depth has diminishing returns when AI handles implementation**. Knowing ev
 
 The math is striking: **Deep specialist** might have 100 units of expertise in one area. **Renaissance Developer** has 80 units across five areas = 400 total units of applicable knowledge. Even if you discount for lack of mastery, the breadth advantage is overwhelming when AI can fill depth gaps on demand.
 
+```mermaid
+graph LR
+    subgraph "Deep Specialist"
+        DS[React Expert<br/>100 units]
+        DS1[Design: 0]
+        DS2[Architecture: 0]
+        DS3[Product: 0]
+        DS4[DevOps: 0]
+        DS --> DS1 & DS2 & DS3 & DS4
+        DSTotal["Total: 100 units<br/>❌ Cannot ship alone"]
+    end
+
+    subgraph "Renaissance Developer"
+        RD1[React: 80 units]
+        RD2[Design: 80 units]
+        RD3[Architecture: 80 units]
+        RD4[Product: 80 units]
+        RD5[DevOps: 60 units]
+        RD1 & RD2 & RD3 & RD4 & RD5 --> RDTotal["Total: 380 units<br/>✅ Ships independently<br/>+ AI fills gaps"]
+    end
+
+    style DSTotal fill:#ff6b6b,stroke:#c92a2a,color:#fff
+    style RDTotal fill:#51cf66,stroke:#2f9e44,color:#fff
+    style DS fill:#ffd43b,stroke:#fab005
+    style RD1 fill:#74c0fc,stroke:#1971c2
+    style RD2 fill:#74c0fc,stroke:#1971c2
+    style RD3 fill:#74c0fc,stroke:#1971c2
+    style RD4 fill:#74c0fc,stroke:#1971c2
+    style RD5 fill:#74c0fc,stroke:#1971c2
+```
+
+*Figure 1.2: Breadth (80% across 5 domains = 380 units) beats depth (100% in 1 domain = 100 units) when combined with AI assistance. The Renaissance Developer can ship complete products independently.*
+
 ### From Code Executor to Product Orchestrator
 
 The fundamental mindset shift: **you're no longer writing most code yourself—you're orchestrating AI agents to implement your vision**.
@@ -121,6 +176,36 @@ AI handles the "how to code it." You handle everything AI can't: understanding u
 ### The Five Competency Domains
 
 Renaissance Developers need "good enough" literacy across five domains. Not mastery—literacy. Enough to make informed decisions and validate AI output.
+
+```mermaid
+graph TD
+    RD[Renaissance Developer<br/>Complete Product Ownership]
+
+    RD --> PT[Product Thinking<br/>What to Build]
+    RD --> SA[Systems Architecture<br/>How to Structure]
+    RD --> DS[Design Sensibility<br/>User Experience]
+    RD --> TL[Technical Literacy<br/>Code Review & Debug]
+    RD --> SJ[Strategic Judgment<br/>Tradeoffs & Decisions]
+
+    PT -.-> SA
+    SA -.-> DS
+    DS -.-> TL
+    TL -.-> SJ
+    SJ -.-> PT
+
+    PT -.-> TL
+    SA -.-> SJ
+    DS -.-> PT
+
+    style RD fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style PT fill:#74c0fc,stroke:#1971c2
+    style SA fill:#74c0fc,stroke:#1971c2
+    style DS fill:#74c0fc,stroke:#1971c2
+    style TL fill:#74c0fc,stroke:#1971c2
+    style SJ fill:#74c0fc,stroke:#1971c2
+```
+
+*Figure 1.3: The five competency domains are interconnected—decisions in one domain inform others. You need 70-80% competency in each, not mastery, to ship complete products with AI assistance.*
 
 #### 1. Product Thinking
 
@@ -283,6 +368,51 @@ The strategic, high-judgment work remains firmly in your domain. These are the c
 
 A useful mental model: **AI is your implementation team, you are the CTO**.
 
+```mermaid
+graph TB
+    subgraph "AI Handles<br/>⚡ Implementation Layer"
+        AI1[Write Boilerplate Code]
+        AI2[Implement from Specifications]
+        AI3[Generate Tests]
+        AI4[Debug Syntax Errors]
+        AI5[Format & Lint Code]
+        AI6[Research API Documentation]
+    end
+
+    subgraph "Human Owns<br/>🧠 Strategic Layer"
+        H1[Decide What to Build<br/>Product Vision]
+        H2[Define System Architecture<br/>How It Should Work]
+        H3[Write Clear Specifications]
+        H4[Make Tradeoff Decisions<br/>Fast vs Correct, Simple vs Scalable]
+        H5[Review & Validate AI Output<br/>Security, Correctness, Edge Cases]
+        H6[Understand the Why<br/>Context & Mental Models]
+    end
+
+    Product[Product Idea] --> H1
+    H1 --> H2
+    H2 --> H3
+    H3 --> AI2
+    AI2 --> H5
+    H5 --> Ship[Ship to Production]
+
+    style AI1 fill:#a9e34b,stroke:#82c91e
+    style AI2 fill:#a9e34b,stroke:#82c91e
+    style AI3 fill:#a9e34b,stroke:#82c91e
+    style AI4 fill:#a9e34b,stroke:#82c91e
+    style AI5 fill:#a9e34b,stroke:#82c91e
+    style AI6 fill:#a9e34b,stroke:#82c91e
+    style H1 fill:#ffd43b,stroke:#fab005
+    style H2 fill:#ffd43b,stroke:#fab005
+    style H3 fill:#ffd43b,stroke:#fab005
+    style H4 fill:#ffd43b,stroke:#fab005
+    style H5 fill:#ffd43b,stroke:#fab005
+    style H6 fill:#ffd43b,stroke:#fab005
+    style Product fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style Ship fill:#51cf66,stroke:#2f9e44,color:#fff
+```
+
+*Figure 1.4: AI excels at mechanical, well-defined tasks (green) while humans own strategic, high-judgment work (yellow). The workflow shows how they collaborate: humans provide vision and specs, AI implements, humans validate.*
+
 A good CTO doesn't write much code, but they:
 
 - Set the technical vision and architecture
@@ -322,6 +452,33 @@ Now consider what happens when you add AI to the equation:
 **With AI**: The 80% developer asks Claude "how do I handle this edge case with React Suspense and concurrent rendering?" and gets expert guidance instantly. The gap between 80% knowledge and 100% knowledge becomes negligible because AI fills it on demand.
 
 **The insight**: That final 20% of React mastery takes years to acquire but provides almost no additional value when you have AI assistance. Those years are better spent gaining 80% competency in other domains.
+
+```mermaid
+graph LR
+    subgraph "Skill Mastery Journey"
+        direction TB
+        S0["0%<br/>⏱️ 0 months<br/>💰 Value: 0%"]
+        S1["60%<br/>⏱️ 2 months<br/>💰 Value: 75%<br/>Can build simple apps"]
+        S2["80%<br/>⏱️ 5 months<br/>💰 Value: 95%<br/>Can build complex apps"]
+        S3["90%<br/>⏱️ 11 months<br/>💰 Value: 98%<br/>Handle edge cases"]
+        S4["100%<br/>⏱️ 24+ months<br/>💰 Value: 100%<br/>Framework mastery"]
+
+        S0 --> S1
+        S1 --> S2
+        S2 --> S3
+        S3 --> S4
+
+        S2 -.->|"With AI assistance<br/>Gap becomes negligible"| S4
+    end
+
+    style S0 fill:#e9ecef,stroke:#868e96
+    style S1 fill:#ffd43b,stroke:#fab005
+    style S2 fill:#51cf66,stroke:#2f9e44,color:#fff
+    style S3 fill:#74c0fc,stroke:#1971c2
+    style S4 fill:#845ef7,stroke:#5f3dc4,color:#fff
+```
+
+*Figure 1.5: The first 80% of knowledge (5 months) provides 95% of practical value. The final 20% takes 19+ months but adds only 5% value. With AI, the 80→100% gap becomes negligible, making deep specialization inefficient.*
 
 ### The Compounding Returns of Breadth
 
@@ -570,6 +727,31 @@ In a traditional team with specialists, this feature requires coordination acros
 **Total People**: 5 specialists
 **Total Person-Hours**: ~33 hours
 **Bottleneck**: Availability and coordination
+
+```mermaid
+gantt
+    title Feature Implementation: User Authentication
+    dateFormat X
+    axisFormat %Hh
+
+    section Traditional Team (5 days)
+    PM writes specs :done, t1, 0, 2
+    Designer creates mockups :done, t2, 2, 8
+    Backend API dev :done, t3, 8, 20
+    Frontend dev :done, t4, 20, 26
+    DevOps setup :done, t5, 26, 29
+    QA testing :done, t6, 29, 33
+
+    section Renaissance Dev (1 day)
+    Product brief :active, r1, 0, 1
+    UI wireframe :active, r2, 1, 2
+    Technical spec :active, r3, 2, 3
+    AI implementation :active, r4, 3, 5
+    Review & validate :active, r5, 5, 6
+    Deploy & test :active, r6, 6, 7
+```
+
+*Figure 1.6: Traditional approach requires 33 person-hours across 5 specialists over 5 days with coordination overhead. Renaissance Developer completes the same feature in 7 hours solo in 1 day with full context and no handoffs.*
 
 ### Renaissance Developer with AI Approach
 
@@ -909,6 +1091,44 @@ The competitive landscape shifted in ways that favor Renaissance Developers over
 **The result**: A Renaissance Developer who ships an MVP in 6 weeks often beats a 10-person specialist team that ships a polished product in 6 months. The market rewards the former.
 
 ### The Convergence Creates a Window
+
+```mermaid
+graph TB
+    subgraph Factor1["Factor 1: AI Capability<br/>Reliable Implementation"]
+        F1A[Large Context Windows<br/>Entire codebases]
+        F1B[Tool Use<br/>Real dev tools]
+        F1C[Multi-turn Reasoning<br/>Iterative problem-solving]
+        F1D[Production-Quality Code<br/>Ship-ready output]
+    end
+
+    subgraph Factor2["Factor 2: Modern Tooling<br/>Democratized Infrastructure"]
+        F2A[Cloud Platforms<br/>Vercel, Railway, Render]
+        F2B[Managed Databases<br/>Supabase, PlanetScale]
+        F2C[Frameworks<br/>Next.js, production-ready]
+        F2D[CI/CD<br/>GitHub Actions, free]
+    end
+
+    subgraph Factor3["Factor 3: Market Dynamics<br/>Speed Wins"]
+        F3A[Speed-to-Market<br/>Primary advantage]
+        F3B[Good Enough Quality<br/>Users prefer useful over perfect]
+        F3C[High Specialist Costs<br/>Salaries + coordination]
+        F3D[Remote Work<br/>Solo devs competitive]
+    end
+
+    Factor1 --> Convergence{Renaissance Developer<br/>Moment}
+    Factor2 --> Convergence
+    Factor3 --> Convergence
+
+    Convergence --> Result["Solo dev competes<br/>with 5-10 person teams<br/>🚀 Ship in weeks, not months"]
+
+    style Factor1 fill:#845ef7,stroke:#5f3dc4,color:#fff
+    style Factor2 fill:#4dabf7,stroke:#1971c2,color:#fff
+    style Factor3 fill:#51cf66,stroke:#2f9e44,color:#fff
+    style Convergence fill:#ffd43b,stroke:#fab005
+    style Result fill:#ff6b6b,stroke:#c92a2a,color:#fff
+```
+
+*Figure 1.7: Three independent trends converged in 2024-2025: AI agents can reliably implement features (purple), modern tooling democratized infrastructure (blue), and markets reward speed over perfection (green). Together (yellow), they enable solo developers to compete with traditional teams (red).*
 
 These three factors don't just add up—they multiply:
 
