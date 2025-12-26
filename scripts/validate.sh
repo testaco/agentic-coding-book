@@ -47,14 +47,15 @@ run_check "Markdown linting" \
 run_check "Frontmatter schema validation" \
   "./scripts/validate-frontmatter.sh" || true
 
-# 3. Link validation (internal only by default)
+# 3. Generate diagrams BEFORE validating links
+run_check "Mermaid diagram rendering" \
+  "npm run build:mermaid" || true
+
+# 4. Link validation (internal only by default)
+# Note: Runs AFTER diagram generation so we can validate generated diagram links
 export CHECK_EXTERNAL=${CHECK_EXTERNAL:-false}
 run_check "Link validation" \
   "./scripts/validate-links.sh" || true
-
-# 4. Mermaid diagram rendering test
-run_check "Mermaid diagram rendering" \
-  "npm run build:mermaid" || true
 
 # 5. Traceability check (optional - only if enabled)
 if [ "$CHECK_TRACEABILITY" = "true" ]; then
