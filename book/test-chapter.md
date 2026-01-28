@@ -19,4 +19,5 @@ This is a test chapter with [internal link](./test-chapter.md) and [external lin
 echo "Test code block"
 ```
 
-![Test Diagram](../output/diagrams/test-workflow.png)
+<!-- Diagram reference removed - Mermaid rendering requires Chrome dependencies -->
+<!-- ![Test Diagram](../output/diagrams/test-workflow.png) -->
