@@ -11,7 +11,8 @@
     "validate:frontmatter": "./scripts/validate-frontmatter.sh",
     "validate:traceability": "python3 scripts/check-traceability.py",
     "generate:toc": "./scripts/generate-toc.sh",
-    "test": "./scripts/validate.sh"
+    "test": "./scripts/validate.sh",
+    "prepare": "husky"
   },
   "keywords": [
     "agentic-coding",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^10.6.1",
     "glob": "^10.3.10",
+    "husky": "^9.1.7",
     "js-yaml": "^4.1.0",
     "markdown-link-check": "^3.12.1",
     "markdownlint-cli": "^0.47.0"

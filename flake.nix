@@ -113,6 +113,9 @@
             python
             pkgs.git
 
+            # Chromium for Mermaid diagram rendering (Puppeteer)
+            pkgs.chromium
+
             # Shell utilities for scripts
             pkgs.bash
             pkgs.coreutils
@@ -126,12 +129,19 @@
           ];
 
           shellHook = ''
+            # Configure Puppeteer to use Nix-provided Chromium
+            export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+            export PUPPETEER_EXECUTABLE_PATH="${pkgs.chromium}/bin/chromium"
+            # Disable sandboxing for Chromium in containers/Nix environments
+            export PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox"
+
             echo "🚀 Agentic Coding Book Development Environment"
             echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             echo "📦 Node.js: $(node --version)"
             echo "📄 Pandoc: $(pandoc --version | head -1)"
             echo "🐍 Python: $(python --version)"
             echo "📝 TeX Live: $(xelatex --version | head -1)"
+            echo "🌐 Chromium: $(chromium --version)"
             echo ""
             echo "Available commands:"
             echo "  npm install          - Install Node.js dependencies"
@@ -178,7 +188,9 @@
           # Validate: nix run .#validate
           validate = flake-utils.lib.mkApp {
             drv = pkgs.writeShellScriptBin "validate" ''
-              export PATH="${nodejs}/bin:${python}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+              export PATH="${nodejs}/bin:${python}/bin:${pkgs.chromium}/bin:${pkgs.bash}/bin:${pkgs.coreutils}/bin:$PATH"
+              export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+              export PUPPETEER_EXECUTABLE_PATH="${pkgs.chromium}/bin/chromium"
 
               if [ ! -d "node_modules" ]; then
                 echo "Installing dependencies..."
@@ -206,7 +218,9 @@
           # Build Mermaid diagrams: nix run .#build-mermaid
           build-mermaid = flake-utils.lib.mkApp {
             drv = pkgs.writeShellScriptBin "build-mermaid" ''
-              export PATH="${nodejs}/bin:${pkgs.coreutils}/bin:$PATH"
+              export PATH="${nodejs}/bin:${pkgs.chromium}/bin:${pkgs.coreutils}/bin:$PATH"
+              export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+              export PUPPETEER_EXECUTABLE_PATH="${pkgs.chromium}/bin/chromium"
 
               if [ ! -d "node_modules" ]; then
                 echo "Installing dependencies..."
@@ -233,10 +247,15 @@
             pkgs.pandoc
             texlive
             python
+            pkgs.chromium
           ];
 
           buildPhase = ''
             export HOME=$TMPDIR
+
+            # Configure Puppeteer to use Nix-provided Chromium
+            export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+            export PUPPETEER_EXECUTABLE_PATH="${pkgs.chromium}/bin/chromium"
 
             # Install npm dependencies
             npm ci --prefer-offline --no-audit

@@ -17,13 +17,20 @@ function renderDiagrams() {
   // Create output directory
   fs.mkdirSync(outputDir, { recursive: true });
 
-  // Create puppeteer config for CI environments
+  // Create puppeteer config for CI environments and Nix shells
   let puppeteerConfigFile = null;
-  if (process.env.CI) {
+  if (process.env.CI || process.env.PUPPETEER_EXECUTABLE_PATH) {
     puppeteerConfigFile = path.join(outputDir, 'puppeteer-config.json');
-    fs.writeFileSync(puppeteerConfigFile, JSON.stringify({
+    const config = {
       args: ['--no-sandbox', '--disable-setuid-sandbox']
-    }));
+    };
+
+    // Use Nix-provided Chromium if available
+    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+      config.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+    }
+
+    fs.writeFileSync(puppeteerConfigFile, JSON.stringify(config));
   }
 
   // Find all .mmd files

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "Running pre-commit validation (same checks as CI)..."
+echo ""
+
+# Run the same validation as CI
+# This mirrors .github/workflows/validate.yml
+npm run validate
+
+echo ""
+echo "Pre-commit checks passed!"
