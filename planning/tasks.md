@@ -142,12 +142,15 @@ Create all build scripts as defined in design.md Section 6: PDF build, web build
 
 #### Acceptance Criteria
 - [x] build-pdf.sh generates valid PDF from test content (will test after Pandoc v3.0+ upgrade)
+- [x] build-pdf.sh handles section-based directory structure (sorts by section number from frontmatter)
 - [x] render-mermaid.js converts .mmd files to PNG
 - [x] validate-links.sh catches broken internal links
-- [x] validate-frontmatter.sh validates YAML schema
+- [x] validate-frontmatter.sh validates YAML schema (supports section and chapter_title fields)
 - [x] check-traceability.py validates requirement coverage
-- [x] generate-toc.sh creates navigation from frontmatter
+- [x] generate-toc.sh creates nested navigation with chapters and sections
 - [x] All scripts have error handling and usage messages
+- [x] Backward compatible with both chapter files and section directories
+- [x] Updated for section-based structure (2026-01-28)
 
 **Requirements Addressed**: REQ-T011-T015, REQ-N015-N016, REQ-N021
 
@@ -557,9 +560,9 @@ Create CSS stylesheets and Pandoc templates for web and print as specified in de
 **MVP**: [MVP] **CRITICAL**
 
 #### Description
-Lightweight skill for batch-generating chapter scaffolds (frontmatter + section structure). Can scaffold all 50 chapters in one session for user review before drafting. Avoids context compacting issues by keeping operations under 10k tokens.
+Lightweight skill for batch-generating chapter scaffolds (directory + section files). Creates one file per section with proper frontmatter. Can scaffold all 50 chapters (~500 section files) in batched sessions for user review before drafting. Avoids context compacting issues by keeping operations under 10k tokens.
 
-**Key Innovation**: Batch scaffolding mode allows generating structure for all chapters at once, user reviews/edits before any content drafting begins.
+**Key Innovation**: Generates individual section files (one per section) rather than monolithic chapter files. Enables parallel work on sections without merge conflicts and simplifies the draft-section skill workflow.
 
 #### Sub-tasks
 - [X] Create .claude/skills/scaffold-chapter/ directory
@@ -570,13 +573,15 @@ Lightweight skill for batch-generating chapter scaffolds (frontmatter + section 
 - [X] Test on 5 chapters (one from each part + extra)
 
 #### Acceptance Criteria
-- [X] Generates valid frontmatter matching design.md Section 3.1
-- [X] Auto-infers part/chapter from file path
-- [X] Auto-suggests tags, related chapters, requirements
+- [X] Creates chapter directory with individual section files
+- [X] Generates valid section frontmatter with section and chapter_title fields
+- [X] Auto-infers part/chapter/section from directory structure
+- [X] Auto-suggests tags, related sections, requirements
 - [X] Supports batch mode (scaffold multiple chapters)
-- [X] Context usage < 10k tokens per scaffold
-- [X] Each scaffold takes < 2 minutes
+- [X] Context usage < 10k tokens per chapter scaffold
+- [X] Each chapter scaffold takes < 3 minutes (creates 8-10 section files)
 - [X] Tested on 5+ chapters
+- [X] Updated to section-based structure (2026-01-28)
 
 #### Integration Points
 - **design.md Section 3.1**: Frontmatter schema
@@ -597,9 +602,9 @@ Lightweight skill for batch-generating chapter scaffolds (frontmatter + section 
 **MVP**: [MVP] **CRITICAL**
 
 #### Description
-Incremental content drafting skill that writes specific sections within existing scaffolds. Supports drafting 1 section at a time or batch-drafting multiple sections with user control. Each operation stays under 10k tokens to avoid context compacting.
+Incremental content drafting skill that writes individual section files (one file per section). Simplified workflow: read section file → draft content → write back. Supports drafting 1 section at a time or batch-drafting multiple sections with user control. Each operation stays under 10k tokens to avoid context compacting.
 
-**Key Innovation**: Incremental drafting with user review after each batch. Draft Introduction today, Key Concepts tomorrow - full user control over pace.
+**Key Innovation**: Section-based workflow eliminates complex parsing. Each section is a separate file, enabling parallel work and simplified drafting. Draft 01-introduction.md today, 02-key-concepts.md tomorrow - full user control over pace.
 
 #### Sub-tasks
 - [X] Create .claude/skills/draft-section/ directory
@@ -610,20 +615,21 @@ Incremental content drafting skill that writes specific sections within existing
 - [X] Test on 10+ sections across all part types (examples provided)
 
 #### Acceptance Criteria
-- [X] Reads existing chapter scaffold
-- [X] Supports single/multiple/remaining section modes
+- [X] Reads individual section files (no parsing required)
+- [X] Supports single/multiple/remaining section file modes
 - [X] Applies appropriate strategy per part type
   - [X] Part 1: First principles teaching
   - [X] Part 2: Practical workflow
   - [X] Part 3: Pattern documentation
   - [X] Part 4: Example narrative
 - [X] Generates 1-2 diagrams per section via mermaid-diagrams skill
-- [X] Adds cross-references to related chapters
+- [X] Adds cross-references to related sections/chapters
 - [X] Formats code ≤80 chars wide
 - [X] Validates quality before output
 - [X] Context usage < 10k tokens per section
 - [X] Each section takes < 15 minutes
 - [X] Tested on 10+ sections
+- [X] Updated to section-file workflow (2026-01-28)
 
 #### Integration Points
 - **mermaid-diagrams skill**: Called for diagram generation
@@ -646,6 +652,8 @@ Incremental content drafting skill that writes specific sections within existing
 ---
 
 ## Phase 2: Content Creation - Part 1 (MVP Critical)
+
+**Note**: As of 2026-01-28, the book uses a section-based structure where each chapter is a directory containing individual section files (one file per section). This enables parallel work on sections without merge conflicts and simplifies the draft-section skill workflow.
 
 ### P1-001: Write Preface and Introduction
 
@@ -686,20 +694,23 @@ Write the book's preface and introduction as defined in requirements.md REQ-C001
 Write Part 1, Chapter 1: The Renaissance Developer concept and mindset shift for agentic coding.
 
 #### Sub-tasks
-- [x] Create book/part1-foundations/01-renaissance-developer.md
-- [x] Define Renaissance Developer concept
-- [x] Explain mindset shift from deep specialization to broad competency
-- [x] Discuss "good enough at everything" principle
-- [x] Provide examples across disciplines
+- [x] Scaffold chapter directory: book/part1-foundations/01-renaissance-developer/
+- [x] Draft 10 section files (01-introduction.md through 10-further-reading.md)
+- [x] Define Renaissance Developer concept (section 2)
+- [x] Explain mindset shift from deep specialization to broad competency (sections 3-5)
+- [x] Discuss "good enough at everything" principle (section 4)
+- [x] Provide examples across disciplines (section 6)
 - [x] Create diagrams showing skill distribution
 
 #### Acceptance Criteria
+- [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "The Renaissance Developer")
 - [x] Renaissance Developer concept clearly explained
 - [x] Werner Vogels reference and attribution
 - [x] Mindset shift from traditional to agentic development articulated
 - [x] Examples span technical, product, design, analytics, business
 - [x] At least 1 Mermaid diagram (7 diagrams created)
 - [x] Content accessible to vibecoders
+- [x] Migrated from monolithic file to section-based structure (2026-01-28)
 
 **Requirements Addressed**: REQ-C002
 
@@ -713,24 +724,28 @@ Write Part 1, Chapter 1: The Renaissance Developer concept and mindset shift for
 
 #### Description
 Write Part 1, Chapter 2: Comprehensive definition of agentic coding covering all tools and approaches.
+Content organized as individual section files in book/part1-foundations/02-what-is-agentic-coding/
 
 #### Sub-tasks
-- [x] Create book/part1-foundations/02-what-is-agentic-coding.md
-- [x] Define agentic coding comprehensively
+- [x] Scaffold chapter directory: book/part1-foundations/02-what-is-agentic-coding/
+- [x] Draft 10 section files (01-introduction.md through 10-further-reading.md)
+- [x] Define agentic coding comprehensively (section 2)
+- [x] Explain the spectrum of agentic coding (section 3)
 - [x] Explain AI pair programming tools (Claude Code, Copilot, etc.)
-- [x] Explain autonomous agents
-- [x] Explain AI-assisted code review
-- [x] Explain natural language to code generation
-- [x] Explain AI-driven testing and debugging
-- [x] Provide examples of each category
+- [x] Explain autonomous agents and workflows
+- [x] Distinguish what agentic coding is NOT (section 5)
+- [x] Provide practical REST API example (section 7)
+- [x] Create diagrams showing agentic coding landscape
 
 #### Acceptance Criteria
+- [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "What is Agentic Coding?")
 - [x] All agentic coding categories covered (REQ-C003)
 - [x] Tool examples provided (without being too specific to versions)
 - [x] Distinction between different approaches clear
 - [x] Real-world examples for each category
 - [x] Diagrams showing agentic coding landscape (3 diagrams created)
 - [x] Content balances breadth and depth
+- [x] Migrated from monolithic file to section-based structure (2026-01-28)
 
 **Requirements Addressed**: REQ-C003
 

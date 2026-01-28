@@ -177,12 +177,28 @@ Contributions are welcome! See [`.github/CONTRIBUTING.md`](.github/CONTRIBUTING.
 agentic-coding-book/
 ├── planning/          # Genesis workflow artifacts
 ├── book/              # Book content (Parts 1-4)
+│   ├── part1-foundations/
+│   │   ├── 01-renaissance-developer/      # Chapter 1 (10 section files)
+│   │   │   ├── 01-introduction-the-specialist-s-dilemma.md
+│   │   │   ├── 02-the-renaissance-developer-model.md
+│   │   │   └── ... (sections 03-10)
+│   │   ├── 02-what-is-agentic-coding/     # Chapter 2 (10 section files)
+│   │   └── ... (chapters 03-05)
+│   ├── part2-playbook/                     # Chapters 1-11
+│   ├── part3-patterns-tools/               # Pattern chapters
+│   └── part4-example/                      # Example project chapters
 ├── diagrams/          # Mermaid diagram sources
 ├── assets/            # Images, styles, templates
 ├── scripts/           # Build and automation scripts
 ├── .github/           # GitHub workflows and templates
 └── .claude/           # Claude Code skills for book writing
 ```
+
+**Note**: As of 2026-01-28, chapters are organized as directories with individual section files (one file per section, ~5-10 KB each) rather than monolithic chapter files. This enables:
+- Parallel work on different sections without merge conflicts
+- Simplified drafting workflow (no section parsing needed)
+- Better version control granularity
+- Easier file management and navigation
 
 ## License
 

@@ -152,11 +152,20 @@ agentic-coding-book/
 │   │
 │   ├── part1-foundations/            # Part 1: Foundations
 │   │   ├── README.md                 # Part 1 overview
-│   │   ├── 01-renaissance-developer.md
-│   │   ├── 02-what-is-agentic-coding.md
-│   │   ├── 03-architecture-principles.md
-│   │   ├── 04-digestible-interfaces.md
-│   │   └── 05-new-bottlenecks.md
+│   │   ├── 01-renaissance-developer/ # Chapter 1 (directory)
+│   │   │   ├── 01-introduction-the-specialist-s-dilemma.md
+│   │   │   ├── 02-the-renaissance-developer-model.md
+│   │   │   ├── 03-what-changes-what-doesn-t.md
+│   │   │   ├── ... (sections 04-09)
+│   │   │   └── 10-further-reading.md
+│   │   ├── 02-what-is-agentic-coding/ # Chapter 2 (directory)
+│   │   │   ├── 01-introduction.md
+│   │   │   ├── 02-defining-agentic-coding.md
+│   │   │   ├── ... (sections 03-09)
+│   │   │   └── 10-further-reading.md
+│   │   ├── 03-architecture-principles/
+│   │   ├── 04-digestible-interfaces/
+│   │   └── 05-new-bottlenecks/
 │   │
 │   ├── part2-playbook/               # Part 2: The Playbook
 │   │   ├── README.md                 # Part 2 overview
@@ -269,9 +278,10 @@ agentic-coding-book/
    - *Rationale*: Mirrors book organization, enables independent navigation
    - *Benefit*: Part 1/2 sequential, Part 3 reference-friendly, Part 4 integrated
 
-3. **Flat chapter files within parts** (REQ-N005)
-   - *Rationale*: Each chapter is digestible in one session
-   - *Benefit*: Easy to locate, edit, review individual topics
+3. **Section-based chapter organization** (REQ-N005) **[Updated 2026-01-28]**
+   - *Rationale*: Each chapter is a directory containing individual section files (one file per section, ~5-10 KB each)
+   - *Benefit*: Parallel work on sections, no merge conflicts, simplified drafting workflow, better version control granularity
+   - *Trade-off*: More files to manage (~500 total), slightly more complex build process, but benefits outweigh costs for collaborative development
 
 4. **Separate diagrams/ directory** (REQ-T004, REQ-T016-T018)
    - *Rationale*: Mermaid source files separate from rendered output
@@ -291,13 +301,16 @@ Each content file includes YAML frontmatter for metadata:
 
 **Requirements**: REQ-S009-S011, REQ-N019-N020
 
+**Section File Schema** (for section files within chapter directories):
 ```yaml
 ---
-title: "Chapter Title"
+title: "Section Title"           # Section-specific title
+chapter_title: "Chapter Title"   # Parent chapter title (for context)
 part: 1                          # Which part (1-4)
 chapter: 3                       # Chapter number within part
+section: 2                       # Section number within chapter (1-based)
 version: "1.0"                   # Content version
-date: "2025-12-19"              # Last updated
+date: "2026-01-28"              # Last updated
 status: "draft|review|published" # Publication status
 author: "Author Name"
 tags: ["architecture", "patterns", "mvp"]
@@ -323,15 +336,20 @@ abstract: |
 
 **Requirements**: REQ-S010-S011, REQ-Q010-Q013
 
-Internal links use relative paths:
+Internal links use relative paths to section files:
 
 ```markdown
 See [EARS Notation](../part3-patterns-tools/specifications/ears-notation.md)
 for detailed requirements writing guidance.
 
 This concept was introduced in
-[Renaissance Developer](../part1-foundations/01-renaissance-developer.md).
+[The Renaissance Developer](../part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md).
+
+For more details, see
+[Defining Agentic Coding](./02-what-is-agentic-coding/02-defining-agentic-coding.md).
 ```
+
+**Note**: As of 2026-01-28, chapters are directories with section files, so links point to specific section files within chapter directories.
 
 **Link Validation**:
 - Automated script checks all internal links (REQ-N015)
