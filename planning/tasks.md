@@ -754,22 +754,25 @@ Content organized as individual section files in book/part1-foundations/02-what-
 ### P1-004: Write Chapter: Architecture Principles for Agentic Development
 
 **Prerequisites**: P1-003
-**Status**: [ ] Not Started
+**Status**: [~] In Progress - Scaffolded, ready for drafting
 **MVP**: [MVP]
 
 #### Description
 Write Part 1, Chapter 3: First principles of software architecture optimized for agentic development.
+Content organized as individual section files in book/part1-foundations/03-architecture-principles/
 
 #### Sub-tasks
-- [ ] Create book/part1-foundations/03-architecture-principles.md
-- [ ] Explain component decomposition for AI digestibility
-- [ ] Discuss bounded contexts and interface boundaries
-- [ ] Explain separation of concerns for agents
-- [ ] Discuss testability and AI-generated code
-- [ ] Provide architectural patterns
-- [ ] Create architecture diagrams
+- [x] Scaffold chapter directory: book/part1-foundations/03-architecture-principles/
+- [x] Draft 10 section files (01-introduction.md through 10-further-reading.md)
+- [ ] Explain component decomposition for AI digestibility (section 3)
+- [ ] Discuss bounded contexts and interface boundaries (section 4)
+- [ ] Explain separation of concerns for agents (section 5)
+- [ ] Discuss testability and AI-generated code (section 6)
+- [ ] Provide architectural patterns (sections 2-6)
+- [ ] Create architecture diagrams (via mermaid-diagrams skill)
 
 #### Acceptance Criteria
+- [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "Architecture Principles for Agentic Development")
 - [ ] First principles clearly explained (REQ-C004)
 - [ ] Principles specific to agentic development, not just general architecture
 - [ ] Examples show before/after with agentic optimization
@@ -2437,7 +2440,7 @@ Prepare book for physical print-on-demand.
 
 ## Progress Tracking
 
-**Overall Status**: In Progress (10/81 tasks complete)
+**Overall Status**: In Progress (10/81 tasks complete, 1 in progress)
 
 **Completed Tasks**:
 - INFRA-001 through INFRA-005: Infrastructure setup
@@ -2447,7 +2450,10 @@ Prepare book for physical print-on-demand.
 - P1-002: Renaissance Developer chapter (with 7 Mermaid diagrams)
 - P1-003: What is Agentic Coding chapter (with 3 Mermaid diagrams)
 
-**Next Action**: P1-004 - Write Chapter: Architecture Principles for Agentic Development
+**In Progress**:
+- P1-004: Architecture Principles chapter (scaffolded - 10 section files created, ready for content drafting)
+
+**Next Action**: Complete P1-004 content drafting using draft-section skill
 
 **Prerequisites Complete**: Yes (genesis.md workflow complete through T005)
 
