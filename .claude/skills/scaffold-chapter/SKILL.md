@@ -1,7 +1,7 @@
 ---
 name: scaffold-chapter
-description: Batch-generate chapter scaffolds (frontmatter + section structure) for the Agentic Coding Book. Auto-infers metadata from file paths, suggests tags/related/requirements, and creates part-appropriate section templates. Designed for batch scaffolding all ~50 chapters efficiently.
-allowed-tools: Read, Grep, Glob, Write
+description: Batch-generate chapter scaffolds (directory + section files) for the Agentic Coding Book. Creates one file per section with proper frontmatter, auto-infers metadata from paths, suggests tags/related/requirements, and creates part-appropriate section templates. Designed for batch scaffolding all ~50 chapters efficiently.
+allowed-tools: Read, Grep, Glob, Write, Bash
 ---
 
 # Chapter Scaffold Generator
@@ -9,16 +9,19 @@ allowed-tools: Read, Grep, Glob, Write
 ## Overview
 
 This skill generates complete chapter scaffolds for the Agentic Coding Book, including:
-- **YAML frontmatter** with auto-suggested metadata (tags, related chapters, requirements)
+- **Chapter directory** with individual section files (one file per section)
+- **Section-level YAML frontmatter** with auto-suggested metadata (tags, related chapters, requirements)
 - **Section structure** tailored to the part type (Foundations, Playbook, Patterns, Example)
 - **Placeholder guidance** to accelerate content drafting
 
 **Key Benefits**:
+- **Section-level files**: Each section is a separate file (~5-10 KB) for easier management
 - **Batch mode**: Scaffold all 50 chapters in ~2 hours
 - **Context efficient**: ~6.5k tokens per scaffold, ~12.5k for 5 scaffolds
-- **Auto-inference**: Part/chapter numbers from file paths
+- **Auto-inference**: Part/chapter/section numbers from file paths
 - **Smart suggestions**: Tags, related chapters, and requirements based on content area
 - **Quality foundation**: Ensures consistent structure across all chapters
+- **Parallel work**: Multiple sections can be drafted simultaneously without merge conflicts
 
 ## Critical Principle: Customize, Don't Template
 
@@ -56,42 +59,49 @@ Before scaffolding, read the necessary context files:
 
 ### Step 2: Parse File Path(s)
 
-For each chapter to scaffold, extract metadata from the file path:
+For each chapter to scaffold, extract metadata from the directory path:
 
-**Path Pattern**: `book/<part-directory>/<chapter-file>.md`
+**Path Pattern**: `book/<part-directory>/<chapter-directory>/`
 
 **Examples**:
-- `book/part1-foundations/01-renaissance-developer.md` → Part 1, Chapter 1
-- `book/part2-playbook/03-brainstorm-to-brief.md` → Part 2, Chapter 3
-- `book/part3-patterns-tools/architecture/clean-boundaries.md` → Part 3 (subdirectory)
-- `book/part4-example/10-launch-day.md` → Part 4, Chapter 10
+- `book/part1-foundations/01-renaissance-developer/` → Part 1, Chapter 1
+- `book/part2-playbook/03-brainstorm-to-brief/` → Part 2, Chapter 3
+- `book/part3-patterns-tools/architecture/01-clean-boundaries/` → Part 3 (subdirectory)
+- `book/part4-example/10-launch-day/` → Part 4, Chapter 10
 
 **Auto-inference**:
 - **Part number**: Extract from directory name (`part1` → 1, `part2` → 2, etc.)
-- **Chapter number**: Extract from filename prefix (`01-` → 1, `03-` → 3, etc.)
-- **Title**: Derive from filename (e.g., `renaissance-developer` → "The Renaissance Developer")
+- **Chapter number**: Extract from directory name prefix (`01-` → 1, `03-` → 3, etc.)
+- **Chapter title**: Derive from directory name (e.g., `renaissance-developer` → "The Renaissance Developer")
 
-### Step 3: Generate Frontmatter
+### Step 3: Generate Frontmatter for Each Section
 
-Create complete YAML frontmatter following this schema:
+Create complete YAML frontmatter for each section file following this schema:
 
 ```yaml
 ---
-title: "Chapter Title"                  # Derived from filename, user can refine
+title: "Section Title"                   # Section-specific title
+chapter_title: "Chapter Title"           # Chapter context (from directory name)
 part: 1                                  # Auto-inferred from directory
-chapter: 3                               # Auto-inferred from filename
+chapter: 3                               # Auto-inferred from directory name
+section: 1                               # Section number (1-based)
 version: "0.1"                           # Start at 0.1 (draft)
 date: "YYYY-MM-DD"                       # Current date
 status: "draft"                          # Always start as "draft"
-author: "Author Name"                    # Use placeholder or known author
+author: "Brian Childress"                # Default author
 tags: ["tag1", "tag2", "tag3"]          # Auto-suggested based on content area
-related: []                              # Auto-suggested related chapters (optional)
+related: []                              # Auto-suggested related sections (optional)
 requirements: []                         # Auto-suggested requirements (optional)
 abstract: |
-  [Placeholder: 2-3 sentence summary of this chapter's content
+  [Placeholder: 1-2 sentence summary of this section's content
   for search and navigation purposes. To be written during drafting.]
 ---
 ```
+
+**Section-specific fields**:
+- `title`: Section-specific title (e.g., "Introduction: The Specialist's Dilemma")
+- `chapter_title`: The chapter title for context (e.g., "The Renaissance Developer")
+- `section`: Integer section number (1, 2, 3, etc.) for ordering within chapter
 
 #### Tag Suggestion Strategy
 
@@ -145,9 +155,9 @@ Suggest relevant requirements from `requirements.md` based on chapter topic:
 - Testing chapter → `REQ-C019, REQ-C020, REQ-C021` (testing strategies)
 - EARS notation chapter → `REQ-C015, REQ-C016` (specification writing)
 
-### Step 4: Generate Section Structure
+### Step 4: Determine Section Structure and Create Files
 
-Select the appropriate base template for the part, then **customize it** based on the specific chapter topic.
+Select the appropriate section structure for the part, then **customize it** based on the specific chapter topic.
 
 **CRITICAL**: Don't just use generic templates. Think about what this specific chapter needs to teach based on:
 - The chapter title (e.g., "Renaissance Developer" vs "Architecture Principles")
@@ -155,17 +165,22 @@ Select the appropriate base template for the part, then **customize it** based o
 - The requirements this chapter addresses
 
 **Process**:
-1. Select base template for the part (see templates below)
+1. Select base section structure for the part (see templates below)
 2. Replace generic section names with specific, meaningful names
-3. Customize placeholder guidance to reflect actual chapter content
-4. Add/remove/reorder sections as needed for the topic
+3. For each section, create a separate `.md` file in the chapter directory
+4. Each file gets its own frontmatter with appropriate section number
+5. Customize placeholder guidance to reflect actual section content
 
-**Example customization**:
-- Generic: `### [Concept 1 Name]`
-- Specific: `### From Code Executor to Product Orchestrator`
+**File naming convention**: `<section-number>-<section-slug>.md`
+- Section numbers: 01, 02, 03, ... (zero-padded for sorting)
+- Section slug: kebab-case version of section title
 
-- Generic: `[Placeholder: Explanation, definition, importance]`
-- Specific: `[Placeholder: Explain the mindset shift - you're no longer writing most code yourself, you're orchestrating AI agents to implement your vision. Your value is in the thinking: What should we build? How should it work? Why these tradeoffs?]`
+**Example files**:
+- `01-introduction.md` - Introduction section
+- `02-renaissance-developer-model.md` - The Renaissance Developer Model section
+- `03-what-changes-what-doesnt.md` - What Changes, What Doesn't section
+- `09-summary.md` - Summary section
+- `10-further-reading.md` - Further Reading section
 
 ---
 
@@ -198,82 +213,139 @@ Select the appropriate base template for the part, then **customize it** based o
 
 ---
 
-**Base templates by part number:**
+**Base section structure by part number:**
 
 #### Part 1: Foundations (First Principles Teaching)
 
+Typical chapter structure (8-10 sections):
+1. **Introduction** - Hook and context
+2. **Key Concept 1** - First major concept (custom name)
+3. **Key Concept 2** - Second major concept (custom name)
+4. **Key Concept 3** - Third major concept (optional, custom name)
+5. **What Changes, What Doesn't** - Comparison/evolution section (optional)
+6. **Practical Application** - Real-world examples
+7. **Common Pitfalls** - Mistakes to avoid
+8. **Why This Matters** - Broader significance (optional)
+9. **Summary** - Key takeaways
+10. **Further Reading** - Related resources
+
+**Section 1: Introduction** (01-introduction.md)
 ```markdown
-## Introduction
-
 [Placeholder: Hook the reader with a relatable scenario or problem.
-Establish why this topic matters for agentic coding.]
+Establish why this topic matters for agentic coding.
+3-5 paragraphs max - this is just the intro, detailed concepts come in later sections.]
 
-## Key Concepts
+**In this chapter, we'll explore**:
+- [Key topic 1]
+- [Key topic 2]
+- [Key topic 3]
+```
 
-[Placeholder: Define core concepts and terminology.
-Use clear explanations accessible to vibecoders.]
+**Sections 2-4: Key Concepts** (e.g., 02-renaissance-model.md, 03-mindset-shift.md)
+```markdown
+[Placeholder: Deep dive into this specific concept.
+Define it clearly, explain why it matters, show how it applies to agentic coding.
+Use examples, analogies, and concrete scenarios.
+~3-5 pages per concept section.]
 
-### [Concept 1 Name]
+**Key characteristics**:
+- [Characteristic 1]
+- [Characteristic 2]
+- [Characteristic 3]
 
-[Placeholder: Explanation, definition, importance]
+[Additional subsections as needed for this concept]
+```
 
-### [Concept 2 Name]
+**Section 6: Practical Application** (e.g., 06-practical-example.md)
+```markdown
+[Placeholder: Show how to apply the concepts from previous sections in real scenarios.
+Include concrete examples with AI agents.
+Walk through at least one complete example step-by-step.]
 
-[Placeholder: Explanation, definition, importance]
+## Example: [Scenario Name]
 
-## Practical Application
+[Placeholder: Complete walkthrough demonstrating the concepts in action]
+```
 
-[Placeholder: Show how to apply these concepts in real scenarios.
-Include concrete examples with AI agents.]
+**Section 7: Common Pitfalls** (e.g., 07-common-pitfalls.md)
+```markdown
+[Placeholder: What mistakes do people make when applying these concepts?
+How to recognize and avoid them?
+Based on real experiences and common misunderstandings.]
 
-### Example: [Scenario Name]
+- **Pitfall 1: [Name]** - [Description and how to avoid]
+- **Pitfall 2: [Name]** - [Description and how to avoid]
+- **Pitfall 3: [Name]** - [Description and how to avoid]
+```
 
-[Placeholder: Walk through a practical example step-by-step]
-
-## Common Pitfalls
-
-[Placeholder: What mistakes do people make? How to avoid them?]
-
-- **Pitfall 1**: [Description and how to avoid]
-- **Pitfall 2**: [Description and how to avoid]
-- **Pitfall 3**: [Description and how to avoid]
-
-## Summary
-
-[Placeholder: Key takeaways in 3-5 bullet points]
+**Section 9: Summary** (09-summary.md)
+```markdown
+[Placeholder: Synthesize the key takeaways from this chapter in 3-5 bullet points.
+Each should be actionable or memorable.]
 
 - [Takeaway 1]
 - [Takeaway 2]
 - [Takeaway 3]
+```
 
-## Further Reading
+**Section 10: Further Reading** (10-further-reading.md)
+```markdown
+[Placeholder: Related chapters and external resources for deeper learning]
 
-[Placeholder: Related chapters and external resources]
+**Related Chapters**:
+- [Related chapter 1 from this book]
+- [Related chapter 2 from this book]
 
-- [Related chapter 1]
-- [Related chapter 2]
-- [External resource with link]
+**External Resources**:
+- [Book/article title and link]
+- [Book/article title and link]
 ```
 
 #### Part 2: Playbook (Practical Workflows)
 
+Typical chapter structure (8-10 sections):
+1. **Overview** - What this phase is and where it fits
+2. **Prerequisites** - What must be done first
+3. **The Process** - Step-by-step workflow
+4. **Working with Claude Code** - AI collaboration guidance
+5. **Deliverables** - What you produce in this phase
+6. **Example** - Complete walkthrough
+7. **Common Questions** - FAQ
+8. **Next Steps** - What comes after
+
+**Section 1: Overview** (01-overview.md)
 ```markdown
-## Overview
+[Placeholder: What is this workflow step?
+Where does it fit in the 6-week journey?
+Why is it important?
+2-3 paragraphs establishing context.]
 
-[Placeholder: What is this workflow step? Where does it fit in the 6-week journey?]
+**In this phase, you will**:
+- [Objective 1]
+- [Objective 2]
+- [Objective 3]
+```
 
-## Prerequisites
+**Section 2: Prerequisites** (02-prerequisites.md)
+```markdown
+[Placeholder: What must be completed before starting this phase?
+What knowledge, artifacts, or decisions are needed?]
 
-[Placeholder: What must be completed before this step?]
+**Required inputs**:
+- [Prerequisite 1] - [Why it's needed]
+- [Prerequisite 2] - [Why it's needed]
 
-- [Prerequisite 1]
-- [Prerequisite 2]
+**Optional but helpful**:
+- [Nice-to-have 1]
+```
 
-## The Process
+**Section 3: The Process** (03-the-process.md)
+```markdown
+[Placeholder: Step-by-step workflow for this phase.
+Break down the work into concrete, actionable steps.
+For each step: what to do, how to do it, what good looks like.]
 
-[Placeholder: Step-by-step workflow for this phase]
-
-### Step 1: [Action Name]
+## Step 1: [Action Name]
 
 [Placeholder: Detailed explanation of this step]
 
@@ -285,102 +357,180 @@ Include concrete examples with AI agents.]
 - [Success criterion 1]
 - [Success criterion 2]
 
-### Step 2: [Action Name]
+## Step 2: [Action Name]
 
 [Placeholder: Continue for each step in the workflow]
 
-## Working with Claude Code
+[Continue for all steps in this phase]
+```
 
-[Placeholder: How to use AI agents effectively for this workflow step]
+**Section 4: Working with Claude Code** (04-working-with-claude.md)
+```markdown
+[Placeholder: How to use AI agents effectively for this workflow phase.
+Concrete prompts, tips, and collaboration patterns.]
 
-**Best prompts**:
+## Best Prompts
+
+**Prompt 1: [Purpose]**
 ```
 [Example prompt 1]
 ```
 
+**Prompt 2: [Purpose]**
 ```
 [Example prompt 2]
 ```
 
-**Tips**:
-- [Tip 1 for effective AI collaboration]
-- [Tip 2 for effective AI collaboration]
+## Tips for Effective Collaboration
 
-## Deliverables
+- [Tip 1 for effective AI use in this phase]
+- [Tip 2 for effective AI use in this phase]
+- [Tip 3 for effective AI use in this phase]
+```
 
-[Placeholder: What artifacts are produced in this step?]
+**Section 5: Deliverables** (05-deliverables.md)
+```markdown
+[Placeholder: What artifacts are produced in this phase?
+What do they contain? What format? What makes them good?]
 
-- [Deliverable 1] - [Description]
-- [Deliverable 2] - [Description]
+- **[Deliverable 1]** - [Description, format, quality criteria]
+- **[Deliverable 2]** - [Description, format, quality criteria]
+```
 
-## Example
+**Section 6: Example** (06-example.md)
+```markdown
+[Placeholder: Complete walkthrough of this workflow phase for a sample project.
+Show actual artifacts, decisions, and iterations.]
 
-[Placeholder: Complete walkthrough of this workflow step for a sample project]
+[Full example demonstrating the process]
+```
 
-## Common Questions
-
-[Placeholder: FAQ for this workflow step]
+**Section 7: Common Questions** (07-common-questions.md)
+```markdown
+[Placeholder: FAQ for this workflow phase based on common struggles and uncertainties]
 
 **Q: [Question 1]**
+
 A: [Answer 1]
 
 **Q: [Question 2]**
+
 A: [Answer 2]
 
-## Next Steps
+**Q: [Question 3]**
 
-[Placeholder: What comes after this workflow step?]
+A: [Answer 3]
+```
 
-See [Next Chapter Name](./next-chapter.md) for the next phase.
+**Section 8: Next Steps** (08-next-steps.md)
+```markdown
+[Placeholder: What comes after this workflow phase?
+How does it connect to the next chapter?]
+
+With [deliverables from this phase] complete, you're ready to move on to [next phase].
+
+In the next chapter, we'll cover [next topic]...
+
+See [Next Chapter Title](../NN-next-chapter/01-overview.md) to continue.
 ```
 
 #### Part 3: Patterns & Tools (Pattern Documentation)
 
-```markdown
-## Overview
+Typical chapter structure (8-10 sections):
+1. **Overview** - Pattern summary and category
+2. **The Problem** - What problem this solves
+3. **The Solution** - How the pattern works
+4. **Implementation** - Step-by-step guide
+5. **Example** - Concrete code/diagram example
+6. **When to Use** - Appropriate scenarios
+7. **When NOT to Use** - Inappropriate scenarios
+8. **Related Patterns** - Cross-references
+9. **Checklist** - Quick reference
+10. **Further Reading** - Resources
 
-[Placeholder: One-paragraph summary of this pattern/tool]
+**Section 1: Overview** (01-overview.md)
+```markdown
+[Placeholder: One-paragraph summary of this pattern/tool.
+What is it? Why does it exist? Who needs it?]
 
 **Pattern Category**: [Architecture/Interface/Testing/Specification/Toolchain/Workflow]
 
-## The Problem
+**At a glance**:
+- **Problem**: [One-sentence problem statement]
+- **Solution**: [One-sentence solution statement]
+- **When to use**: [One-sentence use case]
+```
 
+**Section 2: The Problem** (02-the-problem.md)
+```markdown
 [Placeholder: What problem does this pattern solve?
-When do you encounter this issue in agentic coding?]
+When do you encounter this issue in agentic coding?
+What happens if you don't use this pattern?]
 
-### Symptoms
+## Symptoms
 
-[Placeholder: How do you know you need this pattern?]
+You need this pattern when you see:
 
 - [Symptom 1]
 - [Symptom 2]
 - [Symptom 3]
 
-## The Solution
+## Why It Matters
 
-[Placeholder: Detailed explanation of the pattern/tool]
+[Explain the consequences of not addressing this problem]
+```
 
-### How It Works
+**Section 3: The Solution** (03-the-solution.md)
+```markdown
+[Placeholder: Detailed explanation of the pattern/tool.
+How does it solve the problem?
+What are the key principles behind it?]
 
-[Placeholder: Mechanics and principles]
+## How It Works
 
-### Implementation
+[Placeholder: Mechanics and principles - explain the core idea]
 
-[Placeholder: Step-by-step guide to implementing this pattern]
+## Key Components
 
-**Step 1**: [Action]
-**Step 2**: [Action]
-**Step 3**: [Action]
+- **[Component 1]**: [Role and responsibility]
+- **[Component 2]**: [Role and responsibility]
+- **[Component 3]**: [Role and responsibility]
+```
 
-## Example
+**Section 4: Implementation** (04-implementation.md)
+```markdown
+[Placeholder: Step-by-step guide to implementing this pattern.
+Concrete, actionable steps anyone can follow.]
 
-[Placeholder: Concrete example with code/diagrams]
+## Step 1: [Action]
+
+[Detailed explanation of first step]
+
+## Step 2: [Action]
+
+[Detailed explanation of second step]
+
+## Step 3: [Action]
+
+[Detailed explanation of third step]
+
+[Continue for all implementation steps]
+```
+
+**Section 5: Example** (05-example.md)
+```markdown
+[Placeholder: Concrete example with code and/or diagrams.
+Show the pattern in action with real code or visual representation.]
+
+## Code Example
 
 ```[language]
 [Code example demonstrating the pattern]
 ```
 
-[Placeholder: Mermaid diagram showing the pattern visually]
+*Listing X.X: [Code description]*
+
+## Visual Representation
 
 ```mermaid
 graph TD
@@ -389,82 +539,134 @@ graph TD
 ```
 
 *Figure X.X: [Diagram description]*
+```
 
-## When to Use
-
-[Placeholder: Situations where this pattern is appropriate]
+**Section 6: When to Use** (06-when-to-use.md)
+```markdown
+[Placeholder: Situations where this pattern is appropriate and beneficial]
 
 **Use this pattern when**:
-- [Scenario 1]
-- [Scenario 2]
-- [Scenario 3]
+- [Scenario 1 with explanation]
+- [Scenario 2 with explanation]
+- [Scenario 3 with explanation]
+```
 
-## When NOT to Use
-
-[Placeholder: Situations where this pattern is inappropriate or overkill]
+**Section 7: When NOT to Use** (07-when-not-to-use.md)
+```markdown
+[Placeholder: Situations where this pattern is inappropriate, overkill, or harmful]
 
 **Avoid this pattern when**:
-- [Scenario 1]
-- [Scenario 2]
-- [Scenario 3]
+- [Scenario 1 with explanation]
+- [Scenario 2 with explanation]
+- [Scenario 3 with explanation]
 
-## Related Patterns
+## Alternatives
 
-[Placeholder: Cross-references to complementary or alternative patterns]
+If this pattern doesn't fit, consider:
+- [Alternative pattern 1]
+- [Alternative pattern 2]
+```
 
-- **[Pattern Name 1]**: [Relationship]
+**Section 8: Related Patterns** (08-related-patterns.md)
+```markdown
+[Placeholder: Cross-references to complementary, alternative, or prerequisite patterns]
+
+- **[Pattern Name 1]**: [Relationship - complements/extends/alternative to this pattern]
 - **[Pattern Name 2]**: [Relationship]
 - **[Pattern Name 3]**: [Relationship]
+```
 
-## Checklist
+**Section 9: Checklist** (09-checklist.md)
+```markdown
+[Placeholder: Quick reference for implementing and validating this pattern]
 
-[Placeholder: Quick reference for implementing this pattern]
+## Implementation Checklist
 
 - [ ] [Implementation step 1]
 - [ ] [Implementation step 2]
 - [ ] [Implementation step 3]
-- [ ] [Validation step 1]
-- [ ] [Validation step 2]
 
-## Further Reading
+## Validation Checklist
 
-[Placeholder: External resources, official docs, related chapters]
+- [ ] [Validation criterion 1]
+- [ ] [Validation criterion 2]
+- [ ] [Validation criterion 3]
+```
 
-- [Resource 1]
-- [Resource 2]
+**Section 10: Further Reading** (10-further-reading.md)
+```markdown
+[Placeholder: External resources, official documentation, and related book chapters]
+
+**Related Chapters**:
+- [Related chapter from this book]
+
+**External Resources**:
+- [Official documentation link]
+- [Book/article title and link]
+- [Tool/library link]
 ```
 
 #### Part 4: Example (Complete Project Narrative)
 
-```markdown
-## Where We Are
+Typical chapter structure (6-8 sections):
+1. **Where We Are** - Project status and timeline
+2. **The Challenge** - What we're tackling in this chapter
+3. **The Approach** - Strategy using playbook patterns
+4. **Execution** - Step-by-step work with Claude
+5. **Code Highlights** - Key implementation snippets
+6. **Lessons Learned** - Insights from this phase
+7. **What's Next** - Transition to next chapter
 
-[Placeholder: Summary of project state at this point in the example]
+**Section 1: Where We Are** (01-where-we-are.md)
+```markdown
+[Placeholder: Summary of project state at this point in the example.
+What have we accomplished? Where are we in the timeline?]
 
 **Timeline**: [Week X, Day Y] of the 6-week journey
 
-**Completed**:
+**Completed so far**:
 - [Completed milestone 1]
 - [Completed milestone 2]
+- [Completed milestone 3]
 
-**Next up**:
-- [Next goal]
+**Current focus**:
+- [What we're working on in this chapter]
+```
 
-## The Challenge
+**Section 2: The Challenge** (02-the-challenge.md)
+```markdown
+[Placeholder: What specific challenge or task is being tackled in this chapter?
+Why is it important? What makes it interesting or difficult?]
 
-[Placeholder: What challenge or task is being tackled in this chapter?]
+**Key questions we need to answer**:
+- [Question 1]
+- [Question 2]
+- [Question 3]
+```
 
-## The Approach
+**Section 3: The Approach** (03-the-approach.md)
+```markdown
+[Placeholder: How we tackle this challenge using patterns from the playbook.
+Reference specific chapters/patterns from Parts 1-3.]
 
-[Placeholder: How we tackle this challenge using the playbook patterns]
+## Planning
 
-### Planning
+[Placeholder: Thinking through the approach before coding]
 
-[Placeholder: Thinking through the approach]
+## Strategy
 
-### Execution
+We'll apply these patterns:
+- **[Pattern from Part 3]**: [Why we're using it]
+- **[Workflow from Part 2]**: [How it guides us]
+- **[Principle from Part 1]**: [How it shapes our decisions]
+```
 
-[Placeholder: Step-by-step execution with Claude Code]
+**Section 4: Execution** (04-execution.md)
+```markdown
+[Placeholder: Step-by-step execution with Claude Code.
+Show actual prompts, Claude's responses, and iterations.]
+
+## Step 1: [Action]
 
 **Prompt to Claude**:
 ```
@@ -474,55 +676,90 @@ graph TD
 **Claude's response**:
 [Summary of what Claude generated/suggested]
 
-**Iteration**:
+**Our iteration**:
 [How we refined Claude's output]
 
-### Validation
+## Step 2: [Action]
 
-[Placeholder: How we validated the result]
+[Continue for all execution steps]
 
-## Code Highlights
+## Validation
 
-[Placeholder: Show key code snippets with explanation]
+[How we validated the result]
+```
+
+**Section 5: Code Highlights** (05-code-highlights.md)
+```markdown
+[Placeholder: Show key code snippets with detailed explanation.
+Focus on interesting decisions, tradeoffs, or patterns in action.]
+
+## [Feature/Component Name]
 
 ```[language]
 [Meaningful code example from this phase]
 ```
 
-*Listing X.X: [Code description]*
+*Listing X.X: [Code description and why it matters]*
 
-## Lessons Learned
-
-[Placeholder: What insights emerged from this phase?]
-
-- **Lesson 1**: [Insight and why it matters]
-- **Lesson 2**: [Insight and why it matters]
-- **Lesson 3**: [Insight and why it matters]
-
-## What's Next
-
-[Placeholder: Tease the next chapter's challenge]
-
-In the next chapter, we'll tackle [next challenge]...
+[Explanation of the code and what it demonstrates]
 ```
 
-### Step 5: Combine and Output
+**Section 6: Lessons Learned** (06-lessons-learned.md)
+```markdown
+[Placeholder: What insights emerged from this phase?
+What worked well? What surprised us? What would we do differently?]
 
-Combine frontmatter + section structure into a complete scaffold:
+- **Lesson 1: [Title]** - [Insight and why it matters for agentic coding]
+- **Lesson 2: [Title]** - [Insight and why it matters]
+- **Lesson 3: [Title]** - [Insight and why it matters]
+```
 
+**Section 7: What's Next** (07-whats-next.md)
+```markdown
+[Placeholder: Transition to the next chapter.
+What challenge comes next? How does this chapter's work set us up for it?]
+
+With [accomplishment from this chapter] complete, we're ready to tackle [next challenge].
+
+In the next chapter, we'll [next chapter's focus]...
+```
+
+### Step 5: Create Chapter Directory
+
+Create the chapter directory if it doesn't exist:
+- Use `Bash` tool with `mkdir -p` command
+- Path format: `book/<part-dir>/<chapter-dir>/`
+
+Example:
+```bash
+mkdir -p book/part1-foundations/01-renaissance-developer/
+```
+
+### Step 6: Write Section Files
+
+For each section in the chapter structure:
+
+1. **Generate section frontmatter** (Step 3 schema) with:
+   - `section`: Integer section number (1, 2, 3, ...)
+   - `title`: Section-specific title
+   - `chapter_title`: Chapter title for context
+
+2. **Generate section content** from the appropriate template part
+
+3. **Combine frontmatter + content**:
 ```markdown
 ---
-[YAML frontmatter from Step 3]
+[YAML frontmatter with section metadata]
 ---
 
-[Section structure from Step 4]
+[Section content with placeholders]
 ```
 
-### Step 6: Write File
+4. **Write file** with naming convention `<NN>-<section-slug>.md`:
+   - Use `Write` tool with path: `book/<part-dir>/<chapter-dir>/<NN>-<section-slug>.md`
+   - Confirm successful creation
 
-Write the scaffold to the specified file path:
-- Use the `Write` tool with the complete file path
-- Confirm successful creation
+5. **Repeat** for all sections in the chapter
 
 ### Step 7: Batch Mode (Optional)
 
@@ -530,21 +767,28 @@ When scaffolding multiple chapters:
 1. Process chapters sequentially
 2. Keep context under 25k tokens total
 3. Group by part for efficiency (shared context)
-4. Report progress after each batch of 5 chapters
+4. Report progress after each chapter scaffold
+5. For each chapter: create directory + all section files
 
 **Batch output**:
 ```
-Scaffolded Part 1:
-✓ 01-renaissance-developer.md
-✓ 02-what-is-agentic-coding.md
-✓ 03-architecture-principles.md
-✓ 04-digestible-interfaces.md
-✓ 05-new-bottlenecks.md
+Scaffolded Part 1, Chapter 1:
+✓ Created directory: book/part1-foundations/01-renaissance-developer/
+✓ 01-introduction.md
+✓ 02-renaissance-developer-model.md
+✓ 03-what-changes-what-doesnt.md
+✓ 04-good-enough-principle.md
+✓ 05-mindset-shift.md
+✓ 06-practical-example.md
+✓ 07-common-pitfalls.md
+✓ 08-why-this-matters.md
+✓ 09-summary.md
+✓ 10-further-reading.md
 
-Scaffolded Part 2 (batch 1):
-✓ 01-idea-to-vision.md
-✓ 02-understanding-phase.md
-✓ 03-brainstorm-to-brief.md
+Scaffolded Part 1, Chapter 2:
+✓ Created directory: book/part1-foundations/02-what-is-agentic-coding/
+✓ 01-introduction.md
+✓ 02-defining-agentic-coding.md
 ...
 ```
 
@@ -552,24 +796,32 @@ Scaffolded Part 2 (batch 1):
 
 Before finalizing scaffolds, verify:
 
-### Frontmatter Validation
-- [ ] All required fields present (title, part, chapter, version, date, status, author)
+### Directory Structure Validation
+- [ ] Chapter directory created in correct part directory
+- [ ] Directory name follows `NN-chapter-slug` format
+- [ ] All section files created within chapter directory
+
+### Frontmatter Validation (per section file)
+- [ ] All required fields present (title, chapter_title, part, chapter, section, version, date, status, author)
 - [ ] Part number matches directory (1-4)
-- [ ] Chapter number matches filename
+- [ ] Chapter number matches directory name
+- [ ] Section number is unique and sequential (1, 2, 3, ...)
+- [ ] `chapter_title` matches chapter directory name
 - [ ] Tags are relevant and follow conventions
-- [ ] Related chapters exist and are correctly referenced
+- [ ] Related sections/chapters exist and are correctly referenced
 - [ ] Requirements exist in requirements.md
 - [ ] Abstract is placeholder (to be filled during drafting)
 
-### Section Structure Validation
-- [ ] Correct template for part type
-- [ ] All section headings present
+### Section File Validation
+- [ ] Correct section structure for part type
+- [ ] Filename follows `NN-section-slug.md` format
+- [ ] Section numbers are sequential starting from 01
 - [ ] Placeholders are clear and actionable
 - [ ] No lorem ipsum or meaningless filler
 - [ ] Mermaid diagram placeholders where appropriate
 
-### File Validation
-- [ ] File written to correct path
+### File Quality Validation
+- [ ] Files written to correct paths
 - [ ] Markdown syntax is valid
 - [ ] YAML frontmatter is properly formatted
 - [ ] No trailing whitespace or formatting issues
@@ -597,21 +849,30 @@ Before finalizing scaffolds, verify:
 
 ### Single Chapter
 
-**User**: "Scaffold book/part1-foundations/01-renaissance-developer.md"
+**User**: "Scaffold book/part1-foundations/01-renaissance-developer/"
 
-**Expected Output**: Complete scaffold with auto-inferred metadata and Part 1 template
+**Expected Output**:
+- Chapter directory created
+- 8-10 section files created with proper frontmatter
+- Each section has placeholder content following Part 1 template
 
 ### Batch (Part)
 
 **User**: "Scaffold all Part 1 chapters"
 
-**Expected Output**: 5 scaffolds for Part 1 (01-05) with consistent structure
+**Expected Output**:
+- 5 chapter directories created (01-05)
+- Each with 8-10 section files
+- Consistent structure across all chapters in the part
 
 ### Batch (Multiple Parts)
 
 **User**: "Scaffold all chapters for the book"
 
-**Expected Output**: All ~50 chapter scaffolds organized by part
+**Expected Output**:
+- All ~50 chapter directories created across 4 parts
+- Each with appropriate section files for that part type
+- Frontmatter auto-generated with part-specific conventions
 
 ## Integration with Other Skills
 
@@ -619,30 +880,31 @@ Before finalizing scaffolds, verify:
 - Review `design.md`, `brief.md`, `requirements.md` for context
 
 **Downstream** (after scaffolding):
-- **draft-section skill**: Use scaffolds as input for content drafting
-- **mermaid-diagrams skill**: Generate diagrams referenced in scaffolds
-- Manual editing and refinement of scaffolds
+- **draft-section skill**: Draft individual section files (simplified workflow)
+- **mermaid-diagrams skill**: Generate diagrams referenced in section placeholders
+- Manual editing and refinement of section files
 
 **Parallel**:
 - CI/CD validation scripts (frontmatter, links, markdown lint)
 
 ## Performance Targets
 
-- **Single scaffold**: < 2 minutes, ~6.5k tokens
-- **Batch (5 chapters)**: < 10 minutes, ~12.5k tokens
-- **Full book (50 chapters)**: < 2 hours, multiple batches
+- **Single chapter scaffold** (10 sections): < 3 minutes, ~8k tokens
+- **Batch (5 chapters)**: < 15 minutes, ~20k tokens
+- **Full book (50 chapters, ~500 sections)**: < 3 hours, multiple batches
 
 ## Output Format
 
 For each scaffolded chapter, confirm:
 
 ```
-✓ Scaffolded: book/part1-foundations/01-renaissance-developer.md
+✓ Scaffolded: book/part1-foundations/01-renaissance-developer/
   - Part: 1, Chapter: 1
-  - Title: "The Renaissance Developer"
+  - Chapter Title: "The Renaissance Developer"
+  - Sections created: 10 files (01-introduction.md through 10-further-reading.md)
   - Tags: ["renaissance-developer", "mindset", "foundations"]
   - Section template: Part 1 (First Principles Teaching)
-  - Status: Ready for content drafting
+  - Status: Ready for content drafting with draft-section skill
 ```
 
 ## Notes

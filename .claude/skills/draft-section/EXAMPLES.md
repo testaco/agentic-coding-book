@@ -4,32 +4,48 @@ This document provides concrete examples of using the draft-section skill to wri
 
 ---
 
-## Example 1: Draft Single Section (Part 1 - Introduction)
+## Example 1: Draft Single Section File (Part 1 - Introduction)
 
 ### Invocation
 
-**User**: "Draft the Introduction section for book/part1-foundations/01-renaissance-developer.md"
+**User**: "Draft book/part1-foundations/01-renaissance-developer/01-introduction.md"
 
 ### Process
 
-1. **Read scaffold**:
+1. **Read section file**:
    ```bash
-   Read book/part1-foundations/01-renaissance-developer.md
+   Read book/part1-foundations/01-renaissance-developer/01-introduction.md
    ```
 
-2. **Identify section**:
-   - Target: `## Introduction: The Specialist's Dilemma`
-   - Placeholder guidance: *"Open with the traditional software career path - go deep in one area (backend, frontend, DevOps, etc.). Explain why this made sense when coding was the bottleneck. Then introduce the problem: when AI agents can handle implementation, what value does deep specialization in coding provide? Hook: 'You've spent years becoming an expert React developer. Now Claude can write React better than you. What's your role?'"*
+2. **Extract placeholder guidance from file**:
+   - Frontmatter shows: `section: 1`, `chapter_title: "The Renaissance Developer"`
+   - Placeholder content: *"Hook the reader with a relatable scenario or problem. Establish why this topic matters for agentic coding. 3-5 paragraphs max - this is just the intro, detailed concepts come in later sections. Open with the traditional software career path - go deep in one area (backend, frontend, DevOps, etc.). Explain why this made sense when coding was the bottleneck. Then introduce the problem: when AI agents can handle implementation, what value does deep specialization in coding provide? Hook: 'You've spent years becoming an expert React developer. Now Claude can write React better than you. What's your role?'"*
 
 3. **Apply Part 1 strategy**: First-principles teaching
    - Hook with relatable problem
    - Build understanding progressively
    - Accessible to vibecoders
 
-4. **Draft content** (example output):
+4. **Draft content and write to file** (example output):
 
 ```markdown
-## Introduction: The Specialist's Dilemma
+---
+title: "Introduction: The Specialist's Dilemma"
+chapter_title: "The Renaissance Developer"
+part: 1
+chapter: 1
+section: 1
+version: "0.1"
+date: "2026-01-28"
+status: "draft"
+author: "Brian Childress"
+tags: ["renaissance-developer", "mindset", "foundations"]
+related: []
+requirements: ["REQ-C001"]
+abstract: |
+  Introduces the challenge facing specialized developers in the AI era and
+  sets up the need for Renaissance Developer thinking.
+---
 
 You've spent five years becoming an expert React developer. You know the framework inside and out—hooks, context, performance optimization, the works. You can debug the gnarliest state management issues and architect scalable component hierarchies in your sleep. You're valuable because you're deep.
 

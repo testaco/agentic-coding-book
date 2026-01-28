@@ -42,17 +42,48 @@ fi
 # Add preface if it exists
 [ -f "book/preface.md" ] && cat book/preface.md >> output/combined.md
 
-# Add part 1 (foundations)
-find book/part1-foundations -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+# Function to extract section number from frontmatter
+get_section_number() {
+  local file="$1"
+  # Extract section field from YAML frontmatter
+  awk '/^---$/,/^---$/ { if (/^section:/) { print $2; exit } }' "$file"
+}
 
-# Add part 2 (playbook)
-find book/part2-playbook -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+# Process each part directory
+for part_dir in book/part1-foundations book/part2-playbook book/part3-patterns-tools book/part4-example; do
+  [ ! -d "$part_dir" ] && continue
 
-# Add part 3 (patterns & tools)
-find book/part3-patterns-tools -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+  # Find chapter directories (e.g., 01-renaissance-developer/)
+  for chapter_dir in $(find "$part_dir" -maxdepth 1 -type d -name '[0-9][0-9]-*' 2>/dev/null | sort); do
+    # Find section files within chapter and sort by section number
+    temp_file=$(mktemp)
 
-# Add part 4 (example)
-find book/part4-example -name "*.md" -type f 2>/dev/null | sort | xargs cat >> output/combined.md || true
+    # Use find instead of glob to avoid syntax issues
+    find "$chapter_dir" -maxdepth 1 -name '*.md' -type f 2>/dev/null | while read -r section_file; do
+      section_num=$(get_section_number "$section_file")
+      if [ -n "$section_num" ]; then
+        echo "$section_num:$section_file" >> "$temp_file"
+      else
+        # If no section number, use filename as fallback
+        echo "999:$section_file" >> "$temp_file"
+      fi
+    done
+
+    # Sort by section number and concatenate
+    if [ -s "$temp_file" ]; then
+      sort -n -t: -k1 "$temp_file" | cut -d: -f2 | while read -r section_file; do
+        cat "$section_file" >> output/combined.md
+      done
+    fi
+    rm -f "$temp_file"
+  done
+
+  # Also handle legacy chapter files (direct .md files in part dir)
+  # Backward compatibility for non-directory structure
+  find "$part_dir" -maxdepth 1 -name "*.md" -type f ! -name "README.md" 2>/dev/null | sort | while read -r chapter_file; do
+    cat "$chapter_file" >> output/combined.md
+  done
+done
 
 # Add conclusion and glossary if they exist
 [ -f "book/conclusion.md" ] && cat book/conclusion.md >> output/combined.md

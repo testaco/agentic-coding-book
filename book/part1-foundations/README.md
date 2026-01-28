@@ -19,7 +19,7 @@ This part establishes the mindset and mental models you need for agentic develop
 
 ### Chapters
 
-1. [The Renaissance Developer](01-renaissance-developer.md) - The shift from deep specialization to strategic breadth
+1. [The Renaissance Developer](01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md) - The shift from deep specialization to strategic breadth
 2. What is Agentic Coding - Comprehensive definition covering tools, agents, and workflows *(coming soon)*
 3. Architecture Principles - System design optimized for AI-assisted implementation *(coming soon)*
 4. Digestible Interfaces - Why clear boundaries matter for both humans and AI *(coming soon)*

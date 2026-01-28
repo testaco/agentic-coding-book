@@ -10,7 +10,7 @@ author: "Author Name"
 tags: ["introduction", "overview", "agentic-coding"]
 related:
   - preface.md
-  - part1-foundations/01-renaissance-developer.md
+  - part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md
   - part2-playbook/01-overview-6-week-journey.md
 requirements:
   - REQ-C001
@@ -143,7 +143,7 @@ Ten chapters documenting:
 
 #### Solo Developer / Indie Hacker
 
-1. Start with [Chapter 1: Renaissance Developer](part1-foundations/01-renaissance-developer.md) for the mindset shift
+1. Start with [Chapter 1: Renaissance Developer](part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md) for the mindset shift
 2. Skim remaining Part 1 chapters for new concepts
 3. Adopt Part 2 workflow for your next project
 4. Use Part 3 as a reference library
@@ -174,7 +174,7 @@ Ten chapters documenting:
 
 If you're eager to begin:
 
-1. **Read [Chapter 1: The Renaissance Developer](part1-foundations/01-renaissance-developer.md)** - Understand the mindset shift in 30 minutes
+1. **Read [Chapter 1: The Renaissance Developer](part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md)** - Understand the mindset shift in 30 minutes
 
 2. **Have a product idea ready** - Even a small one. You'll learn faster with a real project.
 
@@ -250,7 +250,7 @@ Watch the repository or check back for updates.
 
 → [Read the Preface](preface.md) for full orientation
 
-→ [Start Chapter 1](part1-foundations/01-renaissance-developer.md) to dive in
+→ [Start Chapter 1](part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md) to dive in
 
 ---
 

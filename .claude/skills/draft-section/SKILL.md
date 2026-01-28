@@ -1,26 +1,28 @@
 ---
 name: draft-section
-description: Incremental content drafting skill that writes specific sections within existing scaffolds. Supports drafting 1 section at a time or batch-drafting multiple sections with user control. Each operation stays under 10k tokens to avoid context compacting.
-allowed-tools: Read, Grep, Glob, Write, Edit, Skill
+description: Incremental content drafting skill that writes section files (one file per section). Supports drafting 1 section at a time or batch-drafting multiple sections with user control. Each operation stays under 10k tokens to avoid context compacting. Simplified workflow: read section file → draft content → write back.
+allowed-tools: Read, Grep, Glob, Write, Skill
 ---
 
 # Section Drafter
 
 ## Overview
 
-This skill drafts actual content for chapter sections within existing scaffolds, including:
+This skill drafts actual content for individual section files, including:
 - **Full-prose content** tailored to the part type and topic
 - **Mermaid diagrams** (1-2 per section via mermaid-diagrams skill)
 - **Code examples** formatted ≤80 chars wide
-- **Cross-references** to related chapters
+- **Cross-references** to related sections/chapters
 - **Quality validation** before output
 
 **Key Benefits**:
+- **Simplified workflow**: Each section is a separate file - no parsing required
 - **Incremental drafting**: Write 1 section at a time with user review between
 - **Context efficient**: ~8-10k tokens per section (no compacting issues)
 - **Part-aware strategies**: Different writing approaches per part type
 - **Quality-focused**: Built-in validation checks before output
 - **User control**: Draft today, review tomorrow, iterate at your pace
+- **Parallel work**: Multiple sections can be drafted simultaneously
 
 ## Critical Principles
 
@@ -59,35 +61,41 @@ Invoke this skill when you need to:
 - Complete remaining sections in a chapter
 
 **Prerequisites**:
-- Chapter scaffold must exist (created by scaffold-chapter skill)
+- Chapter directory must exist with section files (created by scaffold-chapter skill)
 - Context files available: `brief.md`, `requirements.md`, `design.md`
-- Related chapters available for cross-referencing
+- Related sections/chapters available for cross-referencing
 
 ## Workflow
 
 ### Step 1: Read Context
 
 Before drafting, read necessary context:
-- [ ] Read the chapter scaffold to understand structure and placeholder guidance
-- [ ] Read `/home/testa/agentic-coding-book/planning/brief.md` (for book vision)
-- [ ] Read `/home/testa/agentic-coding-book/planning/requirements.md` (for requirements)
-- [ ] Optionally read related chapters (for cross-references)
+- [ ] Read `/workspace/planning/brief.md` (for book vision)
+- [ ] Read `/workspace/planning/requirements.md` (for requirements)
+- [ ] Optionally read related section files (for cross-references and consistency)
 
 **Why**: These files provide the strategic context, requirements, and related content for accurate drafting.
 
-### Step 2: Identify Target Section(s)
+### Step 2: Identify Target Section File(s)
 
-Determine which section(s) to draft based on user request:
+Determine which section file(s) to draft based on user request:
 
 **Modes**:
-1. **Single section**: Draft one specific section (e.g., "Introduction")
-2. **Multiple sections**: Draft several specified sections (e.g., "Key Concepts" + "Practical Application")
-3. **Remaining sections**: Draft all sections not yet written
+1. **Single section**: Draft one specific section file (e.g., `01-introduction.md`)
+2. **Multiple sections**: Draft several section files (e.g., `02-key-concepts.md`, `06-practical-application.md`)
+3. **Remaining sections**: Draft all section files that still contain placeholder content
 
-**Parse the scaffold** to identify:
-- Which sections already have content vs placeholders
-- What the placeholder guidance says for each section
-- Which sections are requested by the user
+**File path format**: `book/<part-dir>/<chapter-dir>/<NN>-<section-slug>.md`
+
+**Example paths**:
+- `book/part1-foundations/01-renaissance-developer/01-introduction.md`
+- `book/part2-playbook/04-requirements-writing/03-the-process.md`
+- `book/part3-patterns-tools/architecture/01-clean-boundaries/05-example.md`
+
+**Read each section file** to:
+- Check if it contains placeholder content or has been drafted
+- Extract placeholder guidance from the file
+- Understand frontmatter (part, chapter, section numbers)
 
 ### Step 3: Select Content Strategy
 
@@ -264,18 +272,21 @@ def validate_ears(requirement: str) -> bool:
 
 ### Step 7: Add Cross-References
 
-For each section, identify opportunities to link to related chapters:
+For each section, identify opportunities to link to related sections or chapters:
 
 **Cross-reference patterns**:
-- **Prerequisites**: "See [Chapter X](link) for background on..."
+- **Prerequisites**: "See [Section](link) for background on..."
 - **Deep dives**: "For detailed information, refer to [Pattern Y](link)"
 - **Related concepts**: "This relates to [Concept Z](link) from Part 1"
-- **Forward references**: "We'll explore this further in [Chapter N](link)"
+- **Forward references**: "We'll explore this further in [Section](link)"
 
-**Format**:
+**Format** (linking to section files):
 ```markdown
-See [Chapter 3: Architecture Principles](../part1-foundations/03-architecture-principles.md)
-for the foundational concepts behind this pattern.
+See [Introduction: The Specialist's Dilemma](../01-renaissance-developer/01-introduction.md)
+for context on this shift.
+
+For the foundational concepts, refer to
+[Architecture Principles](../../part1-foundations/03-architecture-principles/01-overview.md).
 ```
 
 ### Step 8: Quality Validation
@@ -310,34 +321,34 @@ Before finalizing drafted content, verify:
 - [ ] No trailing whitespace
 - [ ] Consistent with existing content
 
-### Step 9: Update Chapter File
+### Step 9: Write Section File
 
-Replace the placeholder section with drafted content:
+Write the drafted content to the section file:
 
-**Use Edit tool** to replace:
+**Workflow**:
+1. Combine frontmatter (from original section file) + drafted content
+2. Use `Write` tool to overwrite the section file with complete content
+3. Confirm successful update and report to user
+
+**File structure**:
 ```markdown
-## Section Name
-
-[Placeholder: Guidance text]
-```
-
-with:
-```markdown
-## Section Name
+---
+[Original YAML frontmatter - preserve all fields]
+---
 
 [Full drafted content with diagrams, code, cross-references]
 ```
 
-**Confirm successful update** and report to user.
+**Important**: Preserve the original frontmatter exactly - don't modify section numbers, chapter_title, or other metadata.
 
 ### Step 10: Batch Mode (Optional)
 
-When drafting multiple sections:
+When drafting multiple section files:
 
-1. **Process sections sequentially** (not in parallel)
+1. **Process section files sequentially** (not in parallel)
 2. **Keep context under 25k tokens total**
 3. **Pause for user review** after each 2-3 sections
-4. **Report progress** clearly
+4. **Report progress** with file paths
 
 **Batch output**:
 ```
