@@ -24,3 +24,8 @@ Thumbs.db
 diagrams/**/*.png
 diagrams/**/*.svg
 !diagrams/**/*.mmd
+
+# Nix
+result
+result-*
+.direnv/
