@@ -4,7 +4,7 @@ part: 3
 chapter: "specifications"
 version: "0.1"
 date: "2026-01-29"
-status: "placeholder"
+status: "draft"
 author: "Brian Childress"
 tags: ["specifications", "openapi", "rest", "apis"]
 related:

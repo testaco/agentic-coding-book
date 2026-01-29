@@ -256,11 +256,6 @@ These timeless books provide foundational knowledge that complements agentic dev
 - Q&A for architecture and design questions
 - Search for "architecture patterns," "component design," "API design"
 
-**[r/softwarearchitecture](https://www.reddit.com/r/softwarearchitecture/)**
-
-- Reddit community for architecture discussion
-- Case studies and design reviews
-
 **[DDD Community](https://github.com/ddd-crew)**
 
 - Domain-Driven Design resources and tools
