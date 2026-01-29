@@ -754,7 +754,7 @@ Content organized as individual section files in book/part1-foundations/02-what-
 ### P1-004: Write Chapter: Architecture Principles for Agentic Development
 
 **Prerequisites**: P1-003
-**Status**: [~] In Progress - Scaffolded, ready for drafting
+**Status**: [~] In Progress - Sections 01-05 drafted, 06-10 remaining
 **MVP**: [MVP]
 
 #### Description
@@ -763,24 +763,29 @@ Content organized as individual section files in book/part1-foundations/03-archi
 
 #### Sub-tasks
 - [x] Scaffold chapter directory: book/part1-foundations/03-architecture-principles/
-- [x] Draft 10 section files (01-introduction.md through 10-further-reading.md)
-- [ ] Explain component decomposition for AI digestibility (section 3)
-- [ ] Discuss bounded contexts and interface boundaries (section 4)
-- [ ] Explain separation of concerns for agents (section 5)
-- [ ] Discuss testability and AI-generated code (section 6)
-- [ ] Provide architectural patterns (sections 2-6)
-- [ ] Create architecture diagrams (via mermaid-diagrams skill)
+- [x] Draft section 01: Introduction (completed earlier)
+- [x] Draft section 02: The Digestibility Principle (completed earlier)
+- [x] Draft section 03: Component Decomposition (completed 2026-01-29)
+- [x] Draft section 04: Interface Boundaries (completed 2026-01-29)
+- [x] Draft section 05: Separation of Concerns (completed 2026-01-29)
+- [ ] Draft section 06: Testability for AI Code
+- [ ] Draft section 07: Practical Application
+- [ ] Draft section 08: Common Pitfalls
+- [ ] Draft section 09: Summary
+- [ ] Draft section 10: Further Reading
 
 #### Acceptance Criteria
 - [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "Architecture Principles for Agentic Development")
-- [ ] First principles clearly explained (REQ-C004)
-- [ ] Principles specific to agentic development, not just general architecture
-- [ ] Examples show before/after with agentic optimization
-- [ ] At least 2-3 architecture diagrams
-- [ ] Practical application guidance
-- [ ] Traceability to requirements.md
+- [x] First principles clearly explained (REQ-C004) - sections 01-05 complete
+- [x] Principles specific to agentic development, not just general architecture - sections 01-05 complete
+- [x] Examples show before/after with agentic optimization - sections 03-05 complete
+- [x] At least 2-3 architecture diagrams - 4 diagrams in sections 02-05
+- [ ] Practical application guidance - section 07 pending
+- [x] Traceability to requirements.md - all sections reference REQ-C004
 
 **Requirements Addressed**: REQ-C004
+
+**Progress**: 5/10 sections complete (50%)
 
 ---
 
@@ -2440,7 +2445,7 @@ Prepare book for physical print-on-demand.
 
 ## Progress Tracking
 
-**Overall Status**: In Progress (10/81 tasks complete, 1 in progress)
+**Overall Status**: In Progress (10/81 tasks complete, P1-004 in progress - 50% done)
 
 **Completed Tasks**:
 - INFRA-001 through INFRA-005: Infrastructure setup
@@ -2451,9 +2456,9 @@ Prepare book for physical print-on-demand.
 - P1-003: What is Agentic Coding chapter (with 3 Mermaid diagrams)
 
 **In Progress**:
-- P1-004: Architecture Principles chapter (scaffolded - 10 section files created, ready for content drafting)
+- P1-004: Architecture Principles chapter (5/10 sections drafted: Introduction, Digestibility Principle, Component Decomposition, Interface Boundaries, Separation of Concerns)
 
-**Next Action**: Complete P1-004 content drafting using draft-section skill
+**Next Action**: Complete P1-004 remaining sections (06-10) using draft-section skill
 
 **Prerequisites Complete**: Yes (genesis.md workflow complete through T005)
 
