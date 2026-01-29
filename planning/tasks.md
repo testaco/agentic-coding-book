@@ -792,30 +792,39 @@ Content organized as individual section files in book/part1-foundations/03-archi
 ### P1-005: Write Chapter: Digestible Interfaces
 
 **Prerequisites**: P1-004
-**Status**: [ ] Not Started
+**Status**: [~] In Progress (Scaffolded, awaiting content draft)
 **MVP**: [MVP]
 
 #### Description
 Write Part 1, Chapter 4: Why digestible interfaces matter for both humans and AI agents.
+Content organized as individual section files in book/part1-foundations/04-digestible-interfaces/
 
 #### Sub-tasks
-- [ ] Create book/part1-foundations/04-digestible-interfaces.md
-- [ ] Explain concept of digestibility
-- [ ] Discuss working memory constraints (human)
-- [ ] Discuss context window constraints (AI)
-- [ ] Show how good interfaces serve both
-- [ ] Provide examples of digestible vs. complex interfaces
-- [ ] Create comparison diagrams
+- [x] Scaffold chapter directory: book/part1-foundations/04-digestible-interfaces/
+- [x] Create 10 section files with frontmatter (01-introduction through 10-further-reading)
+- [ ] Draft section 01: Introduction
+- [ ] Draft section 02: Defining Digestibility
+- [ ] Draft section 03: Human Constraints (working memory)
+- [ ] Draft section 04: AI Constraints (context windows)
+- [ ] Draft section 05: Unified Principles
+- [ ] Draft section 06: Examples (good vs bad interfaces)
+- [ ] Draft section 07: Common Pitfalls
+- [ ] Draft section 08: Measuring Digestibility
+- [ ] Draft section 09: Summary
+- [ ] Draft section 10: Further Reading
 
 #### Acceptance Criteria
+- [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "Digestible Interfaces")
 - [ ] Digestibility concept clearly defined (REQ-C005)
 - [ ] Human and AI constraints explained in parallel
 - [ ] Examples demonstrate good vs. bad interfaces
 - [ ] Practical guidelines for creating digestible interfaces
-- [ ] Diagrams illustrate key concepts
+- [ ] Diagrams illustrate key concepts (to be generated during drafting)
 - [ ] Content accessible and actionable
 
 **Requirements Addressed**: REQ-C005
+
+**Progress**: Scaffolding complete (2026-01-29), ready for content drafting with draft-section skill
 
 ---
 
@@ -2445,7 +2454,7 @@ Prepare book for physical print-on-demand.
 
 ## Progress Tracking
 
-**Overall Status**: In Progress (11/81 tasks complete)
+**Overall Status**: In Progress (11/81 tasks complete, 1 in progress)
 
 **Completed Tasks**:
 - INFRA-001 through INFRA-005: Infrastructure setup
@@ -2457,9 +2466,9 @@ Prepare book for physical print-on-demand.
 - P1-004: Architecture Principles chapter (with 8 Mermaid diagrams - complete)
 
 **In Progress**:
-- None
+- P1-005: Digestible Interfaces chapter (scaffolded 2026-01-29, awaiting content draft)
 
-**Next Action**: P1-005 (Digestible Interfaces chapter) or P1-007 (Part 1 Review and Polish)
+**Next Action**: Draft content for P1-005 using draft-section skill, or scaffold/draft P1-006 (New Bottlenecks)
 
 **Prerequisites Complete**: Yes (genesis.md workflow complete through T005)
 
