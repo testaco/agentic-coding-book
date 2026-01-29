@@ -34,11 +34,13 @@ In traditional development, you write code slowly and carefully, testing as you 
 Consider this scenario: You prompt Claude Code to implement user authentication. Five minutes later, you have a complete implementation with password hashing, session management, JWT tokens, and email verification. It looks sophisticated. But does it work? Are there security vulnerabilities? Does it handle edge cases?
 
 Without good tests, you're forced to:
+
 - **Manually test every scenario** (slow and error-prone)
 - **Read and understand all the generated code** (defeats the velocity gains)
 - **Hope the AI got it right** (dangerous)
 
 With a testable architecture, you can:
+
 - **Run automated tests in seconds** and know if it works
 - **Trust the AI-generated code** if tests pass
 - **Iterate quickly** by regenerating implementations and re-running tests
@@ -72,6 +74,7 @@ class UserService:
 ```
 
 This code is **impossible to test** without:
+
 - A real PostgreSQL database running
 - SendGrid credentials configured
 - Actually sending emails during tests
@@ -122,6 +125,7 @@ When you prompt an AI agent to implement a feature, you can specify: "Use depend
 ### 2. Pure Functions: Predictable and Easy to Test
 
 A **pure function** is one that:
+
 - **Always returns the same output for the same inputs** (deterministic)
 - **Has no side effects** (doesn't modify external state, doesn't do I/O)
 
@@ -149,6 +153,7 @@ def calculate_total_price(cart_id):
 ```
 
 This function is **painful to test**:
+
 - Need to set up global cart store
 - Need a database with tax rates
 - Behavior changes based on time of day
@@ -222,11 +227,13 @@ graph TD
 *Figure 3.6: Component boundaries define test boundaries. Each component has focused unit tests, while integration tests verify components work together.*
 
 When components have:
+
 - **Clear interfaces**: Easy to mock for testing
 - **Single responsibility**: Tests focus on one thing
 - **Explicit dependencies**: Easy to inject test doubles
 
 Then you can:
+
 - **Test each component in isolation** (fast unit tests)
 - **Test integrations between components** (targeted integration tests)
 - **Know exactly what broke** when tests fail (precise test boundaries)
@@ -274,6 +281,7 @@ def test_user_creation_logic():
 ```
 
 With fast unit tests, you can run hundreds of tests in seconds. This enables:
+
 - **Continuous testing** while developing with AI
 - **Immediate feedback** when something breaks
 - **Confidence to iterate rapidly** knowing tests will catch regressions
@@ -313,7 +321,7 @@ This loop accelerates over time. The more you optimize for testability, the fast
 
 ## Common Testability Mistakes
 
-**Mistake 1: Testing implementation details instead of behavior**
+### Mistake 1: Testing implementation details instead of behavior
 
 Don't test *how* the code works internally. Test *what* it does from the outside.
 
@@ -340,11 +348,11 @@ def test_password_hashing_is_secure():
     assert not service.verify_password("wrong", hashed)
 ```
 
-**Mistake 2: Skipping tests because "AI code is usually correct"**
+### Mistake 2: Skipping tests because "AI code is usually correct"
 
 AI code is usually *plausible*, not necessarily correct. It can have subtle bugs, security issues, or misunderstand requirements. Tests catch these.
 
-**Mistake 3: Over-mocking to the point of meaningless tests**
+### Mistake 3: Over-mocking to the point of meaningless tests
 
 ```python
 # Bad: Mocks so much that test is meaningless

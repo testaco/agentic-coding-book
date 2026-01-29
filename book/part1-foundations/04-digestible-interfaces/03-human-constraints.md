@@ -25,12 +25,14 @@ abstract: |
 interface design.
 
 Cover the psychology:
+
 - **Working memory**: 7±2 items (Miller's Law)
 - **Cognitive load theory**: Intrinsic vs. extraneous vs. germane load
 - **Attention limits**: Multitasking myths and focus fragmentation
 - **Chunking**: How experts group information to overcome limits
 
 Show how these constraints manifest in software development:
+
 - Reading code with too many variables in scope
 - Functions with 10+ parameters that are hard to call correctly
 - Configuration files requiring constant cross-referencing
@@ -43,6 +45,7 @@ Use concrete examples from real codebases (anonymized if needed).
 ## The Cost of Exceeding Limits
 
 [Placeholder: What happens when interfaces exceed working memory?
+
 - Errors and bugs from incorrect usage
 - Constant context switching to documentation
 - Slower development velocity
@@ -52,6 +55,7 @@ Use concrete examples from real codebases (anonymized if needed).
 
 [Placeholder: Strategies developers use (often unconsciously) to deal with
 complex interfaces:
+
 - Note-taking and external memory aids
 - Simplified mental models (sometimes incorrect)
 - Relying on IDE autocomplete and type hints

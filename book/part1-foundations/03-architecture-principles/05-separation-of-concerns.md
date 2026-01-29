@@ -401,7 +401,7 @@ An AI agent can now modify tax logic without touching configuration management.
 
 **Structure**:
 
-```
+```text
 project/
   ├── src/
   │   ├── domain/          # Business logic

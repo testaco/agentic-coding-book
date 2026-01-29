@@ -364,7 +364,7 @@ This test works regardless of hashing algorithm. Switch to argon2? Tests still p
 
 **What it looks like**:
 
-```
+```text
 Your 6-week MVP split into 15 microservices:
 - User Service
 - Auth Service

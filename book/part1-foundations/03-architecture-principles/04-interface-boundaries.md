@@ -266,7 +266,7 @@ A specification is a machine-readable contract. There's no room for interpretati
 
 **Human documentation**:
 
-```
+```text
 The email field should be a valid email address.
 ```
 
@@ -578,7 +578,7 @@ When asking an AI agent to implement an interface:
 
 **Good prompt**:
 
-```
+```text
 Implement the UserService according to this OpenAPI specification:
 [paste spec]
 

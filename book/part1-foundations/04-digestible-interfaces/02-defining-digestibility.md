@@ -24,10 +24,10 @@ abstract: |
 [Placeholder: Deep dive into the concept of "digestibility" for interfaces.
 
 Define it clearly: An interface is digestible when it can be fully understood and
-used correctly without exceeding the cognitive or computational limits of the user
-- whether that user is a human developer or an AI agent.
+used correctly without exceeding the cognitive or computational limits of the user - whether that user is a human developer or an AI agent.
 
 Explain the core characteristics:
+
 - **Bounded complexity**: Limited number of parameters, options, or concepts
 - **Clear purpose**: Single, well-defined responsibility
 - **Self-contained**: Can be understood without consulting extensive external documentation

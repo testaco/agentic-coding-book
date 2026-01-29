@@ -209,7 +209,7 @@ Let's make this concrete with a real scenario I encountered at a previous compan
 
 The payment processing system was spread across 12 files:
 
-```
+```text
 payment/
   ├── handlers.py          (routing, 300 lines)
   ├── validators.py        (validation, 250 lines)
@@ -243,7 +243,7 @@ By file #5, the AI agent's context window is half full with payment code, leavin
 
 We refactored to a single, self-contained module:
 
-```
+```text
 payment/
   └── payment_processor.py  (single file, 600 lines)
       ├── PaymentConfig      (configuration, 50 lines)
@@ -270,7 +270,7 @@ Now, an AI agent (or human) could:
 Let's be specific about the numbers:
 
 | Component Type | Lines of Code | Tokens | Fits in AI Context? |
-|----------------|---------------|--------|---------------------|
+| --- | --- | --- | --- |
 | Single digestible module | 500-1,000 | 2,000-4,000 | ✓ Yes, with room to spare |
 | Medium component with deps | 2,000-3,000 | 8,000-12,000 | ✓ Yes, but tight |
 | Large scattered system | 5,000+ | 20,000+ | ✗ No, requires fragmentation |

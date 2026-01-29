@@ -31,12 +31,14 @@ You've learned five foundational principles for architecting systems that enable
 **The Principle**: Design components that both humans and AI agents can fully understand without excessive file navigation or external context.
 
 **In Practice**:
+
 - **Target 200-500 lines per component** - Large enough to be meaningful, small enough to digest
 - **Self-contained units** - Minimize cross-file dependencies for understanding
 - **Clear naming** - File and function names reveal purpose at a glance
 - **Explicit dependencies** - Document what a component needs from outside
 
 **When You Know It's Working**:
+
 - Claude Code understands your components without extensive prompting
 - You can review a component in one sitting
 - New team members grasp components quickly
@@ -46,12 +48,14 @@ You've learned five foundational principles for architecting systems that enable
 **The Principle**: Divide systems into components based on what they *do* (business capabilities), not implementation details.
 
 **In Practice**:
+
 - **Identify natural boundaries** - User management, payments, notifications are separate capabilities
 - **Single responsibility** - Each component has one clear purpose
 - **Stable interfaces** - Components expose well-defined contracts
 - **Independent evolution** - Can modify one component without cascading changes
 
 **When You Know It's Working**:
+
 - Changes are localized to 1-2 components
 - You can develop components in parallel
 - Component purposes are obvious from names
@@ -61,12 +65,14 @@ You've learned five foundational principles for architecting systems that enable
 **The Principle**: Define exact expectations for how components interact using specifications, not assumptions.
 
 **In Practice**:
+
 - **Use OpenAPI for REST APIs** - Explicit contracts for HTTP interfaces
 - **Use AsyncAPI for events** - Clear schemas for event-driven communication
 - **Use JSON Schema for data** - Precise validation rules
 - **Document error cases** - Not just happy path, but all failure modes
 
 **When You Know It's Working**:
+
 - AI agents generate code that matches specs perfectly
 - Integration bugs are rare
 - New developers understand interfaces without asking questions
@@ -76,12 +82,14 @@ You've learned five foundational principles for architecting systems that enable
 **The Principle**: Keep different types of work in different places—don't mix HTTP handling with business logic with database access.
 
 **In Practice**:
+
 - **API layer** - HTTP handling, request validation, response formatting
 - **Domain layer** - Pure business logic, free from infrastructure
 - **Data layer** - Database queries, persistence
 - **Infrastructure layer** - External service clients, email, queues
 
 **When You Know It's Working**:
+
 - Tests run fast (no database needed for business logic)
 - Changes to infrastructure don't break business rules
 - Each file has a single, clear responsibility
@@ -91,12 +99,14 @@ You've learned five foundational principles for architecting systems that enable
 **The Principle**: Architecture that enables fast, reliable testing of AI-generated code through isolation and dependency control.
 
 **In Practice**:
+
 - **Dependency injection** - Pass collaborators in, don't create them internally
 - **Pure functions** - Deterministic logic without side effects
 - **Test boundaries match component boundaries** - Each component independently testable
 - **Fast unit tests** - Run in milliseconds, not seconds
 
 **When You Know It's Working**:
+
 - Test suite runs in < 10 seconds
 - You can test components without databases or external services
 - Refactoring doesn't break tests (they test behavior, not implementation)
@@ -106,26 +116,31 @@ You've learned five foundational principles for architecting systems that enable
 Before finalizing an architecture, verify:
 
 **Digestibility**:
+
 - [ ] Largest component is < 1,000 lines
 - [ ] Can understand any component in < 30 minutes
 - [ ] File organization is intuitive
 
 **Decomposition**:
+
 - [ ] Components aligned with business capabilities
 - [ ] Each component has single, clear purpose
 - [ ] No circular dependencies
 
 **Interfaces**:
+
 - [ ] All component contracts documented (OpenAPI, AsyncAPI, or JSDoc)
 - [ ] Error cases explicitly defined
 - [ ] Data schemas validated
 
 **Separation**:
+
 - [ ] Business logic is pure (no I/O)
 - [ ] Layers clearly defined (API, domain, data, infrastructure)
 - [ ] Infrastructure concerns at edges
 
 **Testability**:
+
 - [ ] Dependencies injected, not hard-coded
 - [ ] Unit tests run in < 10 seconds
 - [ ] Each component independently testable
@@ -153,6 +168,7 @@ A: Good architecture is flexible. Well-defined interfaces let you swap implement
 Here's the key insight: **Good architecture multiplies AI agent velocity. Bad architecture divides it.**
 
 With clear architecture:
+
 - Claude Code generates correct implementations on first try
 - Integration is straightforward (specs guide the way)
 - Testing validates quickly (fast feedback loops)
@@ -160,6 +176,7 @@ With clear architecture:
 - Result: **5-10x velocity gains with AI**
 
 With unclear architecture:
+
 - Claude Code guesses at intent (often wrong)
 - Integration requires manual coordination
 - Testing is slow and brittle
@@ -169,6 +186,7 @@ With unclear architecture:
 ## Applying These Principles
 
 **Starting a new project**:
+
 1. Identify business capabilities → components
 2. Define interfaces (OpenAPI, AsyncAPI) → contracts
 3. Layer within components (API/domain/data) → separation
@@ -176,6 +194,7 @@ With unclear architecture:
 5. Inject dependencies → testability
 
 **Refactoring existing code**:
+
 1. Start with testability (enable fast feedback)
 2. Extract clear interfaces (reduce coupling)
 3. Separate concerns (pure business logic)
@@ -183,7 +202,8 @@ With unclear architecture:
 5. Iterate with AI assistance
 
 **Working with Claude Code**:
-```
+
+```text
 Phase 1 - Architecture:
 "Review this architecture diagram. Are components properly
 sized and bounded? Are interfaces explicit?"

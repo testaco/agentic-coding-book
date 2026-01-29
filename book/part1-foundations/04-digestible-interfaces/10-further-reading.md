@@ -25,15 +25,18 @@ abstract: |
 
 ## Related Chapters in This Book
 
-**Part 1: Foundations**
+### Part 1: Foundations
+
 - [Chapter 3: Architecture Principles](../03-architecture-principles/01-introduction.md) - Component decomposition and interface boundaries
 - Chapter 5: New Bottlenecks - How interface complexity becomes a bottleneck at scale _(coming soon)_
 
-**Part 2: Playbook**
+### Part 2: Playbook
+
 - Requirements to Design - Translating requirements into digestible interfaces _(coming soon)_
 - Design to Implementation - Breaking down design into implementable interfaces _(coming soon)_
 
-**Part 3: Patterns & Tools**
+### Part 3: Patterns & Tools
+
 - Interface Boundaries - Deep dive into interface design patterns _(coming soon)_
 - [OpenAPI for REST APIs](../../part3-patterns-tools/specifications/openapi-rest-apis.md) - Designing digestible REST interfaces
 - JSON Schema Validation - Using schemas to make interfaces self-documenting _(coming soon)_
@@ -83,6 +86,7 @@ abstract: |
 ## Continuing Your Learning
 
 [Placeholder: Suggested exercises for practicing digestible interface design:
+
 1. Audit your current codebase for complex interfaces
 2. Practice refactoring complex functions into digestible components
 3. Test your interfaces with AI agents and observe where they struggle

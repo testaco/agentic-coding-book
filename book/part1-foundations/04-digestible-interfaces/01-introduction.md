@@ -33,6 +33,7 @@ it's about making your system workable for both human maintainers AND AI agents.
 hard to use correctly, and hard to explain - whether the "user" is a human or an AI.]
 
 **In this chapter, we'll explore**:
+
 - What makes an interface "digestible" for humans and AI agents
 - The surprising parallels between working memory and context windows
 - Why good interfaces serve both audiences simultaneously

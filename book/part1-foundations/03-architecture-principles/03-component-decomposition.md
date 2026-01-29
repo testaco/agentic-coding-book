@@ -30,7 +30,7 @@ The answer is **component decomposition**: the art of dividing a system into ind
 
 Let's start with a common scenario. You're building an e-commerce platform. The traditional approach might decompose it like this:
 
-```
+```text
 ecommerce/
   ├── backend/
   │   ├── services/
@@ -60,7 +60,7 @@ That's six different directories and potentially 10+ files. The AI must keep all
 
 Now consider **vertical decomposition**—organizing by feature:
 
-```
+```text
 ecommerce/
   ├── cart/
   │   ├── cart_api.py        (API endpoints)
@@ -162,7 +162,7 @@ graph TB
 
 **Example structure**:
 
-```
+```text
 features/
   ├── user_auth/
   │   ├── auth_api.py          # API endpoints
@@ -198,7 +198,7 @@ features/
 
 **Example**: E-commerce bounded contexts
 
-```
+```text
 contexts/
   ├── catalog/              # Product discovery domain
   │   ├── products/
@@ -366,7 +366,7 @@ Let me show you a real refactoring I did on a project where AI agents were strug
 
 ### Before: Monolithic User Service
 
-```
+```text
 user_management/
   └── user_service.py      (1,200 lines, 15 methods)
       - User registration
@@ -383,7 +383,7 @@ user_management/
 
 ### After: Feature-Based Decomposition
 
-```
+```text
 user_management/
   ├── registration/
   │   ├── signup.py         (150 lines)
@@ -412,7 +412,7 @@ Here are anti-patterns to avoid:
 
 **Bad**:
 
-```
+```text
 utils/
   ├── string_utils.py
   ├── date_utils.py
@@ -425,7 +425,7 @@ utils/
 
 **Good**: Put utilities near where they're used:
 
-```
+```text
 cart/
   ├── cart_service.py
   ├── cart_validators.py   (validation specific to carts)
@@ -456,7 +456,7 @@ def process_cart(user: User, items: List[Item]) -> Order:
 
 **Bad**:
 
-```
+```text
 orders → cart → inventory → orders  (circular!)
 ```
 
@@ -464,7 +464,7 @@ orders → cart → inventory → orders  (circular!)
 
 **Good**: Establish dependency hierarchy:
 
-```
+```text
 orders → cart → inventory  (one direction, no cycles)
 ```
 

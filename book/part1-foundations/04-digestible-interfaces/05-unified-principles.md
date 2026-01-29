@@ -29,36 +29,42 @@ universal because the constraints are parallel.
 Present the unified principles:
 
 ## 1. Single Responsibility
+
 - Each interface does ONE thing well
 - Easier for humans to understand purpose
 - Easier for AI to reason about behavior
 - Reduces cognitive/context load for both
 
 ## 2. Limited Parameters
+
 - 5 or fewer parameters per function/method
 - Humans can't track 10+ parameters in working memory
 - AI wastes tokens explaining/tracking excessive parameters
 - Use parameter objects for complex cases
 
 ## 3. Explicit Over Implicit
+
 - No hidden state or side effects
 - No "magic" behavior that requires external knowledge
 - Humans appreciate predictability
 - AI agents struggle with implicit dependencies
 
 ## 4. Self-Documenting Names
+
 - Function/parameter names that explain themselves
 - Reduces need for external documentation
 - Humans read code more than write it
 - AI agents can infer intent from good names
 
 ## 5. Consistent Patterns
+
 - Follow established conventions
 - Similar things should work similarly
 - Reduces learning curve for humans
 - Enables AI pattern matching and generalization
 
 ## 6. Fail-Fast with Clear Errors
+
 - Validate inputs immediately
 - Error messages explain what's wrong and how to fix it
 - Humans debug faster with good errors

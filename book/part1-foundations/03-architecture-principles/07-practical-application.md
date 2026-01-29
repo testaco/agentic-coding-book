@@ -32,6 +32,7 @@ Let's walk through a complete example: **designing a task management API** that 
 Imagine we're building a REST API for a task management system with these key requirements:
 
 **Core Features**:
+
 - Users can create projects and add tasks
 - Tasks have assignees, due dates, status, and comments
 - Teams can collaborate on shared projects
@@ -39,12 +40,14 @@ Imagine we're building a REST API for a task management system with these key re
 - Search and filtering across tasks
 
 **Non-Functional Requirements**:
+
 - Must handle 1,000 concurrent users
 - API response time < 200ms (p95)
 - Easy for frontend developers to integrate
 - Testable in isolation without external services
 
 **Constraints**:
+
 - 6-week timeline to MVP
 - Small team (1-2 developers + AI agents)
 - Standard tech stack (Node.js, PostgreSQL, REST)
@@ -94,7 +97,7 @@ graph TD
 
 **Working with Claude Code**:
 
-```
+```text
 Prompt: "Design the Task Service for our task management API.
 Requirements:
 - Manage CRUD operations for tasks
@@ -172,7 +175,7 @@ paths:
 
 **Working with Claude Code**:
 
-```
+```text
 Prompt: "Implement the POST /tasks endpoint according to the
 OpenAPI spec. Use dependency injection for ProjectService and
 UserService. Include input validation and error handling."
@@ -187,6 +190,7 @@ Claude generates code that exactly matches the specification.
 **Applying the principles**:
 
 We'll use a **layered architecture** that separates:
+
 - **API layer**: HTTP handling, request validation
 - **Business logic layer**: Task rules and workflows
 - **Data access layer**: Database queries
@@ -194,7 +198,7 @@ We'll use a **layered architecture** that separates:
 
 **Task Service Structure**:
 
-```
+```text
 task-service/
 ├── src/
 │   ├── api/
@@ -216,10 +220,10 @@ task-service/
 
 **Why this separation?**
 
-1. **Testability**: Business logic in `domain/` is pure—easy to test
-2. **Clarity**: Each file has one job
-3. **AI-friendly**: Clear file naming tells Claude what goes where
-4. **Maintainability**: Changes localized to single layer
+- **Testability**: Business logic in `domain/` is pure—easy to test
+- **Clarity**: Each file has one job
+- **AI-friendly**: Clear file naming tells Claude what goes where
+- **Maintainability**: Changes localized to single layer
 
 **Example - Pure Business Logic**:
 
@@ -373,7 +377,7 @@ Here's our final architecture applying all five principles:
 
 **Working with Claude Code on This Architecture**:
 
-```
+```text
 Session 1 - Design Phase:
 Prompt: "Review this architecture diagram and OpenAPI specs.
 Identify any missing error cases or edge conditions."

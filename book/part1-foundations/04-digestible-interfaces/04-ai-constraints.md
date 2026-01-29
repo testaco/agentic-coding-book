@@ -24,18 +24,21 @@ abstract: |
 [Placeholder: Detailed explanation of AI limitations and how they affect interface design.
 
 Cover the technical constraints:
+
 - **Context windows**: 200K tokens is large but finite (analogous to working memory)
 - **Attention mechanisms**: How transformers "focus" on relevant information
 - **Token efficiency**: Every token counts - verbose interfaces waste context
 - **Retrieval challenges**: Finding the right information in large contexts
 
 Show how these constraints manifest when AI agents interact with code:
+
 - Large configuration files that consume too much context
 - Deeply nested function calls requiring extensive code reading
 - Poorly documented interfaces requiring external knowledge
 - APIs with implicit dependencies and side effects
 
 Draw explicit parallels to human constraints:
+
 - Context window ≈ working memory
 - Token efficiency ≈ cognitive load reduction
 - Attention mechanism ≈ human selective attention
@@ -52,6 +55,7 @@ This isn't coincidence; it's because both are bounded information processors.]
 ## What AI Agents Do Differently
 
 [Placeholder: Where AI diverges from human capabilities:
+
 - Can process more tokens in one "glance" than humans can read
 - Perfect recall within context window (no forgetting)
 - No fatigue from repetitive tasks

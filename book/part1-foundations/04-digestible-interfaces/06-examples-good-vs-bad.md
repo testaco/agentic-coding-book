@@ -24,6 +24,7 @@ abstract: |
 [Placeholder: Show concrete code examples comparing digestible and complex interfaces.
 
 For each example:
+
 1. Show the "bad" version (complex, hard to digest)
 2. Explain what's wrong from human AND AI perspectives
 3. Show the "good" version (digestible, clear)
@@ -32,6 +33,7 @@ For each example:
 ## Example 1: Function Signatures
 
 **Bad**: Function with too many parameters
+
 ```python
 def create_user(name, email, password, age, country, city,
                 postal_code, phone, newsletter_opt_in,
@@ -41,11 +43,13 @@ def create_user(name, email, password, age, country, city,
 ```
 
 **Problems**:
+
 - Humans: Can't remember parameter order, easy to mix up arguments
 - AI: Consumes excessive context explaining each parameter
 - Both: Impossible to use correctly without constant reference to docs
 
 **Good**: Function with parameter object
+
 ```python
 def create_user(user_data: UserRegistration):
     # ... implementation
@@ -54,6 +58,7 @@ def create_user(user_data: UserRegistration):
 Where `UserRegistration` is a well-documented data class with clear fields.
 
 **Why better**:
+
 - Humans: Single concept to understand, IDE autocomplete helps
 - AI: Type hints provide self-documentation, less context needed
 - Both: Type checking catches errors early
@@ -75,6 +80,7 @@ Where `UserRegistration` is a well-documented data class with clear fields.
 ## Identifying Complexity in Your Own Code
 
 [Placeholder: Red flags that an interface might be too complex:
+
 - You need a cheat sheet to use it
 - Onboarding docs spend pages explaining one interface
 - Common usage patterns require 10+ lines of setup
