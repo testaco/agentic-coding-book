@@ -4,8 +4,8 @@ chapter_title: "Digestible Interfaces"
 part: 1
 chapter: 4
 section: 10
-version: "0.1"
-date: "2026-01-29"
+version: "1.0"
+date: "2026-02-05"
 status: "draft"
 author: "Brian Childress"
 tags: ["interfaces", "resources", "references"]
@@ -15,13 +15,13 @@ related:
 requirements:
   - REQ-C005
 abstract: |
-  [Placeholder: Related chapters and external resources for deeper learning
-  about interface design, cognitive load, and AI-friendly code.]
+  Related chapters and external resources for deeper learning about interface
+  design, cognitive load, and AI-friendly code.
 ---
 
 # Further Reading and Resources
 
-[Placeholder: Related chapters and external resources for deeper learning]
+The principles of digestible interface design connect to a rich body of work in software engineering, cognitive psychology, and design thinking. This section provides resources for deeper exploration.
 
 ## Related Chapters in This Book
 
@@ -85,9 +85,56 @@ abstract: |
 
 ## Continuing Your Learning
 
-[Placeholder: Suggested exercises for practicing digestible interface design:
+Practice makes principles stick. Here are exercises to build your digestible interface skills:
 
-1. Audit your current codebase for complex interfaces
-2. Practice refactoring complex functions into digestible components
-3. Test your interfaces with AI agents and observe where they struggle
-4. Apply the metrics and tests from Section 8 to your own code]
+### Exercise 1: Interface Audit
+
+Pick a module in your current codebase and evaluate three interfaces using the metrics from Section 8:
+
+- Parameter count (target: ≤5)
+- Cyclomatic complexity (target: ≤10)
+- Lines per function (target: ≤50)
+- Nesting depth (target: ≤3)
+
+Document your findings and identify one interface to refactor.
+
+### Exercise 2: Refactoring Practice
+
+Take a function with more than 7 parameters and refactor it:
+
+1. Group related parameters into data classes
+2. Replace boolean parameters with enums or named methods
+3. Make implicit dependencies explicit
+4. Verify the refactored interface passes the "explain in 2-3 sentences" test
+
+### Exercise 3: AI Agent Test
+
+Show an interface you've designed to an AI agent (Claude, GPT, etc.) without providing extensive documentation:
+
+1. Give only the function signature and type definitions
+2. Ask it to write code that uses the interface
+3. Observe where it hesitates or makes mistakes
+4. Use the findings to improve the interface
+
+### Exercise 4: Consistency Audit
+
+Review a service layer in your codebase:
+
+1. List all CRUD methods across different entities
+2. Check for naming consistency (get vs fetch vs retrieve)
+3. Check for return type consistency (nullable vs exceptions)
+4. Document inconsistencies and propose a unified pattern
+
+### Exercise 5: Error Message Review
+
+Intentionally misuse five interfaces in your codebase:
+
+1. Call with wrong types
+2. Call with invalid values
+3. Omit required parameters
+
+Rate each error message: Does it answer "What went wrong?", "Why?", and "How do I fix it?"
+
+---
+
+These exercises build intuition for digestible design. Over time, you'll find yourself naturally creating interfaces that are easy for both humans and AI agents to understand and use correctly.
