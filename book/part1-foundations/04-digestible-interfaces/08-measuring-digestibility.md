@@ -248,7 +248,7 @@ If the answer is "probably not," the interface needs to be more explicit.
 
 **Example prompt**:
 
-```
+```text
 Given this function signature, write code that creates a user:
 
 def create_user(request: CreateUserRequest) -> User:
@@ -298,7 +298,7 @@ Error messages should answer:
 
 **Good error**:
 
-```
+```text
 ValidationError: CreateUserRequest.password must be at least 8 characters.
   Received: "abc" (3 characters)
   Fix: Provide a password with 8 or more characters.
@@ -306,7 +306,7 @@ ValidationError: CreateUserRequest.password must be at least 8 characters.
 
 **Bad error**:
 
-```
+```text
 ValueError: Invalid input
 ```
 
