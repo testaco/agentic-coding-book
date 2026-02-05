@@ -1,0 +1,41 @@
+# Navigation structure for the book website
+# This powers the hamburger menu and sidebar navigation
+
+main:
+  - title: "Home"
+    url: "/"
+  - title: "Preface"
+    url: "/preface"
+  - title: "Table of Contents"
+    url: "/TABLE_OF_CONTENTS"
+
+parts:
+  - title: "Part 1: Foundations"
+    url: "/part1-foundations/"
+    chapters:
+      - title: "1. The Renaissance Developer"
+        url: "/part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma"
+      - title: "2. What is Agentic Coding?"
+        url: "/part1-foundations/02-what-is-agentic-coding/01-introduction"
+      - title: "3. Architecture Principles"
+        url: "/part1-foundations/03-architecture-principles/01-introduction"
+      - title: "4. Digestible Interfaces"
+        url: "/part1-foundations/04-digestible-interfaces/01-introduction"
+
+  - title: "Part 2: The Playbook"
+    url: "/part2-playbook/"
+    chapters:
+      - title: "3. Brainstorm to Brief"
+        url: "/part2-playbook/03-brainstorm-to-brief"
+
+  - title: "Part 3: Patterns & Tools"
+    url: "/part3-patterns-tools/"
+    chapters:
+      - title: "1. EARS Notation"
+        url: "/part3-patterns-tools/specifications/ears-notation"
+
+  - title: "Part 4: Complete Example"
+    url: "/part4-example/"
+    chapters:
+      - title: "5. Implementing the MVP"
+        url: "/part4-example/05-implementing-mvp"

@@ -37,8 +37,26 @@ items.sort((a, b) => {
 
 // Group items by part and chapter
 const parts = {};
+const frontMatter = []; // For preface, index, etc.
+
 items.forEach(item => {
   if (!item.part || !item.chapter) return; // Skip book-level files without part/chapter
+
+  // Skip test chapters (part 99+) and non-numeric parts
+  const partNum = parseInt(item.part);
+  if (isNaN(partNum) || partNum >= 99 || partNum === 0) {
+    // Store front matter separately if it has content
+    if (item.part === "front" || item.part === 0) {
+      frontMatter.push(item);
+    }
+    return;
+  }
+
+  // Skip non-numeric chapters (like "index", "specifications")
+  const chapterNum = parseInt(item.chapter);
+  if (isNaN(chapterNum)) {
+    return;
+  }
 
   if (!parts[item.part]) parts[item.part] = {};
   if (!parts[item.part][item.chapter]) {

@@ -3,6 +3,14 @@
 echo "Running pre-commit validation (same checks as CI)..."
 echo ""
 
+# Regenerate table of contents if any book content changed
+if git diff --cached --name-only | grep -q "^book/"; then
+  echo "Book content changed, regenerating table of contents..."
+  npm run generate:toc
+  git add book/TABLE_OF_CONTENTS.md
+  echo ""
+fi
+
 # Run the same validation as CI
 # This mirrors .github/workflows/validate.yml
 npm run validate

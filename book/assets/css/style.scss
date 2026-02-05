@@ -1,0 +1,99 @@
+---
+---
+
+@import "minima";
+
+// Custom navigation styles for the book
+
+.site-nav {
+  .trigger {
+    .nav-parts {
+      @media screen and (max-width: 600px) {
+        display: block;
+        padding-top: 10px;
+        border-top: 1px solid #e8e8e8;
+        margin-top: 10px;
+      }
+    }
+
+    .nav-part {
+      margin-bottom: 15px;
+
+      .part-title {
+        font-weight: bold;
+        color: #424242;
+        display: block;
+        padding: 5px 0;
+      }
+
+      .nav-chapters {
+        list-style: none;
+        margin: 0;
+        padding-left: 15px;
+
+        li {
+          margin: 5px 0;
+
+          a {
+            color: #828282;
+            font-size: 14px;
+            text-decoration: none;
+
+            &:hover {
+              color: #2a7ae2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Desktop: show dropdown on hover
+  @media screen and (min-width: 601px) {
+    .nav-parts {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: white;
+      border: 1px solid #e8e8e8;
+      border-radius: 5px;
+      padding: 15px;
+      min-width: 280px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .trigger:hover .nav-parts,
+    .nav-parts:hover {
+      display: block;
+    }
+  }
+}
+
+// Mobile nav improvements
+@media screen and (max-width: 600px) {
+  .site-nav {
+    .trigger {
+      clear: both;
+      display: none;
+      padding: 10px;
+      background: #fdfdfd;
+      border: 1px solid #e8e8e8;
+      border-radius: 5px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    input:checked ~ .trigger {
+      display: block;
+    }
+
+    .page-link {
+      display: block;
+      padding: 8px 0;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+    }
+  }
+}

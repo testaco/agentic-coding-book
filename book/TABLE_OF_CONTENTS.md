@@ -4,6 +4,7 @@
 
 ### Chapter 1: The Renaissance Developer
 
+
 - [Introduction: The Specialist's Dilemma](./part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md)
 - [The Renaissance Developer Model](./part1-foundations/01-renaissance-developer/02-the-renaissance-developer-model.md)
 - [What Changes, What Doesn't](./part1-foundations/01-renaissance-developer/03-what-changes-what-doesn-t.md)
@@ -17,6 +18,7 @@
 
 ### Chapter 2: What is Agentic Coding?
 
+
 - [Introduction](./part1-foundations/02-what-is-agentic-coding/01-introduction.md)
 - [Defining Agentic Coding](./part1-foundations/02-what-is-agentic-coding/02-defining-agentic-coding.md)
 - [The Spectrum of Agentic Coding](./part1-foundations/02-what-is-agentic-coding/03-the-spectrum-of-agentic-coding.md)
@@ -28,13 +30,34 @@
 - [Summary](./part1-foundations/02-what-is-agentic-coding/09-summary.md)
 - [Further Reading](./part1-foundations/02-what-is-agentic-coding/10-further-reading.md)
 
-### Chapter index: Part 1: Foundations
+### Chapter 3: Architecture Principles for Agentic Development
 
-*[View Chapter](./part1-foundations/README.md)*
 
-Part 1 establishes the mindset and mental models for agentic development,
-covering the Renaissance Developer concept, what agentic coding means,
-architecture principles, and new bottlenecks in AI-assisted development.
+- [Introduction: Why Architecture Matters for AI Agents](./part1-foundations/03-architecture-principles/01-introduction.md)
+- [The Digestibility Principle: Fitting in Context Windows](./part1-foundations/03-architecture-principles/02-the-digestibility-principle.md)
+- [Component Decomposition: Breaking Down for AI Understanding](./part1-foundations/03-architecture-principles/03-component-decomposition.md)
+- [Interface Boundaries: Clear Contracts for AI and Humans](./part1-foundations/03-architecture-principles/04-interface-boundaries.md)
+- [Separation of Concerns: Making Code Modifiable by AI](./part1-foundations/03-architecture-principles/05-separation-of-concerns.md)
+- [Testability: Validating AI-Generated Code](./part1-foundations/03-architecture-principles/06-testability-for-ai-code.md)
+- [Practical Application: Architecting a Real System](./part1-foundations/03-architecture-principles/07-practical-application.md)
+- [Common Pitfalls: Architecture Anti-Patterns for AI](./part1-foundations/03-architecture-principles/08-common-pitfalls.md)
+- [Summary: Key Architectural Principles](./part1-foundations/03-architecture-principles/09-summary.md)
+- [Further Reading: Architecture Resources](./part1-foundations/03-architecture-principles/10-further-reading.md)
+
+### Chapter 4: Digestible Interfaces
+
+
+- [Introduction: The Interface Problem](./part1-foundations/04-digestible-interfaces/01-introduction.md)
+- [Defining Digestibility](./part1-foundations/04-digestible-interfaces/02-defining-digestibility.md)
+- [Human Constraints: Working Memory Limits](./part1-foundations/04-digestible-interfaces/03-human-constraints.md)
+- [AI Constraints: Context Window Limits](./part1-foundations/04-digestible-interfaces/04-ai-constraints.md)
+- [Unified Principles: Interfaces That Serve Both](./part1-foundations/04-digestible-interfaces/05-unified-principles.md)
+- [Examples: Good vs. Bad Interfaces](./part1-foundations/04-digestible-interfaces/06-examples-good-vs-bad.md)
+- [Common Pitfalls in Interface Design](./part1-foundations/04-digestible-interfaces/07-common-pitfalls.md)
+- [Measuring Digestibility](./part1-foundations/04-digestible-interfaces/08-measuring-digestibility.md)
+- [Summary: The Unified Design Philosophy](./part1-foundations/04-digestible-interfaces/09-summary.md)
+- [Further Reading and Resources](./part1-foundations/04-digestible-interfaces/10-further-reading.md)
+
 
 ## Part 2
 
@@ -45,13 +68,6 @@ architecture principles, and new bottlenecks in AI-assisted development.
 [Placeholder: 2-3 sentence summary of this chapter's content
 for search and navigation purposes. To be written during drafting.]
 
-### Chapter index: Part 2: The Playbook
-
-*[View Chapter](./part2-playbook/README.md)*
-
-Part 2 provides the complete 6-week workflow from idea to production,
-covering each phase of the journey with actionable guidance.
-
 ## Part 3
 
 ### Chapter 1: EARS Notation for Requirements
@@ -61,13 +77,6 @@ covering each phase of the journey with actionable guidance.
 [Placeholder: 2-3 sentence summary of this chapter's content
 for search and navigation purposes. To be written during drafting.]
 
-### Chapter index: Part 3: Patterns & Tools
-
-*[View Chapter](./part3-patterns-tools/README.md)*
-
-Part 3 provides deep reference material for specific techniques,
-organized by category for easy lookup when you need specific guidance.
-
 ## Part 4
 
 ### Chapter 5: Implementing the MVP
@@ -76,27 +85,3 @@ organized by category for easy lookup when you need specific guidance.
 
 [Placeholder: 2-3 sentence summary of this chapter's content
 for search and navigation purposes. To be written during drafting.]
-
-### Chapter index: Part 4: Complete Example
-
-*[View Chapter](./part4-example/README.md)*
-
-Part 4 proves the 6-week promise with a complete real-world project,
-documenting every step from idea to deployed MVP.
-
-## Part 99
-
-### Chapter 1: Test Chapter
-
-*[View Chapter](./test-chapter.md)*
-
-Test chapter for validating build scripts.
-
-## Part front
-
-### Chapter preface: Preface
-
-*[View Chapter](./preface.md)*
-
-The preface explains the book's purpose, who it's for, how to use it effectively,
-and what you can expect to achieve by following the 6-week playbook.
