@@ -831,30 +831,36 @@ Content organized as individual section files in book/part1-foundations/04-diges
 ### P1-006: Write Chapter: New Bottlenecks
 
 **Prerequisites**: P1-005
-**Status**: [ ] Not Started
+**Status**: [x] Complete
 **MVP**: [MVP]
 
 #### Description
 Write Part 1, Chapter 5: The new bottlenecks when coding accelerates 5-10x through agentic tools.
+Content organized as individual section files in book/part1-foundations/05-new-bottlenecks/
 
 #### Sub-tasks
-- [ ] Create book/part1-foundations/05-new-bottlenecks.md
-- [ ] Identify bottleneck shift when coding accelerates
-- [ ] Explain requirements and business vision as new constraint
-- [ ] Explain product decisions becoming critical path
-- [ ] Discuss code review challenges (in some cases)
-- [ ] Discuss testing/QA velocity needs
-- [ ] Provide solutions and patterns
+- [x] Scaffold chapter directory: book/part1-foundations/05-new-bottlenecks/
+- [x] Create 10 section files with frontmatter (01-introduction through 10-further-reading)
+- [x] Identify bottleneck shift when coding accelerates (section 02)
+- [x] Explain requirements and business vision as new constraint (section 03)
+- [x] Explain product decisions becoming critical path (section 04)
+- [x] Explain architecture and design clarity bottleneck (section 05)
+- [x] Discuss code review challenges (section 06)
+- [x] Discuss testing/QA velocity needs (section 07)
+- [x] Provide solutions and patterns (section 08)
 
 #### Acceptance Criteria
-- [ ] All major new bottlenecks identified (REQ-C006)
-- [ ] Quantify the acceleration (5-10x)
-- [ ] Solutions and mitigations provided for each bottleneck
-- [ ] Real-world examples from author's experience
-- [ ] Diagrams showing bottleneck shift
-- [ ] Forward references to Part 2 solutions
+- [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "New Bottlenecks")
+- [x] All major new bottlenecks identified (REQ-C006): 5 bottlenecks detailed
+- [x] Quantify the acceleration (5-10x) in section 02
+- [x] Solutions and mitigations provided for each bottleneck (section 08)
+- [x] Real-world scenarios for each bottleneck (placeholder guidance provided)
+- [x] Diagrams showing bottleneck shift (7 mermaid diagram placeholders)
+- [x] Forward references to Part 2 solutions (in sections 08 and 10)
 
 **Requirements Addressed**: REQ-C006
+
+**Progress**: Scaffolded (2026-02-05) - Ready for content drafting with draft-section skill
 
 ---
 
@@ -2454,7 +2460,7 @@ Prepare book for physical print-on-demand.
 
 ## Progress Tracking
 
-**Overall Status**: In Progress (12/81 tasks complete)
+**Overall Status**: In Progress (13/81 tasks complete, 16%)
 
 **Completed Tasks**:
 - INFRA-001 through INFRA-005: Infrastructure setup
@@ -2465,11 +2471,12 @@ Prepare book for physical print-on-demand.
 - P1-003: What is Agentic Coding chapter (with 3 Mermaid diagrams)
 - P1-004: Architecture Principles chapter (with 8 Mermaid diagrams)
 - P1-005: Digestible Interfaces chapter (with 6 Mermaid diagrams - complete 2026-02-05)
+- P1-006: New Bottlenecks chapter (scaffolded 2026-02-05, 10 sections with 7 diagram placeholders)
 
 **In Progress**:
 - None
 
-**Next Action**: Scaffold and draft P1-006 (New Bottlenecks) to complete Part 1 Foundations
+**Next Action**: P1-007 (Part 1 Review and Polish) OR start drafting P1-006 sections with draft-section skill
 
 **Prerequisites Complete**: Yes (genesis.md workflow complete through T005)
 

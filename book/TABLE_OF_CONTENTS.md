@@ -54,6 +54,19 @@
 - [Summary: The Unified Design Philosophy](./part1-foundations/04-digestible-interfaces/09-summary.md)
 - [Further Reading and Resources](./part1-foundations/04-digestible-interfaces/10-further-reading.md)
 
+### Chapter 5: New Bottlenecks
+
+- [Introduction: The Acceleration Paradox](./part1-foundations/05-new-bottlenecks/01-introduction.md)
+- [Understanding the 5-10x Multiplier](./part1-foundations/05-new-bottlenecks/02-understanding-the-5-10x-multiplier.md)
+- [Bottleneck #1: Requirements and Business Vision](./part1-foundations/05-new-bottlenecks/03-bottleneck-1-requirements-and-business-vision.md)
+- [Bottleneck #2: Product Decision Making](./part1-foundations/05-new-bottlenecks/04-bottleneck-2-product-decision-making.md)
+- [Bottleneck #3: Architecture and Design Clarity](./part1-foundations/05-new-bottlenecks/05-bottleneck-3-architecture-and-design-clarity.md)
+- [Bottleneck #4: Code Review at Scale](./part1-foundations/05-new-bottlenecks/06-bottleneck-4-code-review-at-scale.md)
+- [Bottleneck #5: Testing and Quality Assurance](./part1-foundations/05-new-bottlenecks/07-bottleneck-5-testing-and-quality-assurance.md)
+- [Solutions and Mitigation Strategies](./part1-foundations/05-new-bottlenecks/08-solutions-and-mitigation-strategies.md)
+- [Summary](./part1-foundations/05-new-bottlenecks/09-summary.md)
+- [Further Reading](./part1-foundations/05-new-bottlenecks/10-further-reading.md)
+
 ## Part 2
 
 ### Chapter 3: From Brainstorm to Product Brief
