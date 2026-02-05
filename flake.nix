@@ -4,9 +4,12 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+
+    # Devbox base platform - provides git, gh, claude, aws, shell tools, etc.
+    devbox.url = "github:testaco/devbox?dir=base-flake";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, devbox }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -105,13 +108,17 @@
         devShells.default = pkgs.mkShell {
           name = "agentic-coding-book-dev";
 
+          # Inherit all base platform tools from devbox (git, gh, claude, aws, jq, etc.)
+          inputsFrom = [
+            devbox.devShells.${system}.default
+          ];
+
           buildInputs = [
             # Core build tools
             nodejs
             pkgs.pandoc
             texlive
             python
-            pkgs.git
 
             # Chromium for Mermaid diagram rendering (Puppeteer)
             pkgs.chromium
@@ -135,13 +142,18 @@
             # Disable sandboxing for Chromium in containers/Nix environments
             export PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox"
 
-            echo "🚀 Agentic Coding Book Development Environment"
-            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-            echo "📦 Node.js: $(node --version)"
-            echo "📄 Pandoc: $(pandoc --version | head -1)"
-            echo "🐍 Python: $(python --version)"
-            echo "📝 TeX Live: $(xelatex --version | head -1)"
-            echo "🌐 Chromium: $(chromium --version)"
+            echo "Agentic Coding Book Development Environment"
+            echo "============================================"
+            echo ""
+            echo "Base platform tools inherited from devbox:"
+            echo "  git, gh, claude, aws, jq, vim, shellcheck, etc."
+            echo ""
+            echo "Project-specific tools:"
+            echo "  Node.js: $(node --version)"
+            echo "  Pandoc: $(pandoc --version | head -1)"
+            echo "  Python: $(python --version)"
+            echo "  TeX Live: $(xelatex --version | head -1)"
+            echo "  Chromium: $(chromium --version)"
             echo ""
             echo "Available commands:"
             echo "  npm install          - Install Node.js dependencies"
@@ -154,12 +166,12 @@
 
             # Install npm dependencies if not already installed
             if [ ! -d "node_modules" ]; then
-              echo "📦 Installing npm dependencies..."
+              echo "Installing npm dependencies..."
               npm install
             fi
 
-            echo "✓ Ready to build!"
-            echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+            echo "Ready to build!"
+            echo "============================================"
           '';
 
           # Environment variables
