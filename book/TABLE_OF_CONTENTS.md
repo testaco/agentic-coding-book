@@ -4,7 +4,6 @@
 
 ### Chapter 1: The Renaissance Developer
 
-
 - [Introduction: The Specialist's Dilemma](./part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md)
 - [The Renaissance Developer Model](./part1-foundations/01-renaissance-developer/02-the-renaissance-developer-model.md)
 - [What Changes, What Doesn't](./part1-foundations/01-renaissance-developer/03-what-changes-what-doesn-t.md)
@@ -17,7 +16,6 @@
 - [Further Reading](./part1-foundations/01-renaissance-developer/10-further-reading.md)
 
 ### Chapter 2: What is Agentic Coding?
-
 
 - [Introduction](./part1-foundations/02-what-is-agentic-coding/01-introduction.md)
 - [Defining Agentic Coding](./part1-foundations/02-what-is-agentic-coding/02-defining-agentic-coding.md)
@@ -32,7 +30,6 @@
 
 ### Chapter 3: Architecture Principles for Agentic Development
 
-
 - [Introduction: Why Architecture Matters for AI Agents](./part1-foundations/03-architecture-principles/01-introduction.md)
 - [The Digestibility Principle: Fitting in Context Windows](./part1-foundations/03-architecture-principles/02-the-digestibility-principle.md)
 - [Component Decomposition: Breaking Down for AI Understanding](./part1-foundations/03-architecture-principles/03-component-decomposition.md)
@@ -46,7 +43,6 @@
 
 ### Chapter 4: Digestible Interfaces
 
-
 - [Introduction: The Interface Problem](./part1-foundations/04-digestible-interfaces/01-introduction.md)
 - [Defining Digestibility](./part1-foundations/04-digestible-interfaces/02-defining-digestibility.md)
 - [Human Constraints: Working Memory Limits](./part1-foundations/04-digestible-interfaces/03-human-constraints.md)
@@ -57,7 +53,6 @@
 - [Measuring Digestibility](./part1-foundations/04-digestible-interfaces/08-measuring-digestibility.md)
 - [Summary: The Unified Design Philosophy](./part1-foundations/04-digestible-interfaces/09-summary.md)
 - [Further Reading and Resources](./part1-foundations/04-digestible-interfaces/10-further-reading.md)
-
 
 ## Part 2
 

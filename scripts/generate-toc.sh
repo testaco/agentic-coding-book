@@ -81,8 +81,8 @@ let toc = "# Table of Contents\n";
 // Sort parts numerically
 const sortedParts = Object.keys(parts).sort((a, b) => parseInt(a) - parseInt(b));
 
-sortedParts.forEach(partNum => {
-  toc += `\n## Part ${partNum}\n\n`;
+sortedParts.forEach((partNum, partIndex) => {
+  toc += `\n## Part ${partNum}\n`;
 
   // Sort chapters numerically
   const sortedChapters = Object.keys(parts[partNum]).sort((a, b) => parseInt(a) - parseInt(b));
@@ -91,16 +91,14 @@ sortedParts.forEach(partNum => {
     const chapter = parts[partNum][chapterNum];
 
     // Chapter heading
-    toc += `### Chapter ${chapterNum}: ${chapter.title}\n\n`;
+    toc += `\n### Chapter ${chapterNum}: ${chapter.title}\n\n`;
 
     // If there are sections, list them
     if (chapter.sections.length > 0) {
-      toc += "\n";
       chapter.sections.forEach(section => {
         const relativePath = section.path.replace(/^book\//, "./");
         toc += `- [${section.title}](${relativePath})\n`;
       });
-      toc += "\n";
     } else if (chapter.chapterFile) {
       // Legacy chapter file (no sections)
       const relativePath = chapter.chapterFile.path.replace(/^book\//, "./");
@@ -111,6 +109,9 @@ sortedParts.forEach(partNum => {
     }
   });
 });
+
+// Ensure file ends with single newline
+toc = toc.trimEnd() + "\n";
 
 fs.writeFileSync("book/TABLE_OF_CONTENTS.md", toc);
 console.log(`✓ Generated TOC with ${items.length} items (chapters and sections)`);
