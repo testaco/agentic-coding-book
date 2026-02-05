@@ -860,7 +860,7 @@ Content organized as individual section files in book/part1-foundations/05-new-b
 
 **Requirements Addressed**: REQ-C006
 
-**Progress**: Scaffolded (2026-02-05) - Ready for content drafting with draft-section skill
+**Progress**: Sections 01-03 drafted (2026-02-05) - Introduction, 5-10x Multiplier, and Bottleneck #1 complete with 4 diagrams. Sections 04-10 scaffolded and ready for drafting.
 
 ---
 
@@ -2460,7 +2460,7 @@ Prepare book for physical print-on-demand.
 
 ## Progress Tracking
 
-**Overall Status**: In Progress (13/81 tasks complete, 16%)
+**Overall Status**: In Progress (13/81 tasks complete, 16% | P1-006 30% drafted)
 
 **Completed Tasks**:
 - INFRA-001 through INFRA-005: Infrastructure setup
@@ -2471,12 +2471,11 @@ Prepare book for physical print-on-demand.
 - P1-003: What is Agentic Coding chapter (with 3 Mermaid diagrams)
 - P1-004: Architecture Principles chapter (with 8 Mermaid diagrams)
 - P1-005: Digestible Interfaces chapter (with 6 Mermaid diagrams - complete 2026-02-05)
-- P1-006: New Bottlenecks chapter (scaffolded 2026-02-05, 10 sections with 7 diagram placeholders)
 
 **In Progress**:
-- None
+- P1-006: New Bottlenecks chapter (30% complete - sections 01-03 drafted with 4 diagrams; sections 04-10 scaffolded)
 
-**Next Action**: P1-007 (Part 1 Review and Polish) OR start drafting P1-006 sections with draft-section skill
+**Next Action**: Continue drafting P1-006 sections 04-07 (remaining bottlenecks) OR proceed to P1-007 (Part 1 Review and Polish)
 
 **Prerequisites Complete**: Yes (genesis.md workflow complete through T005)
 
