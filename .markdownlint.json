@@ -8,6 +8,7 @@
   "MD025": false,
   "MD033": { "allowed_elements": ["br", "details", "summary"] },
   "MD041": false,
+  "MD060": false,
   "no-hard-tabs": true,
   "whitespace": true
 }
