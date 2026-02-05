@@ -831,7 +831,7 @@ Content organized as individual section files in book/part1-foundations/04-diges
 ### P1-006: Write Chapter: New Bottlenecks
 
 **Prerequisites**: P1-005
-**Status**: [~] In Progress
+**Status**: [x] Complete
 **MVP**: [MVP]
 
 #### Description
@@ -846,23 +846,23 @@ Content organized as individual section files in book/part1-foundations/05-new-b
 - [x] Explain product decisions becoming critical path (section 04)
 - [x] Explain architecture and design clarity bottleneck (section 05)
 - [x] Discuss code review challenges (section 06)
-- [ ] Discuss testing/QA velocity needs (section 07)
-- [ ] Provide solutions and patterns (section 08)
-- [ ] Write summary (section 09)
-- [ ] Write further reading (section 10)
+- [x] Discuss testing/QA velocity needs (section 07)
+- [x] Provide solutions and patterns (section 08)
+- [x] Write summary (section 09)
+- [x] Write further reading (section 10)
 
 #### Acceptance Criteria
 - [x] All 10 section files created with proper frontmatter (section: 1-10, chapter_title: "New Bottlenecks")
-- [~] All major new bottlenecks identified (REQ-C006): 3 of 5 bottlenecks fully drafted, 2 remaining
+- [x] All major new bottlenecks identified (REQ-C006): All 5 bottlenecks fully drafted with solutions
 - [x] Quantify the acceleration (5-10x) in section 02
-- [ ] Solutions and mitigations provided for each bottleneck (section 08)
-- [x] Real-world scenarios for each bottleneck (sections 01-06 complete with detailed scenarios)
-- [x] Diagrams showing bottleneck shift (9 mermaid diagrams across sections 01-06)
-- [x] Forward references to Part 2 solutions (in sections 04-06)
+- [x] Solutions and mitigations provided for each bottleneck (section 08)
+- [x] Real-world scenarios for each bottleneck (sections 01-07 complete with detailed scenarios)
+- [x] Diagrams showing bottleneck shift (13 mermaid diagrams total across all sections)
+- [x] Forward references to Part 2 solutions (throughout sections 04-08)
 
 **Requirements Addressed**: REQ-C006
 
-**Progress**: Sections 01-06 drafted (60% complete, 2026-02-05) - Introduction, 5-10x Multiplier, and Bottlenecks #1-4 complete with 9 diagrams. Sections 07-10 scaffolded and ready for drafting.
+**Progress**: 100% complete (2026-02-05) - All 10 sections drafted with 13 Mermaid diagrams, ~13,000 words total. Complete coverage of all 5 bottlenecks with comprehensive solutions and strategies.
 
 ---
 
@@ -2462,7 +2462,7 @@ Prepare book for physical print-on-demand.
 
 ## Progress Tracking
 
-**Overall Status**: In Progress (13/81 tasks complete, 16% | P1-006 60% drafted)
+**Overall Status**: In Progress (14/81 tasks complete, 17%)
 
 **Completed Tasks**:
 - INFRA-001 through INFRA-005: Infrastructure setup
@@ -2472,12 +2472,13 @@ Prepare book for physical print-on-demand.
 - P1-002: Renaissance Developer chapter (with 7 Mermaid diagrams)
 - P1-003: What is Agentic Coding chapter (with 3 Mermaid diagrams)
 - P1-004: Architecture Principles chapter (with 8 Mermaid diagrams)
-- P1-005: Digestible Interfaces chapter (with 6 Mermaid diagrams - complete 2026-02-05)
+- P1-005: Digestible Interfaces chapter (with 6 Mermaid diagrams)
+- P1-006: New Bottlenecks chapter (with 13 Mermaid diagrams - complete 2026-02-05)
 
 **In Progress**:
-- P1-006: New Bottlenecks chapter (60% complete - sections 01-06 drafted with 9 diagrams; sections 07-10 scaffolded)
+- None
 
-**Next Action**: Continue drafting P1-006 sections 07-10 (final bottleneck + solutions + summary) OR proceed to P1-007 (Part 1 Review and Polish)
+**Next Action**: P1-007 (Part 1 Review and Polish) to complete Part 1 foundations before moving to Part 2
 
 **Prerequisites Complete**: Yes (genesis.md workflow complete through T005)
 
