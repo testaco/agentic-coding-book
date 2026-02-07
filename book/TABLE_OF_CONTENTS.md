@@ -67,8 +67,29 @@
 - [Summary](./part1-foundations/05-new-bottlenecks/09-summary.md)
 - [Further Reading](./part1-foundations/05-new-bottlenecks/10-further-reading.md)
 
----
+## Part 2
 
-**Parts 2-4 (The Playbook, Patterns & Tools, and Complete Example) are coming soon.**
+### Chapter 3: From Brainstorm to Product Brief
 
-Stay updated by [watching the repository](https://github.com/testaco/agentic-coding-book) or [signing up for notifications](#).
+*[View Chapter](./part2-playbook/03-brainstorm-to-brief.md)*
+
+[Placeholder: 2-3 sentence summary of this chapter's content
+for search and navigation purposes. To be written during drafting.]
+
+## Part 3
+
+### Chapter 1: EARS Notation for Requirements
+
+*[View Chapter](./part3-patterns-tools/specifications/ears-notation.md)*
+
+[Placeholder: 2-3 sentence summary of this chapter's content
+for search and navigation purposes. To be written during drafting.]
+
+## Part 4
+
+### Chapter 5: Implementing the MVP
+
+*[View Chapter](./part4-example/05-implementing-mvp.md)*
+
+[Placeholder: 2-3 sentence summary of this chapter's content
+for search and navigation purposes. To be written during drafting.]
