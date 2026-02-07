@@ -69,7 +69,7 @@ export default function Home() {
             </a>
             <Button variant="outline" size="sm" asChild className="bg-transparent">
               <a
-                href="https://github.com"
+                href="https://github.com/testaco/agentic-coding-book"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -334,7 +334,7 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/testaco/agentic-coding-book"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"

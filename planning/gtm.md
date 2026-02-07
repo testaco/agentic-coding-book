@@ -33,12 +33,18 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
 
 #### Website
 
-- [ ] Export v0 design and adapt for GitHub Pages deployment
-- [ ] Build a landing page that sells the book's ideas (not just lists chapters)
-  - Hero: "The bottleneck isn't code anymore"
-  - Social proof section (once available)
-  - Email capture: "Get notified when Part 2 drops"
-  - Clear CTA to start reading Part 1
+- [x] Export v0 design and adapt for GitHub Pages deployment (2026-02-07)
+  - [x] Updated deploy-pages.yml to build Next.js site with pnpm
+  - [x] Configured NEXT_PUBLIC_BASE_PATH for GitHub Pages
+  - [x] Fixed GitHub links to point to testaco/agentic-coding-book
+  - [x] Added .nojekyll to prevent Jekyll processing
+  - [ ] Test deployment (pending push)
+- [x] Build a landing page that sells the book's ideas (v0 design complete)
+  - [x] Hero: "The bottleneck isn't code anymore"
+  - [x] Social proof section (placeholder testimonials ready)
+  - [x] Email capture: "Get notified when Part 2 drops"
+  - [x] Clear CTA to start reading Part 1
+  - [x] Five key ideas prominently featured
 - [ ] Polish the reading experience — clean typography, chapter navigation, mobile-friendly
 - [ ] Add proper meta tags (OpenGraph, Twitter cards) so links look good when shared
 - [ ] Set up a custom domain (optional but more professional than testaco.github.io)

@@ -2,13 +2,10 @@ name: Deploy GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, go-to-market]
     paths:
-      - 'book/**'
-      - 'assets/**'
-      - 'diagrams/**'
-      - 'scripts/generate-toc.sh'
-      - 'scripts/validate-links.sh'
+      - 'website/**'
+      - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
 permissions:
@@ -31,37 +28,35 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
+          cache-dependency-path: 'website/pnpm-lock.yaml'
 
       - name: Install dependencies
-        run: npm ci
+        working-directory: ./website
+        run: pnpm install --frozen-lockfile
 
-      # TODO: Fix markdown-link-check ESM dependency issue
-      # - name: Validate internal links
-      #   run: ./scripts/validate-links.sh
-      #   env:
-      #     CHECK_EXTERNAL: false
-
-      - name: Generate table of contents
-        run: ./scripts/generate-toc.sh
+      - name: Build Next.js site
+        working-directory: ./website
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /agentic-coding-book
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
 
-      - name: Build Jekyll site
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./book
-          destination: ./_site
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./website/out
 
       - name: Deploy to GitHub Pages
         id: deployment
