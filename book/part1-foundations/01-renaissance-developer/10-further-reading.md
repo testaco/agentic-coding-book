@@ -25,18 +25,18 @@ abstract: Section 10 of The Renaissance Developer
 
 **Continue the foundations**:
 
-- **Chapter 2: What Is Agentic Coding?** - [Placeholder: Deep dive into the mechanics of AI-assisted development: tools, agents, workflows, and how they work together]
-- **Chapter 3: Architecture Principles for Agentic Development** - [Placeholder: How system design changes when AI handles implementation]
-- **Chapter 4: Digestible Interfaces** - [Placeholder: Why clear boundaries and contracts matter for both humans and AI]
+- **Chapter 2: What Is Agentic Coding?** - Explore the full spectrum of AI-assisted development: from autocomplete to autonomous agents. Understand the tools, capabilities, and workflows that enable Renaissance Developers to move fast without sacrificing quality.
+- **Chapter 3: Architecture Principles for Agentic Development** - Learn how system architecture evolves when AI handles implementation. Discover why modularity, interface contracts, and clear boundaries become even more critical in an AI-accelerated workflow.
+- **Chapter 4: Digestible Interfaces** - Master the art of designing interfaces that work for both human reviewers and AI implementers. Learn why the same principles that make code human-readable also make it AI-processable.
 
 **Apply the concepts**:
 
-- **Part 2: The Playbook** - [Placeholder: The complete 6-week journey from idea to production, starting with transforming your idea into a clear vision]
-- **Chapter 6: Requirements Writing with EARS** - [Placeholder: Learn to write specifications that AI can implement accurately]
+- **Part 2: The Playbook** - Follow the complete 6-week journey from initial idea to production deployment. Get a step-by-step guide to each phase: ideation, brainstorming, requirements, design, implementation, and launch. See the Renaissance Developer model in action.
+- **Part 2: Requirements and Specifications** - Master the art of writing specifications that AI can implement accurately. Learn EARS notation, API contracts, and structured requirements that eliminate ambiguity and accelerate development.
 
 **Pattern reference**:
 
-- **Part 3: Patterns & Tools** - [Placeholder: Reference material for specific techniques, architectural patterns, and tool deep-dives]
+- **Part 3: Patterns & Tools** - Deep-dive reference on architecture patterns, specification formats, testing strategies, and toolchain optimization. Return here when you need detailed guidance on specific techniques, from bounded contexts to MCP servers to test pyramids.
 
 ### External Resources
 
