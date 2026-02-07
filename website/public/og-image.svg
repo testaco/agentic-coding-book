@@ -1,0 +1,68 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#09090b"/>
+
+  <!-- Grid pattern (subtle) -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#18181b" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Terminal icon (top left) -->
+  <g transform="translate(80, 80)">
+    <rect width="60" height="60" rx="8" fill="#3b82f6" opacity="0.1"/>
+    <path d="M20 25 L35 35 L20 45" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="38" y1="45" x2="50" y2="45" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Main content -->
+  <g transform="translate(80, 200)">
+    <!-- Small label -->
+    <text x="0" y="0" font-family="monospace" font-size="18" fill="#71717a" letter-spacing="3">
+      THE
+    </text>
+
+    <!-- Title -->
+    <text x="0" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="72" font-weight="bold" fill="#fafafa">
+      Agentic Coding
+    </text>
+    <text x="0" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="72" font-weight="bold" fill="#fafafa">
+      Playbook
+    </text>
+
+    <!-- Divider -->
+    <rect x="0" y="170" width="80" height="3" fill="#3b82f6"/>
+
+    <!-- Tagline -->
+    <text x="0" y="230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" fill="#a1a1aa">
+      From Idea to Production in 6 Weeks
+    </text>
+
+    <!-- Author -->
+    <text x="0" y="290" font-family="monospace" font-size="20" fill="#71717a">
+      By Chris Testa
+    </text>
+  </g>
+
+  <!-- Bottom accent -->
+  <g transform="translate(80, 520)">
+    <text x="0" y="0" font-family="monospace" font-size="16" fill="#52525b">
+      Part 1: Foundations — Available Now
+    </text>
+  </g>
+
+  <!-- Decorative code snippet (right side) -->
+  <g transform="translate(850, 300)" opacity="0.15">
+    <text font-family="monospace" font-size="14" fill="#3b82f6" letter-spacing="0">
+      <tspan x="0" y="0">const playbook = {</tspan>
+      <tspan x="20" y="25">idea: 'transform',</tspan>
+      <tspan x="20" y="50">brief: 'clarify',</tspan>
+      <tspan x="20" y="75">requirements: 'specify',</tspan>
+      <tspan x="20" y="100">design: 'architect',</tspan>
+      <tspan x="20" y="125">build: 'ship',</tspan>
+      <tspan x="0" y="150">}</tspan>
+    </text>
+  </g>
+</svg>
