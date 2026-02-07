@@ -187,7 +187,7 @@ Create all GitHub Actions workflows as defined in design.md Section 5.4: Pages d
 ### INFRA-006: Configure Styling and Templates
 
 **Prerequisites**: INFRA-001
-**Status**: [ ] Not Started
+**Status**: [~] In Progress (PDF generation works, styling enhancements deferred to v1.1)
 **MVP**: [MVP]
 
 #### Description
@@ -2479,7 +2479,8 @@ Prepare book for physical print-on-demand.
 - P1-007: Part 1 Review and Polish (complete 2026-02-05)
 
 **In Progress**:
-- None
+- INFRA-006: Styling and Templates (basic PDF working, enhancements deferred)
+- GTM Phase 1: PDF generation ready via GitHub Actions
 
 **Next Action**: **Part 1 Complete! 🎉** Ready to begin Part 2 (The Playbook). Next task: P2-001 (Overview of 6-Week Journey) or INFRA-006 (Styling and Templates) for enhanced PDF/web formatting.
 
