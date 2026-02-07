@@ -86,6 +86,14 @@ When engineering velocity increases 5-10x, product becomes the bottleneck. You n
 
 **Start with**: Chapters on EARS notation, requirements writing, and specification patterns.
 
+## Current Release Status
+
+**Part 1: Foundations is now available.** This includes all five foundational chapters that establish the mindset, principles, and mental models for agentic coding.
+
+**Parts 2-4 (The Playbook, Patterns & Tools, and Complete Example) are in active development.** Part 1 provides immediate value as a standalone resource, and subsequent parts will build on this foundation.
+
+To get notified when Parts 2-4 are released, [watch the repository](https://github.com/testaco/agentic-coding-book).
+
 ## How to Use This Book
 
 ### Three Reading Modes

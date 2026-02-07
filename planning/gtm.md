@@ -48,11 +48,11 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
 - [x] Update author to "Chris Testa" across all frontmatter (50+ files)
 - [x] Change `status: draft` to `status: published` in all Part 1 files
 - [x] Fix placeholder text in Chapter 1 Further Reading (6 instances)
-- [ ] Clean up TABLE_OF_CONTENTS.md — remove Part 2-4 stub entries
-- [ ] Update navigation.yml — remove broken Part 2-4 chapter links
-- [ ] Update preface.md — frame as Part 1 release, Parts 2-4 coming
-- [ ] Update index.md — status table shows Part 1 as Published
-- [ ] Update README.md — author, status, links
+- [x] Clean up TABLE_OF_CONTENTS.md — remove Part 2-4 stub entries
+- [x] Update navigation.yml — remove broken Part 2-4 chapter links
+- [x] Update preface.md — frame as Part 1 release, Parts 2-4 coming
+- [x] Update index.md — status table shows Part 1 as Published
+- [x] Update README.md — author, status, links
 
 #### PDF
 

@@ -232,17 +232,17 @@ Under the following terms:
 
 ## Status
 
-This book is currently **in active development**.
+**Part 1: Foundations is now published!** Parts 2-4 are in active development.
 
-| Component                | Status                   |
-| ------------------------ | ------------------------ |
-| Part 1: Foundations      | Draft chapters available |
-| Part 2: The Playbook     | In progress              |
-| Part 3: Patterns & Tools | Partial coverage         |
-| Part 4: Complete Example | Planned                  |
-| Infrastructure           | Complete                 |
+| Component                | Status      |
+| ------------------------ | ----------- |
+| Part 1: Foundations      | ✅ Published |
+| Part 2: The Playbook     | In progress |
+| Part 3: Patterns & Tools | Planned     |
+| Part 4: Complete Example | Planned     |
+| Infrastructure           | Complete    |
 
-Watch the repository or check back for updates.
+[Watch the repository](https://github.com/testaco/agentic-coding-book) to get notified when Parts 2-4 are released.
 
 ---
 

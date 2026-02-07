@@ -1,7 +1,7 @@
 # The Agentic Coding Playbook: From Idea to Production in 6 Weeks
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Status: In Development](https://img.shields.io/badge/status-in%20development-yellow.svg)]()
+[![Status: Part 1 Published](https://img.shields.io/badge/status-part%201%20published-green.svg)]()
 [![Deploy Pages](https://github.com/testaco/agentic-coding-book/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/deploy-pages.yml)
 [![Build PDF](https://github.com/testaco/agentic-coding-book/actions/workflows/build-pdf.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/build-pdf.yml)
 [![Validate](https://github.com/testaco/agentic-coding-book/actions/workflows/validate.yml/badge.svg)](https://github.com/testaco/agentic-coding-book/actions/workflows/validate.yml)
@@ -51,11 +51,17 @@ If you want to ship software products faster using AI assistance, this book is f
 
 ## Development Status
 
-**Current Milestone:** MVP (Week 2) - Infrastructure setup and Part 1: Foundations
+**🎉 Part 1: Foundations is now published!** All five foundational chapters are complete and ready to read.
+
+**Current Status:**
+- ✅ Part 1: Foundations - Published (5 chapters, ~70K words)
+- 🚧 Part 2: The Playbook - In development
+- 📋 Part 3: Patterns & Tools - Planned
+- 📋 Part 4: Complete Example - Planned
 
 **Upcoming Milestones:**
-- Week 6: v1.0 - Complete first pass of all 4 parts
-- Week 12: v1.1 - Refinements, advanced patterns, print-ready
+- Q2 2026: Part 2 (The Playbook) release
+- Q3 2026: Parts 3-4 and v1.0 complete edition
 
 See [`planning/roadmap.md`](planning/roadmap.md) for detailed timeline and [`CHANGELOG.md`](CHANGELOG.md) for version history.
 
@@ -215,7 +221,7 @@ See the [LICENSE](LICENSE) file for the complete legal text.
 
 ## Author
 
-[Author information - TBD]
+**Chris Testa** - CTO and engineering leader with decades of experience shipping products at scale. Now teaching others to build software products in the age of AI.
 
 ## Acknowledgments
 
@@ -225,6 +231,6 @@ Special thanks to the Claude Code team at Anthropic for creating tools that make
 
 ---
 
-**Status:** 🚧 **In Development** - Infrastructure setup complete, Part 1 content in progress
+**Status:** ✅ **Part 1 Published** - Infrastructure complete, Part 1: Foundations published, Parts 2-4 in development
 
-**Next Milestone:** Week 2 MVP with Part 1: Foundations complete
+**Next Milestone:** Part 2: The Playbook (Q2 2026)
