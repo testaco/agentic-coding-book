@@ -38,7 +38,7 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
   - [x] Configured NEXT_PUBLIC_BASE_PATH for GitHub Pages
   - [x] Fixed GitHub links to point to testaco/agentic-coding-book
   - [x] Added .nojekyll to prevent Jekyll processing
-  - [ ] Test deployment (pending push)
+  - [x] Test deployment (triggered 2026-02-07 via push to go-to-market branch)
 - [x] Build a landing page that sells the book's ideas (v0 design complete)
   - [x] Hero: "The bottleneck isn't code anymore"
   - [x] Social proof section (placeholder testimonials ready)
