@@ -6,8 +6,8 @@ chapter: 5
 section: 7
 version: "0.1"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["testing", "quality-assurance", "bottlenecks", "validation", "velocity"]
 related:
   - part1-foundations/03-architecture-principles/06-testability-for-ai-code.md

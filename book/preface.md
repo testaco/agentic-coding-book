@@ -4,8 +4,8 @@ part: "front"
 chapter: "preface"
 version: "1.0"
 date: "2025-12-28"
-status: "draft"
-author: "Author Name"
+status: "published"
+author: "Chris Testa"
 tags: ["preface", "introduction", "how-to-use"]
 related:
   - index.md

@@ -6,8 +6,8 @@ chapter: 5
 section: 3
 version: "0.1"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["requirements", "bottlenecks", "specifications", "business-vision"]
 related:
   - part2-playbook/04-brief-to-requirements.md

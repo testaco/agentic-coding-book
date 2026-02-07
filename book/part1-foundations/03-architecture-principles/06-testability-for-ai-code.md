@@ -6,8 +6,8 @@ chapter: 3
 section: 6
 version: "0.1"
 date: "2026-01-29"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "testing", "testability", "foundations"]
 related:
   - part2-playbook/07-testing-strategies.md

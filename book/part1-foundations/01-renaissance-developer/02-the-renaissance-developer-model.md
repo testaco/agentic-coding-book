@@ -6,8 +6,8 @@ chapter: 1
 section: 2
 version: '0.1'
 date: '2025-12-24'
-status: draft
-author: Author Name
+status: published
+author: Chris Testa
 tags:
   - renaissance-developer
   - mindset

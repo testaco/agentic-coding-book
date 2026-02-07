@@ -6,8 +6,8 @@ chapter: 4
 section: 4
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "ai-agents", "context-windows", "foundations"]
 related:
   - part1-foundations/02-what-is-agentic-coding/03-the-spectrum.md

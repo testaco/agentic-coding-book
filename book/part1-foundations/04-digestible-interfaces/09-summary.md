@@ -6,8 +6,8 @@ chapter: 4
 section: 9
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "summary", "foundations"]
 related:
   - part1-foundations/05-new-bottlenecks.md

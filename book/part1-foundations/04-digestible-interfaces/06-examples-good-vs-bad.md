@@ -6,8 +6,8 @@ chapter: 4
 section: 6
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "examples", "code-examples", "best-practices"]
 related:
   - part1-foundations/03-architecture-principles/07-practical-application.md

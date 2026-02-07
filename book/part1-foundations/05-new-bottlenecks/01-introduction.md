@@ -6,8 +6,8 @@ chapter: 5
 section: 1
 version: "0.1"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["bottlenecks", "workflow", "foundations", "velocity", "constraints"]
 related:
   - part1-foundations/02-what-is-agentic-coding/02-defining-agentic-coding.md

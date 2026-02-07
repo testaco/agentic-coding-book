@@ -6,8 +6,8 @@ chapter: 4
 section: 8
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "metrics", "assessment", "best-practices"]
 related:
   - part2-playbook/07-testing-strategies.md

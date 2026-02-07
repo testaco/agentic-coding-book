@@ -6,8 +6,8 @@ chapter: 3
 section: 8
 version: "0.1"
 date: "2026-01-29"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "anti-patterns", "pitfalls", "foundations"]
 related:
   - part1-foundations/05-new-bottlenecks/01-introduction.md

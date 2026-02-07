@@ -6,8 +6,8 @@ chapter: 3
 section: 3
 version: "0.1"
 date: "2026-01-28"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "components", "decomposition", "foundations"]
 related:
   - part3-patterns-tools/architecture/component-decomposition.md

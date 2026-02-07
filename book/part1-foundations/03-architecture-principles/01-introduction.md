@@ -6,8 +6,8 @@ chapter: 3
 section: 1
 version: "0.1"
 date: "2026-01-28"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "principles", "foundations"]
 related:
   - part1-foundations/01-renaissance-developer/02-renaissance-developer-model.md

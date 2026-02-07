@@ -4,8 +4,8 @@ part: 1
 chapter: "index"
 version: "1.0"
 date: "2025-12-28"
-status: "draft"
-author: "Author Name"
+status: "published"
+author: "Chris Testa"
 tags: ["foundations", "mindset", "principles"]
 abstract: |
   Part 1 establishes the mindset and mental models for agentic development,

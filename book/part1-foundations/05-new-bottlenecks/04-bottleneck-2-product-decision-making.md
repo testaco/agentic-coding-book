@@ -6,8 +6,8 @@ chapter: 5
 section: 4
 version: "0.1"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["product-management", "bottlenecks", "decisions", "prioritization"]
 related:
   - part1-foundations/01-renaissance-developer/02-the-renaissance-developer-model.md

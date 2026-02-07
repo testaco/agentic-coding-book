@@ -6,8 +6,8 @@ chapter: 3
 section: 5
 version: "0.1"
 date: "2026-01-28"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "separation-of-concerns", "modularity", "foundations"]
 related:
   - part3-patterns-tools/architecture/bounded-contexts.md

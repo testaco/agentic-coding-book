@@ -5,8 +5,8 @@ part: 0
 chapter: 0
 version: "1.0"
 date: "2025-12-28"
-status: "draft"
-author: "Author Name"
+status: "published"
+author: "Chris Testa"
 tags: ["introduction", "overview", "agentic-coding"]
 related:
   - preface.md

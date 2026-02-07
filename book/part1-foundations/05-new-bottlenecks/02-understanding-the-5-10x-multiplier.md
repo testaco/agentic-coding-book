@@ -6,8 +6,8 @@ chapter: 5
 section: 2
 version: "0.1"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["velocity", "acceleration", "foundations", "metrics"]
 related:
   - part1-foundations/02-what-is-agentic-coding/03-the-spectrum-of-agentic-coding.md

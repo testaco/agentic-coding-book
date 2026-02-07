@@ -6,8 +6,8 @@ chapter: 3
 section: 2
 version: "0.1"
 date: "2026-01-28"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "digestibility", "context-windows", "foundations"]
 related:
   - part1-foundations/04-digestible-interfaces/01-introduction.md

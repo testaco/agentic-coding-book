@@ -6,8 +6,8 @@ chapter: 4
 section: 3
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "cognitive-load", "working-memory", "foundations"]
 related:
   - part1-foundations/01-renaissance-developer/05-mindset-shift.md

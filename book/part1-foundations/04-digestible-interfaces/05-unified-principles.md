@@ -6,8 +6,8 @@ chapter: 4
 section: 5
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "design-principles", "foundations", "best-practices"]
 related:
   - part1-foundations/03-architecture-principles/03-component-decomposition.md

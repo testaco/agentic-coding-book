@@ -45,8 +45,8 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
 
 #### Content Cleanup
 
-- [ ] Update author to "Chris Testa" across all frontmatter (50+ files)
-- [ ] Change `status: draft` to `status: published` in all Part 1 files
+- [x] Update author to "Chris Testa" across all frontmatter (50+ files)
+- [x] Change `status: draft` to `status: published` in all Part 1 files
 - [ ] Fix placeholder text in Chapter 1 Further Reading (6 instances)
 - [ ] Clean up TABLE_OF_CONTENTS.md — remove Part 2-4 stub entries
 - [ ] Update navigation.yml — remove broken Part 2-4 chapter links

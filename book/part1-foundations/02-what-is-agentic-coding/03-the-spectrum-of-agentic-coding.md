@@ -6,8 +6,8 @@ chapter: 2
 section: 3
 version: '0.1'
 date: '2026-01-28'
-status: draft
-author: Author Name
+status: published
+author: Chris Testa
 tags:
   - agentic-coding
   - definitions

@@ -6,8 +6,8 @@ chapter: 5
 section: 5
 version: "0.1"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["architecture", "design", "bottlenecks", "technical-debt"]
 related:
   - part1-foundations/03-architecture-principles/02-the-digestibility-principle.md

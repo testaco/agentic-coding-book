@@ -6,8 +6,8 @@ chapter: 4
 section: 10
 version: "1.0"
 date: "2026-02-05"
-status: "draft"
-author: "Brian Childress"
+status: "published"
+author: "Chris Testa"
 tags: ["interfaces", "resources", "references"]
 related:
   - part3-patterns-tools/architecture/interface-boundaries.md
