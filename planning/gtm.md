@@ -59,7 +59,7 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
 - [x] Generate a clean PDF of Part 1 (via GitHub Actions)
 - [ ] Add a cover page / title page (v1.1 enhancement)
 - [x] Verify formatting, code blocks, and diagrams render properly (via CI/CD)
-- [~] Create a GitHub Release with the PDF attached (in progress)
+- [x] Create a GitHub Release with the PDF attached (v0.1.0 tagged, release building)
 
 #### Email Capture
 
