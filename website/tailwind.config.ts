@@ -10,6 +10,48 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            'pre': {
+              backgroundColor: '#f6f8fa',
+              color: '#24292f',
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+            },
+            'code': {
+              backgroundColor: '#f6f8fa',
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25rem',
+              fontWeight: '400',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+          },
+        },
+        invert: {
+          css: {
+            'pre': {
+              backgroundColor: '#0d1117',
+              color: '#e6edf3',
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+            },
+            'code': {
+              backgroundColor: '#0d1117',
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25rem',
+              fontWeight: '400',
+            },
+          },
+        },
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -91,6 +133,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+  ],
 }
 export default config
