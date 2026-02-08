@@ -5,33 +5,61 @@ import React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ArrowRight, Check, Loader2 } from "lucide-react"
+import { ArrowRight, Check, Loader2, AlertCircle } from "lucide-react"
 
 export function EmailSignup() {
   const [email, setEmail] = useState("")
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [message, setMessage] = useState("")
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
+
     setStatus("loading")
-    // Simulate submission — replace with real endpoint
-    setTimeout(() => {
-      setStatus("success")
-    }, 1000)
+    setMessage("")
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setStatus("success")
+        setMessage(data.message || "You're on the list. We'll be in touch.")
+        setEmail("")
+      } else {
+        setStatus("error")
+        setMessage(data.error || "Something went wrong. Please try again.")
+        // Reset to idle after showing error
+        setTimeout(() => setStatus("idle"), 3000)
+      }
+    } catch (error) {
+      console.error("Subscription error:", error)
+      setStatus("error")
+      setMessage("Network error. Please check your connection and try again.")
+      setTimeout(() => setStatus("idle"), 3000)
+    }
   }
 
   if (status === "success") {
     return (
       <div className="flex items-center gap-2 text-primary">
         <Check className="h-5 w-5" />
-        <span className="text-sm font-medium">You&apos;re on the list. We&apos;ll be in touch.</span>
+        <span className="text-sm font-medium">{message}</span>
       </div>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-sm gap-2">
+    <div className="w-full max-w-sm">
+      <form onSubmit={handleSubmit} className="flex gap-2">
       <Input
         type="email"
         placeholder="you@example.com"
@@ -51,6 +79,13 @@ export function EmailSignup() {
           </>
         )}
       </Button>
-    </form>
+      </form>
+      {status === "error" && message && (
+        <div className="flex items-center gap-2 text-destructive mt-2">
+          <AlertCircle className="h-4 w-4" />
+          <span className="text-xs">{message}</span>
+        </div>
+      )}
+    </div>
   )
 }

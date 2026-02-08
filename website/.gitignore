@@ -12,3 +12,4 @@ node_modules/
 .DS_Storeout/
 next-env.d.ts
 out/
+.env.local

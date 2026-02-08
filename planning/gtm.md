@@ -86,9 +86,9 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
 
 #### Email Capture
 
-- [ ] Set up an email list (Buttondown, Substack, ConvertKit, or similar)
-- [ ] Embed signup form on the landing page
-- [ ] Create a welcome email: "Here's Part 1 + what's coming in Parts 2-4"
+- [x] Set up an email list (Buttondown, Substack, ConvertKit, or similar) — Buttondown configured (2026-02-08)
+- [x] Embed signup form on the landing page — implemented with API integration (2026-02-08)
+- [ ] Create a welcome email: "Here's Part 1 + what's coming in Parts 2-4" — template ready in EMAIL_SETUP.md
 
 ---
 
