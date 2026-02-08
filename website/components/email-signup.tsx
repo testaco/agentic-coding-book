@@ -21,8 +21,7 @@ export function EmailSignup() {
 
     try {
       // Use Buttondown's public form endpoint (no auth required)
-      // User needs to set their username in .env.local as NEXT_PUBLIC_BUTTONDOWN_USERNAME
-      const username = process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME || "YOUR_BUTTONDOWN_USERNAME"
+      const username = process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME || "agentic-coding-book"
 
       const formData = new FormData()
       formData.append("email", email)
