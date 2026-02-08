@@ -61,10 +61,26 @@ strip_frontmatter() {
   ' "$file"
 }
 
-# Function to shift markdown headings down by one level (## -> ###, ### -> ####, etc.)
-# This ensures content headings are subordinate to section headings
+# Function to strip the first H1 heading from content if it exists
+# Some section files have "# Title" at the top which is redundant with our injected heading
+strip_first_h1() {
+  awk '
+    found==0 && /^# / { found=1; next }  # Skip first H1 heading found
+    { print }
+  '
+}
+
+# Function to shift markdown headings down to be subordinate to section headings (###)
+# - ## becomes #### (skip ### to avoid conflict with section titles)
+# - Other headings shift by one level
 shift_headings() {
-  sed 's/^#/##/'
+  awk '
+    /^#### / { sub(/^#### /, "##### "); print; next }
+    /^### /  { sub(/^### /, "##### "); print; next }
+    /^## /   { sub(/^## /, "#### "); print; next }
+    /^# /    { sub(/^# /, "## "); print; next }
+    { print }
+  '
 }
 
 # Initialize combined.md with book metadata for Pandoc
@@ -159,8 +175,8 @@ for part_dir in book/part1-foundations book/part2-playbook book/part3-patterns-t
         echo "### ${section_title}" >> output/combined.md
         echo "" >> output/combined.md
 
-        # Add section content (without frontmatter, with headings shifted down one level)
-        strip_frontmatter "$section_file" | shift_headings >> output/combined.md
+        # Add section content (without frontmatter, strip redundant H1, shift headings down)
+        strip_frontmatter "$section_file" | strip_first_h1 | shift_headings >> output/combined.md
       done
     fi
     rm -f "$temp_file"
@@ -174,7 +190,7 @@ for part_dir in book/part1-foundations book/part2-playbook book/part3-patterns-t
     echo "" >> output/combined.md
     echo "## ${chapter_title}" >> output/combined.md
     echo "" >> output/combined.md
-    strip_frontmatter "$chapter_file" | shift_headings >> output/combined.md
+    strip_frontmatter "$chapter_file" | strip_first_h1 | shift_headings >> output/combined.md
   done
 done
 
