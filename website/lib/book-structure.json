@@ -1,0 +1,345 @@
+[
+  {
+    "title": "Foundations",
+    "slug": "foundations",
+    "available": true,
+    "chapters": [
+      {
+        "title": "The Renaissance Developer",
+        "slug": "renaissance-developer",
+        "sections": [
+          {
+            "title": "Introduction: The Specialist's Dilemma",
+            "slug": "introduction-the-specialist-s-dilemma",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/01-introduction-the-specialist-s-dilemma.md",
+            "number": "1.1.1"
+          },
+          {
+            "title": "The Renaissance Developer Model",
+            "slug": "the-renaissance-developer-model",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/02-the-renaissance-developer-model.md",
+            "number": "1.1.2"
+          },
+          {
+            "title": "What Changes, What Doesn't",
+            "slug": "what-changes-what-doesn-t",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/03-what-changes-what-doesn-t.md",
+            "number": "1.1.3"
+          },
+          {
+            "title": "The \"Good Enough at Everything\" Principle",
+            "slug": "the-good-enough-at-everything-principle",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/04-the-good-enough-at-everything-principle.md",
+            "number": "1.1.4"
+          },
+          {
+            "title": "From Coder to Builder: A Mindset Shift",
+            "slug": "from-coder-to-builder-a-mindset-shift",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/05-from-coder-to-builder-a-mindset-shift.md",
+            "number": "1.1.5"
+          },
+          {
+            "title": "Practical Example: Building a Feature Alone",
+            "slug": "practical-example-building-a-feature-alone",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/06-practical-example-building-a-feature-alone.md",
+            "number": "1.1.6"
+          },
+          {
+            "title": "Common Pitfalls",
+            "slug": "common-pitfalls",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/07-common-pitfalls.md",
+            "number": "1.1.7"
+          },
+          {
+            "title": "Why This Matters Now",
+            "slug": "why-this-matters-now",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/08-why-this-matters-now.md",
+            "number": "1.1.8"
+          },
+          {
+            "title": "Summary",
+            "slug": "summary",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/09-summary.md",
+            "number": "1.1.9"
+          },
+          {
+            "title": "Further Reading",
+            "slug": "further-reading",
+            "filePath": "/workspace/book/part1-foundations/01-renaissance-developer/10-further-reading.md",
+            "number": "1.1.10"
+          }
+        ],
+        "dirPath": "/workspace/book/part1-foundations/01-renaissance-developer"
+      },
+      {
+        "title": "What is Agentic Coding?",
+        "slug": "what-is-agentic-coding",
+        "sections": [
+          {
+            "title": "Introduction",
+            "slug": "introduction",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/01-introduction.md",
+            "number": "1.2.1"
+          },
+          {
+            "title": "Defining Agentic Coding",
+            "slug": "defining-agentic-coding",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/02-defining-agentic-coding.md",
+            "number": "1.2.2"
+          },
+          {
+            "title": "The Spectrum of Agentic Coding",
+            "slug": "the-spectrum-of-agentic-coding",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/03-the-spectrum-of-agentic-coding.md",
+            "number": "1.2.3"
+          },
+          {
+            "title": "How They Work Together",
+            "slug": "how-they-work-together",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/04-how-they-work-together.md",
+            "number": "1.2.4"
+          },
+          {
+            "title": "What Agentic Coding Is NOT",
+            "slug": "what-agentic-coding-is-not",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/05-what-agentic-coding-is-not.md",
+            "number": "1.2.5"
+          },
+          {
+            "title": "The Agentic Coding Mindset",
+            "slug": "the-agentic-coding-mindset",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/06-the-agentic-coding-mindset.md",
+            "number": "1.2.6"
+          },
+          {
+            "title": "Practical Example: Building a REST API",
+            "slug": "practical-example-building-a-rest-api",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/07-practical-example-building-a-rest-api.md",
+            "number": "1.2.7"
+          },
+          {
+            "title": "Common Pitfalls",
+            "slug": "common-pitfalls",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/08-common-pitfalls.md",
+            "number": "1.2.8"
+          },
+          {
+            "title": "Summary",
+            "slug": "summary",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/09-summary.md",
+            "number": "1.2.9"
+          },
+          {
+            "title": "Further Reading",
+            "slug": "further-reading",
+            "filePath": "/workspace/book/part1-foundations/02-what-is-agentic-coding/10-further-reading.md",
+            "number": "1.2.10"
+          }
+        ],
+        "dirPath": "/workspace/book/part1-foundations/02-what-is-agentic-coding"
+      },
+      {
+        "title": "Architecture Principles for Agentic Development",
+        "slug": "architecture-principles",
+        "sections": [
+          {
+            "title": "Introduction: Why Architecture Matters for AI Agents",
+            "slug": "introduction",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/01-introduction.md",
+            "number": "1.3.1"
+          },
+          {
+            "title": "The Digestibility Principle: Fitting in Context Windows",
+            "slug": "the-digestibility-principle",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/02-the-digestibility-principle.md",
+            "number": "1.3.2"
+          },
+          {
+            "title": "Component Decomposition: Breaking Down for AI Understanding",
+            "slug": "component-decomposition",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/03-component-decomposition.md",
+            "number": "1.3.3"
+          },
+          {
+            "title": "Interface Boundaries: Clear Contracts for AI and Humans",
+            "slug": "interface-boundaries",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/04-interface-boundaries.md",
+            "number": "1.3.4"
+          },
+          {
+            "title": "Separation of Concerns: Making Code Modifiable by AI",
+            "slug": "separation-of-concerns",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/05-separation-of-concerns.md",
+            "number": "1.3.5"
+          },
+          {
+            "title": "Testability: Validating AI-Generated Code",
+            "slug": "testability-for-ai-code",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/06-testability-for-ai-code.md",
+            "number": "1.3.6"
+          },
+          {
+            "title": "Practical Application: Architecting a Real System",
+            "slug": "practical-application",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/07-practical-application.md",
+            "number": "1.3.7"
+          },
+          {
+            "title": "Common Pitfalls: Architecture Anti-Patterns for AI",
+            "slug": "common-pitfalls",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/08-common-pitfalls.md",
+            "number": "1.3.8"
+          },
+          {
+            "title": "Summary: Key Architectural Principles",
+            "slug": "summary",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/09-summary.md",
+            "number": "1.3.9"
+          },
+          {
+            "title": "Further Reading: Architecture Resources",
+            "slug": "further-reading",
+            "filePath": "/workspace/book/part1-foundations/03-architecture-principles/10-further-reading.md",
+            "number": "1.3.10"
+          }
+        ],
+        "dirPath": "/workspace/book/part1-foundations/03-architecture-principles"
+      },
+      {
+        "title": "Digestible Interfaces",
+        "slug": "digestible-interfaces",
+        "sections": [
+          {
+            "title": "Introduction: The Interface Problem",
+            "slug": "introduction",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/01-introduction.md",
+            "number": "1.4.1"
+          },
+          {
+            "title": "Defining Digestibility",
+            "slug": "defining-digestibility",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/02-defining-digestibility.md",
+            "number": "1.4.2"
+          },
+          {
+            "title": "Human Constraints: Working Memory Limits",
+            "slug": "human-constraints",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/03-human-constraints.md",
+            "number": "1.4.3"
+          },
+          {
+            "title": "AI Constraints: Context Window Limits",
+            "slug": "ai-constraints",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/04-ai-constraints.md",
+            "number": "1.4.4"
+          },
+          {
+            "title": "Unified Principles: Interfaces That Serve Both",
+            "slug": "unified-principles",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/05-unified-principles.md",
+            "number": "1.4.5"
+          },
+          {
+            "title": "Examples: Good vs. Bad Interfaces",
+            "slug": "examples-good-vs-bad",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/06-examples-good-vs-bad.md",
+            "number": "1.4.6"
+          },
+          {
+            "title": "Common Pitfalls in Interface Design",
+            "slug": "common-pitfalls",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/07-common-pitfalls.md",
+            "number": "1.4.7"
+          },
+          {
+            "title": "Measuring Digestibility",
+            "slug": "measuring-digestibility",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/08-measuring-digestibility.md",
+            "number": "1.4.8"
+          },
+          {
+            "title": "Summary: The Unified Design Philosophy",
+            "slug": "summary",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/09-summary.md",
+            "number": "1.4.9"
+          },
+          {
+            "title": "Further Reading and Resources",
+            "slug": "further-reading",
+            "filePath": "/workspace/book/part1-foundations/04-digestible-interfaces/10-further-reading.md",
+            "number": "1.4.10"
+          }
+        ],
+        "dirPath": "/workspace/book/part1-foundations/04-digestible-interfaces"
+      },
+      {
+        "title": "New Bottlenecks",
+        "slug": "new-bottlenecks",
+        "sections": [
+          {
+            "title": "Introduction: The Acceleration Paradox",
+            "slug": "introduction",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/01-introduction.md",
+            "number": "1.5.1"
+          },
+          {
+            "title": "Understanding the 5-10x Multiplier",
+            "slug": "understanding-the-5-10x-multiplier",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/02-understanding-the-5-10x-multiplier.md",
+            "number": "1.5.2"
+          },
+          {
+            "title": "Bottleneck #1: Requirements and Business Vision",
+            "slug": "bottleneck-1-requirements-and-business-vision",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/03-bottleneck-1-requirements-and-business-vision.md",
+            "number": "1.5.3"
+          },
+          {
+            "title": "Bottleneck #2: Product Decision Making",
+            "slug": "bottleneck-2-product-decision-making",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/04-bottleneck-2-product-decision-making.md",
+            "number": "1.5.4"
+          },
+          {
+            "title": "Bottleneck #3: Architecture and Design Clarity",
+            "slug": "bottleneck-3-architecture-and-design-clarity",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/05-bottleneck-3-architecture-and-design-clarity.md",
+            "number": "1.5.5"
+          },
+          {
+            "title": "Bottleneck #4: Code Review at Scale",
+            "slug": "bottleneck-4-code-review-at-scale",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/06-bottleneck-4-code-review-at-scale.md",
+            "number": "1.5.6"
+          },
+          {
+            "title": "Bottleneck #5: Testing and Quality Assurance",
+            "slug": "bottleneck-5-testing-and-quality-assurance",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/07-bottleneck-5-testing-and-quality-assurance.md",
+            "number": "1.5.7"
+          },
+          {
+            "title": "Solutions and Mitigation Strategies",
+            "slug": "solutions-and-mitigation-strategies",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/08-solutions-and-mitigation-strategies.md",
+            "number": "1.5.8"
+          },
+          {
+            "title": "Summary",
+            "slug": "summary",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/09-summary.md",
+            "number": "1.5.9"
+          },
+          {
+            "title": "Further Reading",
+            "slug": "further-reading",
+            "filePath": "/workspace/book/part1-foundations/05-new-bottlenecks/10-further-reading.md",
+            "number": "1.5.10"
+          }
+        ],
+        "dirPath": "/workspace/book/part1-foundations/05-new-bottlenecks"
+      }
+    ],
+    "dirPath": "/workspace/book/part1-foundations"
+  }
+]

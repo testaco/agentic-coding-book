@@ -45,15 +45,15 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
   - [x] Email capture: "Get notified when Part 2 drops"
   - [x] Clear CTA to start reading Part 1
   - [x] Five key ideas prominently featured
-- [ ] Integrate actual book content into website
-  - [ ] Set up dynamic routing for book chapters (`/book/[part]/[chapter]/[section]`)
-  - [ ] Build markdown processing pipeline (frontmatter + content)
-  - [ ] Map URL slugs to actual markdown files in `book/` directory
-  - [ ] Implement chapter navigation (previous/next, breadcrumbs, sidebar)
-  - [ ] Use real TABLE_OF_CONTENTS.md for site navigation structure
-  - [ ] Render Mermaid diagrams client-side (mermaid.js)
+- [x] Integrate actual book content into website (2026-02-08)
+  - [x] Set up dynamic routing for book chapters (`/book/[part]/[chapter]/[section]`)
+  - [x] Build markdown processing pipeline (frontmatter + content)
+  - [x] Map URL slugs to actual markdown files in `book/` directory
+  - [x] Implement chapter navigation (previous/next, breadcrumbs, sidebar)
+  - [x] Use real TABLE_OF_CONTENTS.md for site navigation structure
+  - [x] Render Mermaid diagrams client-side (mermaid.js)
   - [ ] Add reading progress indicator and estimated reading time
-  - [ ] Test all Part 1 chapter links work (50+ sections across 5 chapters)
+  - [x] Test all Part 1 chapter links work (50+ sections across 5 chapters)
 - [ ] Polish the reading experience — clean typography, chapter navigation, mobile-friendly
   - [ ] Typography optimized for long-form reading
   - [ ] Mobile-responsive design tested on multiple devices
