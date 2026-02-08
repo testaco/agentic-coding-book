@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { EmailSignup } from "@/components/email-signup"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { basePath } from "@/lib/base-path"
+
+const FIRST_SECTION = `${basePath}/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma`
 
 const KEY_IDEAS = [
   {
@@ -56,13 +59,13 @@ export default function Home() {
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
+          <a href={basePath || "/"} className="flex items-center gap-2">
             <Terminal className="h-5 w-5 text-primary" />
             <span className="font-mono text-sm">agentic-coding</span>
           </a>
           <nav className="flex items-center gap-2">
             <a
-              href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
+              href={FIRST_SECTION}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Read
@@ -131,7 +134,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button size="lg" asChild>
-                <a href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma">
+                <a href={FIRST_SECTION}>
                   <BookOpen className="mr-2 h-4 w-4" />
                   Start Reading Part 1
                 </a>
@@ -226,7 +229,7 @@ export default function Home() {
             <div className="space-y-4">
               {/* Part 1 - Available */}
               <a
-                href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
+                href={FIRST_SECTION}
                 className="group flex items-start gap-4 p-5 rounded-lg border border-primary/30 bg-card hover:border-primary/60 transition-colors"
               >
                 <span className="text-sm font-mono text-primary mt-0.5">
@@ -316,7 +319,7 @@ export default function Home() {
               how to direct it.
             </p>
             <Button size="lg" asChild>
-              <a href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma">
+              <a href={FIRST_SECTION}>
                 <BookOpen className="mr-2 h-4 w-4" />
                 Start Reading Part 1
                 <ArrowRight className="ml-2 h-4 w-4" />
