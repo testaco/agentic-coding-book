@@ -92,3 +92,209 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Code block styling with light/dark mode support */
+@layer components {
+  /* Base code block styling */
+  pre {
+    @apply rounded-lg border border-border p-4 overflow-x-auto my-6;
+  }
+
+  pre code {
+    @apply text-sm font-mono;
+  }
+
+  /* Light mode syntax highlighting - GitHub Light theme */
+  :root pre code {
+    background: #f6f8fa;
+  }
+
+  :root .hljs {
+    color: #24292f;
+    background: #f6f8fa;
+  }
+
+  :root .hljs-doctag,
+  :root .hljs-keyword,
+  :root .hljs-meta .hljs-keyword,
+  :root .hljs-template-tag,
+  :root .hljs-template-variable,
+  :root .hljs-type,
+  :root .hljs-variable.language_ {
+    color: #d73a49;
+  }
+
+  :root .hljs-title,
+  :root .hljs-title.class_,
+  :root .hljs-title.class_.inherited__,
+  :root .hljs-title.function_ {
+    color: #6f42c1;
+  }
+
+  :root .hljs-attr,
+  :root .hljs-attribute,
+  :root .hljs-literal,
+  :root .hljs-meta,
+  :root .hljs-number,
+  :root .hljs-operator,
+  :root .hljs-selector-attr,
+  :root .hljs-selector-class,
+  :root .hljs-selector-id,
+  :root .hljs-variable {
+    color: #005cc5;
+  }
+
+  :root .hljs-meta .hljs-string,
+  :root .hljs-regexp,
+  :root .hljs-string {
+    color: #032f62;
+  }
+
+  :root .hljs-built_in,
+  :root .hljs-symbol {
+    color: #e36209;
+  }
+
+  :root .hljs-code,
+  :root .hljs-comment,
+  :root .hljs-formula {
+    color: #6a737d;
+  }
+
+  :root .hljs-name,
+  :root .hljs-quote,
+  :root .hljs-selector-pseudo,
+  :root .hljs-selector-tag {
+    color: #22863a;
+  }
+
+  :root .hljs-subst {
+    color: #24292f;
+  }
+
+  :root .hljs-section {
+    color: #005cc5;
+    font-weight: bold;
+  }
+
+  :root .hljs-bullet {
+    color: #735c0f;
+  }
+
+  :root .hljs-emphasis {
+    color: #24292f;
+    font-style: italic;
+  }
+
+  :root .hljs-strong {
+    color: #24292f;
+    font-weight: bold;
+  }
+
+  :root .hljs-addition {
+    color: #22863a;
+    background-color: #f0fff4;
+  }
+
+  :root .hljs-deletion {
+    color: #b31d28;
+    background-color: #ffeef0;
+  }
+
+  /* Dark mode syntax highlighting - GitHub Dark theme */
+  .dark pre code {
+    background: #0d1117;
+  }
+
+  .dark .hljs {
+    color: #e6edf3;
+    background: #0d1117;
+  }
+
+  .dark .hljs-doctag,
+  .dark .hljs-keyword,
+  .dark .hljs-meta .hljs-keyword,
+  .dark .hljs-template-tag,
+  .dark .hljs-template-variable,
+  .dark .hljs-type,
+  .dark .hljs-variable.language_ {
+    color: #ff7b72;
+  }
+
+  .dark .hljs-title,
+  .dark .hljs-title.class_,
+  .dark .hljs-title.class_.inherited__,
+  .dark .hljs-title.function_ {
+    color: #d2a8ff;
+  }
+
+  .dark .hljs-attr,
+  .dark .hljs-attribute,
+  .dark .hljs-literal,
+  .dark .hljs-meta,
+  .dark .hljs-number,
+  .dark .hljs-operator,
+  .dark .hljs-selector-attr,
+  .dark .hljs-selector-class,
+  .dark .hljs-selector-id,
+  .dark .hljs-variable {
+    color: #79c0ff;
+  }
+
+  .dark .hljs-meta .hljs-string,
+  .dark .hljs-regexp,
+  .dark .hljs-string {
+    color: #a5d6ff;
+  }
+
+  .dark .hljs-built_in,
+  .dark .hljs-symbol {
+    color: #ffa657;
+  }
+
+  .dark .hljs-code,
+  .dark .hljs-comment,
+  .dark .hljs-formula {
+    color: #8b949e;
+  }
+
+  .dark .hljs-name,
+  .dark .hljs-quote,
+  .dark .hljs-selector-pseudo,
+  .dark .hljs-selector-tag {
+    color: #7ee787;
+  }
+
+  .dark .hljs-subst {
+    color: #e6edf3;
+  }
+
+  .dark .hljs-section {
+    color: #79c0ff;
+    font-weight: bold;
+  }
+
+  .dark .hljs-bullet {
+    color: #d29922;
+  }
+
+  .dark .hljs-emphasis {
+    color: #e6edf3;
+    font-style: italic;
+  }
+
+  .dark .hljs-strong {
+    color: #e6edf3;
+    font-weight: bold;
+  }
+
+  .dark .hljs-addition {
+    color: #aff5b4;
+    background-color: #033a16;
+  }
+
+  .dark .hljs-deletion {
+    color: #ffdcd7;
+    background-color: #67060c;
+  }
+}

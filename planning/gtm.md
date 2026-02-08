@@ -55,9 +55,8 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
   - [ ] Add reading progress indicator and estimated reading time
   - [x] Test all Part 1 chapter links work (50+ sections across 5 chapters)
   - [x] Fixed 404 issue: converted landing page links to use Next.js Link component for proper basePath handling (2026-02-08)
-- [ ] Polish the reading experience — clean typography, chapter navigation, mobile-friendly
-  - [ ] Typography optimized for long-form reading
-  - [ ] Mobile-responsive design tested on multiple devices
+- [x] Polish the figures/code (2026-02-08)
+  - [x] Mermaid diagrams and syntax highlighting respects light/dark mode theming (2026-02-08 - integrated theme detection with next-themes, GitHub Light/Dark theme CSS)
   - [x] Syntax highlighting for code blocks (2026-02-08 - integrated rehype-highlight with GitHub Dark theme, enhanced code block styling)
   - [x] Mermaid diagram rendering in browser (2026-02-08 - diagrams now render inline, raw syntax hidden)
 - [x] Add proper meta tags (OpenGraph, Twitter cards) so links look good when shared (2026-02-07)
