@@ -76,7 +76,7 @@ export default async function BookSectionPage({ params }: PageProps) {
       </header>
 
       {/* Content with inline mermaid diagrams */}
-      <div className="prose prose-invert prose-green max-w-none">
+      <div className="prose dark:prose-invert prose-green max-w-none">
         {htmlParts.map((htmlPart, index) => (
           <div key={`content-${index}`}>
             {/* Render HTML content chunk */}
