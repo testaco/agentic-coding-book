@@ -2,6 +2,7 @@
 output/
 *.pdf
 _site/
+website/out/
 
 # Dependencies
 node_modules/

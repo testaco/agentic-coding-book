@@ -1,0 +1,11 @@
+{
+  "name": "Chris Testa",
+  "description": "The Agentic Coding Playbook",
+  "username": "agentic-coding-book",
+  "branding": {
+    "tint_color": "#0069FF",
+    "header": null,
+    "footer": null,
+    "from_name": "Agentic Coding Playbook"
+  }
+}

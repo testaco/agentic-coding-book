@@ -1,0 +1,17 @@
+{
+  "lastSync": "2026-02-08T05:34:43.396Z",
+  "syncedEmails": {
+    "6083540b-53b3-4d17-8502-1eee03ad37eb": {
+      "modified": "2026-02-08T05:34:43.396Z",
+      "localPath": "buttondown/emails/welcome-to-the-agentic-coding-playbook.md",
+      "slug": "welcome-to-the-agentic-coding-playbook",
+      "contentHash": "710050751"
+    }
+  },
+  "syncedImages": {},
+  "syncedNewsletter": {
+    "id": "18523f5d-227c-419a-b660-13258daa7794",
+    "lastSynced": "2026-02-08T05:33:43.286Z",
+    "contentHash": "-2122920049"
+  }
+}

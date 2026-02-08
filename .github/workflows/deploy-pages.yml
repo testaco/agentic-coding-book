@@ -37,7 +37,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./website
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build Next.js site
         working-directory: ./website
