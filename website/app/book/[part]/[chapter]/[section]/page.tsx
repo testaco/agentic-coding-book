@@ -42,15 +42,12 @@ export default async function BookSectionPage({ params }: PageProps) {
 
   const { frontmatter, content, htmlContent } = markdownData
 
-  // Extract mermaid diagrams
+  // Extract mermaid diagrams from original content
   const mermaidDiagrams = extractMermaidDiagrams(content)
 
-  // Remove mermaid code blocks from HTML content for now
-  let processedHtml = htmlContent
-  if (mermaidDiagrams.length > 0) {
-    // Replace mermaid code blocks with placeholder
-    processedHtml = content.replace(/```mermaid\n[\s\S]*?```/g, '[MERMAID_DIAGRAM]')
-  }
+  // Split HTML by mermaid diagram placeholders
+  // The markdown processor replaced ```mermaid blocks with <!--MERMAID_DIAGRAM_N--> comments
+  const htmlParts = htmlContent.split(/<!--MERMAID_DIAGRAM_\d+-->/)
 
   return (
     <article className="py-12 px-6 lg:px-12 max-w-3xl">
@@ -78,21 +75,23 @@ export default async function BookSectionPage({ params }: PageProps) {
         </p>
       </header>
 
-      {/* Content */}
-      <div
-        className="prose prose-invert prose-green max-w-none"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
+      {/* Content with inline mermaid diagrams */}
+      <div className="prose prose-invert prose-green max-w-none">
+        {htmlParts.map((htmlPart, index) => (
+          <div key={`content-${index}`}>
+            {/* Render HTML content chunk */}
+            <div dangerouslySetInnerHTML={{ __html: htmlPart }} />
 
-      {/* Mermaid diagrams */}
-      {mermaidDiagrams.map((diagram, index) => (
-        <div key={index} className="my-8">
-          <MermaidDiagram
-            chart={diagram}
-            caption={`Figure ${frontmatter.part}.${frontmatter.chapter}.${index + 1}`}
-          />
-        </div>
-      ))}
+            {/* Render mermaid diagram if there's one after this chunk */}
+            {index < mermaidDiagrams.length && (
+              <MermaidDiagram
+                chart={mermaidDiagrams[index]}
+                caption={`Figure ${frontmatter.part}.${frontmatter.chapter}.${index + 1}`}
+              />
+            )}
+          </div>
+        ))}
+      </div>
 
       {/* Navigation */}
       <nav className="mt-16 pt-8 border-t border-border flex items-center justify-between">

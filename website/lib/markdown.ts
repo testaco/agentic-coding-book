@@ -38,8 +38,16 @@ export async function parseMarkdownFile(filePath: string): Promise<ParsedMarkdow
   const fileContent = fs.readFileSync(filePath, 'utf-8')
   const { data, content } = matter(fileContent)
 
+  // Replace mermaid code blocks with HTML comment placeholders before processing
+  // This allows us to insert React components at the right positions later
+  let processedMarkdown = content
+  let diagramIndex = 0
+  processedMarkdown = content.replace(/```mermaid\n[\s\S]*?```/g, () => {
+    return `<!--MERMAID_DIAGRAM_${diagramIndex++}-->`
+  })
+
   // Process markdown to HTML
-  const processedContent = await processor.process(content)
+  const processedContent = await processor.process(processedMarkdown)
 
   return {
     frontmatter: data as BookFrontmatter,
