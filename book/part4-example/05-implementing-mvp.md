@@ -1,7 +1,7 @@
 ---
 title: "Implementing the MVP"
 part: 4
-chapter: 5
+chapter: 1
 version: "0.1"
 date: "2025-12-24"
 status: "draft"

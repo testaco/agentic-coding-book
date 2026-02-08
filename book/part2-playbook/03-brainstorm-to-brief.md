@@ -1,7 +1,7 @@
 ---
 title: "From Brainstorm to Product Brief"
 part: 2
-chapter: 3
+chapter: 1
 version: "0.1"
 date: "2025-12-24"
 status: "draft"

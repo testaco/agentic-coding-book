@@ -69,7 +69,7 @@
 
 ## Part 2
 
-### Chapter 3: From Brainstorm to Product Brief
+### Chapter 1: From Brainstorm to Product Brief
 
 *[View Chapter](./part2-playbook/03-brainstorm-to-brief.md)*
 
@@ -87,7 +87,7 @@ for search and navigation purposes. To be written during drafting.]
 
 ## Part 4
 
-### Chapter 5: Implementing the MVP
+### Chapter 1: Implementing the MVP
 
 *[View Chapter](./part4-example/05-implementing-mvp.md)*
 
