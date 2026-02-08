@@ -2,12 +2,19 @@ import matter from 'gray-matter'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
-import remarkHtml from 'remark-html'
+import remarkRehype from 'remark-rehype'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeStringify from 'rehype-stringify'
 import fs from 'fs'
 import path from 'path'
 
 // @ts-ignore - remark types can be complex
-const processor = unified().use(remarkParse).use(remarkGfm).use(remarkHtml, { sanitize: false })
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeHighlight)
+  .use(rehypeStringify, { allowDangerousHtml: true })
 
 export interface BookFrontmatter {
   title: string

@@ -58,7 +58,7 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
 - [ ] Polish the reading experience — clean typography, chapter navigation, mobile-friendly
   - [ ] Typography optimized for long-form reading
   - [ ] Mobile-responsive design tested on multiple devices
-  - [ ] Syntax highlighting for code blocks
+  - [x] Syntax highlighting for code blocks (2026-02-08 - integrated rehype-highlight with GitHub Dark theme, enhanced code block styling)
   - [x] Mermaid diagram rendering in browser (2026-02-08 - diagrams now render inline, raw syntax hidden)
 - [x] Add proper meta tags (OpenGraph, Twitter cards) so links look good when shared (2026-02-07)
   - [x] Comprehensive OpenGraph metadata for Facebook, LinkedIn

@@ -1,3 +1,6 @@
+/* Syntax highlighting theme - GitHub Dark */
+@import 'highlight.js/styles/github-dark.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,5 +93,38 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced code block styling for long-form reading */
+@layer components {
+  /* Prose code blocks */
+  .prose pre {
+    @apply rounded-lg border border-border shadow-sm;
+    @apply overflow-x-auto;
+    @apply my-6;
+    @apply text-sm leading-relaxed;
+  }
+
+  .prose pre code {
+    @apply block p-4;
+    @apply font-mono;
+  }
+
+  /* Inline code */
+  .prose code:not(pre code) {
+    @apply px-1.5 py-0.5 rounded;
+    @apply bg-muted text-foreground;
+    @apply font-mono text-sm;
+    @apply before:content-none after:content-none;
+  }
+
+  /* Ensure syntax highlighting works in dark mode */
+  .dark .prose pre {
+    @apply bg-[#0d1117] border-[#30363d];
+  }
+
+  .dark .prose code:not(pre code) {
+    @apply bg-[#161b22] text-[#c9d1d9];
   }
 }
