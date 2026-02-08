@@ -1,34 +1,45 @@
 # Email Signup Setup Guide
 
-This website uses Buttondown for email subscriptions.
+This website uses Buttondown for email subscriptions with **static GitHub Pages hosting** (no backend required).
 
 ## Setup Instructions
 
-### 1. Get Your Buttondown API Key
+### 1. Get Your Buttondown Username
 
-1. Go to [Buttondown Settings](https://buttondown.email/settings)
-2. Navigate to the "API" section
-3. Copy your API key
+1. Go to [Buttondown](https://buttondown.email)
+2. Your newsletter URL is: `https://buttondown.email/YOUR_USERNAME`
+3. Copy the username part (e.g., if URL is `buttondown.email/agentic-coding`, username is `agentic-coding`)
 
-### 2. Configure Environment Variables
+### 2. Configure Environment Variable
 
 1. Open `/workspace/website/.env.local`
-2. Add your Buttondown API key:
+2. Add your Buttondown username:
 
 ```env
-EMAIL_SERVICE=buttondown
-EMAIL_SERVICE_API_KEY=your_actual_api_key_here
+NEXT_PUBLIC_BUTTONDOWN_USERNAME=your_actual_username_here
 ```
 
-### 3. Deploy to Production
+**Important:** This must be a `NEXT_PUBLIC_` variable so it's available in the browser (since GitHub Pages is static-only).
 
-For Vercel deployment:
+### 3. For Production (GitHub Pages)
 
-1. Go to your Vercel project settings
-2. Navigate to Environment Variables
-3. Add:
-   - `EMAIL_SERVICE` = `buttondown`
-   - `EMAIL_SERVICE_API_KEY` = `your_buttondown_api_key`
+The environment variable needs to be set at **build time**:
+
+**Option A: GitHub Actions (Recommended)**
+1. Go to your repository Settings → Secrets and variables → Actions
+2. Add a repository variable (not secret): `NEXT_PUBLIC_BUTTONDOWN_USERNAME`
+3. Set the value to your Buttondown username
+4. Next deployment will pick it up automatically
+
+**Option B: Hardcode it (Simple but less flexible)**
+Edit `website/components/email-signup.tsx` and replace:
+```typescript
+const username = process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME || "YOUR_BUTTONDOWN_USERNAME"
+```
+with:
+```typescript
+const username = "your-actual-username"
+```
 
 ### 4. Test the Integration
 
@@ -38,34 +49,33 @@ For Vercel deployment:
 4. Enter a test email and submit
 5. Check your Buttondown dashboard to confirm the subscriber was added
 
-## API Endpoint
+## How It Works
 
-The email signup uses `/api/subscribe` which:
-- Validates email addresses
-- Subscribes users to Buttondown
-- Adds tags: `agentic-coding-playbook`, `part-2-notification`
-- Handles errors gracefully
-- Shows success/error messages to users
+- **No backend required** - Form submits directly to Buttondown's public API
+- **Fully static** - Works on GitHub Pages, no server needed
+- **No API keys exposed** - Uses Buttondown's public subscription endpoint
+- **Tags applied** - Subscribers get tagged with `agentic-coding-playbook`
 
 ## Troubleshooting
 
-**"Email service not configured" error:**
-- Make sure `EMAIL_SERVICE_API_KEY` is set in `.env.local` (local) or Vercel environment variables (production)
+**Form not working:**
+- Check that `NEXT_PUBLIC_BUTTONDOWN_USERNAME` is set correctly
+- Verify your Buttondown username by visiting `https://buttondown.email/YOUR_USERNAME`
+- Check browser console for errors
 
-**"Failed to subscribe" error:**
-- Check that your Buttondown API key is valid
-- Verify the API key has the correct permissions
-- Check Vercel logs for detailed error messages
+**"Something went wrong" error:**
+- Verify Buttondown username is correct
+- Try subscribing directly at `https://buttondown.email/YOUR_USERNAME` to test
 
 **User already subscribed:**
-- The API handles this gracefully and shows "You're already on the list!"
+- The form handles this gracefully and shows "You're already on the list!"
 
 ## Creating the Welcome Email
 
 In Buttondown:
-1. Go to Emails → Create new email
-2. Write your welcome message (suggestion below)
-3. Set it as an automated welcome email in Settings
+1. Go to Settings → Emails
+2. Enable "Send a welcome email to new subscribers"
+3. Write your welcome message (suggestion below)
 
 ### Suggested Welcome Email
 
@@ -83,7 +93,7 @@ Thanks for subscribing! You're now on the list for updates about The Agentic Cod
 
 **What's available now:**
 Part 1: Foundations is live and ready to read:
-[Start Reading](https://testaco.github.io/agentic-coding-book)
+https://testaco.github.io/agentic-coding-book
 
 **What's coming:**
 - Part 2: The Playbook (6-week journey from idea to production)
@@ -96,10 +106,19 @@ I'll only email when there's something worth your time—no spam, no fluff.
 Author, The Agentic Coding Playbook
 ```
 
-## Switching Email Services (Future)
+## Technical Details
 
-To switch to a different email service (ConvertKit, Substack, etc.):
+**Endpoint:** `https://buttondown.email/api/emails/embed-subscribe/{username}`
 
-1. Update the API route in `/workspace/website/app/api/subscribe/route.ts`
-2. Add the new service logic (there's a placeholder for this)
-3. Update environment variables accordingly
+**Method:** POST with FormData
+
+**Parameters:**
+- `email`: subscriber email address
+- `tag`: automatic tag (set to "agentic-coding-playbook")
+
+**Benefits of this approach:**
+- ✅ No server required (works on static hosting)
+- ✅ No API keys to manage or expose
+- ✅ Free tier supports 100 subscribers
+- ✅ Clean UX with success/error states
+- ✅ Handles duplicates gracefully

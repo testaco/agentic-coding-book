@@ -20,25 +20,39 @@ export function EmailSignup() {
     setMessage("")
 
     try {
-      const response = await fetch("/api/subscribe", {
+      // Use Buttondown's public form endpoint (no auth required)
+      // User needs to set their username in .env.local as NEXT_PUBLIC_BUTTONDOWN_USERNAME
+      const username = process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME || "YOUR_BUTTONDOWN_USERNAME"
+
+      const formData = new FormData()
+      formData.append("email", email)
+      formData.append("tag", "agentic-coding-playbook")
+
+      const response = await fetch(`https://buttondown.email/api/emails/embed-subscribe/${username}`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
+        body: formData,
       })
 
-      const data = await response.json()
-
-      if (response.ok && data.success) {
+      if (response.ok) {
         setStatus("success")
-        setMessage(data.message || "You're on the list. We'll be in touch.")
+        setMessage("You're on the list. We'll be in touch.")
         setEmail("")
       } else {
-        setStatus("error")
-        setMessage(data.error || "Something went wrong. Please try again.")
-        // Reset to idle after showing error
-        setTimeout(() => setStatus("idle"), 3000)
+        const text = await response.text()
+        // Buttondown returns HTML error pages, check for common messages
+        if (text.includes("already subscribed") || text.includes("Already subscribed")) {
+          setStatus("success")
+          setMessage("You're already on the list!")
+          setEmail("")
+        } else if (text.includes("invalid") || text.includes("Invalid")) {
+          setStatus("error")
+          setMessage("Invalid email address. Please try again.")
+          setTimeout(() => setStatus("idle"), 3000)
+        } else {
+          setStatus("error")
+          setMessage("Something went wrong. Please try again.")
+          setTimeout(() => setStatus("idle"), 3000)
+        }
       }
     } catch (error) {
       console.error("Subscription error:", error)
