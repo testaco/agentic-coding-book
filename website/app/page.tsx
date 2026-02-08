@@ -62,7 +62,7 @@ export default function Home() {
           </a>
           <nav className="flex items-center gap-2">
             <a
-              href="/book/foundations/renaissance-developer/specialists-dilemma"
+              href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Read
@@ -131,7 +131,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button size="lg" asChild>
-                <a href="/book/foundations/renaissance-developer/specialists-dilemma">
+                <a href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma">
                   <BookOpen className="mr-2 h-4 w-4" />
                   Start Reading Part 1
                 </a>
@@ -226,7 +226,7 @@ export default function Home() {
             <div className="space-y-4">
               {/* Part 1 - Available */}
               <a
-                href="/book/foundations/renaissance-developer/specialists-dilemma"
+                href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
                 className="group flex items-start gap-4 p-5 rounded-lg border border-primary/30 bg-card hover:border-primary/60 transition-colors"
               >
                 <span className="text-sm font-mono text-primary mt-0.5">
@@ -316,7 +316,7 @@ export default function Home() {
               how to direct it.
             </p>
             <Button size="lg" asChild>
-              <a href="/book/foundations/renaissance-developer/specialists-dilemma">
+              <a href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma">
                 <BookOpen className="mr-2 h-4 w-4" />
                 Start Reading Part 1
                 <ArrowRight className="ml-2 h-4 w-4" />
