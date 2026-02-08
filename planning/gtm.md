@@ -54,6 +54,7 @@ Ship Part 1 as a professional, polished reading experience — not a repo README
   - [x] Render Mermaid diagrams client-side (mermaid.js)
   - [ ] Add reading progress indicator and estimated reading time
   - [x] Test all Part 1 chapter links work (50+ sections across 5 chapters)
+  - [x] Fixed 404 issue: converted landing page links to use Next.js Link component for proper basePath handling (2026-02-08)
 - [ ] Polish the reading experience — clean typography, chapter navigation, mobile-friendly
   - [ ] Typography optimized for long-form reading
   - [ ] Mobile-responsive design tested on multiple devices

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { ArrowRight, Github, Terminal, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -51,22 +52,24 @@ const TESTIMONIALS = [
 ]
 
 export default function Home() {
+  const firstSectionUrl = "/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Terminal className="h-5 w-5 text-primary" />
             <span className="font-mono text-sm">agentic-coding</span>
-          </a>
+          </Link>
           <nav className="flex items-center gap-2">
-            <a
-              href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
+            <Link
+              href={firstSectionUrl}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Read
-            </a>
+            </Link>
             <Button variant="outline" size="sm" asChild className="bg-transparent">
               <a
                 href="https://github.com/testaco/agentic-coding-book"
@@ -131,10 +134,10 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button size="lg" asChild>
-                <a href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma">
+                <Link href={firstSectionUrl}>
                   <BookOpen className="mr-2 h-4 w-4" />
                   Start Reading Part 1
-                </a>
+                </Link>
               </Button>
               <Button
                 variant="outline"
@@ -225,8 +228,8 @@ export default function Home() {
 
             <div className="space-y-4">
               {/* Part 1 - Available */}
-              <a
-                href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma"
+              <Link
+                href={firstSectionUrl}
                 className="group flex items-start gap-4 p-5 rounded-lg border border-primary/30 bg-card hover:border-primary/60 transition-colors"
               >
                 <span className="text-sm font-mono text-primary mt-0.5">
@@ -247,7 +250,7 @@ export default function Home() {
                   </p>
                 </div>
                 <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors mt-1 shrink-0" />
-              </a>
+              </Link>
 
               {/* Parts 2-4 - Coming Soon */}
               {[
@@ -316,11 +319,11 @@ export default function Home() {
               how to direct it.
             </p>
             <Button size="lg" asChild>
-              <a href="/book/foundations/renaissance-developer/introduction-the-specialist-s-dilemma">
+              <Link href={firstSectionUrl}>
                 <BookOpen className="mr-2 h-4 w-4" />
                 Start Reading Part 1
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </section>
