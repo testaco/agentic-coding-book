@@ -43,11 +43,6 @@ export default async function PrefacePage() {
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-balance">
           {frontmatter.title || 'Preface'}
         </h1>
-        {frontmatter.abstract && (
-          <p className="text-lg text-muted-foreground">
-            {frontmatter.abstract}
-          </p>
-        )}
       </header>
 
       {/* Content */}
