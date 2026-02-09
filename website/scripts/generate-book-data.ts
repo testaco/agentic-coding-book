@@ -13,5 +13,5 @@ const structure = buildBookStructure()
 // Write to JSON file
 fs.writeFileSync(outputPath, JSON.stringify(structure, null, 2))
 
-console.log(`Generated book structure with ${structure.length} parts`)
+console.log(`Generated book structure with ${structure.frontMatter.length} front matter items and ${structure.parts.length} parts`)
 console.log(`Saved to: ${outputPath}`)

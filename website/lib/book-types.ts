@@ -20,6 +20,17 @@ export type Part = {
   dirPath?: string
 }
 
+export type FrontMatterItem = {
+  title: string
+  slug: string
+  filePath?: string
+}
+
+export type BookData = {
+  frontMatter: FrontMatterItem[]
+  parts: Part[]
+}
+
 export type FlatSection = {
   partTitle: string
   chapterTitle: string

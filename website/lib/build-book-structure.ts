@@ -24,6 +24,17 @@ export type Part = {
   dirPath: string
 }
 
+export type FrontMatterItem = {
+  title: string
+  slug: string
+  filePath: string
+}
+
+export type BookData = {
+  frontMatter: FrontMatterItem[]
+  parts: Part[]
+}
+
 /**
  * Convert a title to a URL-friendly slug
  */
@@ -35,16 +46,41 @@ function slugify(text: string): string {
 }
 
 /**
+ * Build front matter items (preface, etc.) from the book root
+ */
+function buildFrontMatter(bookDir: string): FrontMatterItem[] {
+  const frontMatter: FrontMatterItem[] = []
+
+  // Check for preface.md
+  const prefacePath = path.join(bookDir, 'preface.md')
+  if (fs.existsSync(prefacePath)) {
+    try {
+      const { data } = matter(fs.readFileSync(prefacePath, 'utf-8'))
+      frontMatter.push({
+        title: data.title || 'Preface',
+        slug: 'preface',
+        filePath: prefacePath,
+      })
+    } catch (error) {
+      console.warn(`Error reading ${prefacePath}:`, error)
+    }
+  }
+
+  return frontMatter
+}
+
+/**
  * Build the complete book structure from the actual markdown files
  */
-export function buildBookStructure(): Part[] {
+export function buildBookStructure(): BookData {
   const bookDir = path.join(process.cwd(), '..', 'book')
 
   if (!fs.existsSync(bookDir)) {
     console.warn('Book directory not found:', bookDir)
-    return []
+    return { frontMatter: [], parts: [] }
   }
 
+  const frontMatter = buildFrontMatter(bookDir)
   const parts: Part[] = []
 
   // Part mapping
@@ -149,7 +185,7 @@ export function buildBookStructure(): Part[] {
     }
   }
 
-  return parts
+  return { frontMatter, parts }
 }
 
 /**

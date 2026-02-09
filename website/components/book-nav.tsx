@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { ChevronDown, ChevronRight } from "lucide-react"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { bookStructure } from "@/lib/book-data"
+import { bookStructure, frontMatter } from "@/lib/book-data"
 
 export function BookNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
@@ -57,6 +57,28 @@ export function BookNav({ onNavigate }: { onNavigate?: () => void }) {
       <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
         Table of Contents
       </p>
+
+      {/* Front matter (Preface, etc.) */}
+      {frontMatter.map((item) => {
+        const href = `/book/${item.slug}`
+        const isActive = pathname === href
+        return (
+          <Link
+            key={item.slug}
+            href={href}
+            onClick={onNavigate}
+            className={cn(
+              "block py-1.5 px-2 rounded-md transition-colors font-medium",
+              isActive
+                ? "bg-primary/10 text-primary"
+                : "text-foreground hover:bg-muted",
+            )}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {item.title}
+          </Link>
+        )
+      })}
 
       {bookStructure.map((part, partIndex) => {
         const isPartAvailable = part.available

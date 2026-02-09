@@ -1,13 +1,16 @@
 import bookStructureData from './book-structure.json'
-import type { Part, Section, Chapter, FlatSection } from './book-types'
+import type { Part, Section, Chapter, FlatSection, FrontMatterItem, BookData } from './book-types'
 
 /**
  * Book structure loaded from pre-generated JSON
  * This can be safely used in both client and server components
  */
-export const bookStructure: Part[] = bookStructureData as Part[]
+const data = bookStructureData as BookData
 
-export type { Part, Section, Chapter, FlatSection }
+export const bookStructure: Part[] = data.parts
+export const frontMatter: FrontMatterItem[] = data.frontMatter
+
+export type { Part, Section, Chapter, FlatSection, FrontMatterItem, BookData }
 
 /**
  * Build a flat list of all navigable sections with prev/next links
