@@ -47,7 +47,7 @@ export default async function PrefacePage() {
 
       {/* Content */}
       <div
-        className="prose prose-invert prose-green max-w-none"
+        className="prose prose-gray dark:prose-invert prose-green max-w-none"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
 

@@ -80,7 +80,7 @@ export default async function BookSectionPage({ params }: PageProps) {
 
       {/* Content */}
       <div
-        className="prose prose-invert prose-green max-w-none"
+        className="prose prose-gray dark:prose-invert prose-green max-w-none"
         dangerouslySetInnerHTML={{ __html: htmlContent }}
       />
 
