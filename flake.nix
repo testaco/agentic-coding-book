@@ -4,12 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-
-    # Devbox base platform - provides git, gh, claude, aws, shell tools, etc.
-    devbox.url = "github:testaco/devbox?dir=base-flake";
   };
 
-  outputs = { self, nixpkgs, flake-utils, devbox }:
+  outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -108,11 +105,6 @@
         devShells.default = pkgs.mkShell {
           name = "agentic-coding-book-dev";
 
-          # Inherit all base platform tools from devbox (git, gh, claude, aws, jq, etc.)
-          inputsFrom = [
-            devbox.devShells.${system}.default
-          ];
-
           buildInputs = [
             # Core build tools
             nodejs
@@ -145,10 +137,7 @@
             echo "Agentic Coding Book Development Environment"
             echo "============================================"
             echo ""
-            echo "Base platform tools inherited from devbox:"
-            echo "  git, gh, claude, aws, jq, vim, shellcheck, etc."
-            echo ""
-            echo "Project-specific tools:"
+            echo "Build tools:"
             echo "  Node.js: $(node --version)"
             echo "  Pandoc: $(pandoc --version | head -1)"
             echo "  Python: $(python --version)"
